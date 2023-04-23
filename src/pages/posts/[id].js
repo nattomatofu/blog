@@ -2,6 +2,8 @@ import Layout from "@/components/Layout";
 import { getPostData, getAllPostIds } from "@/lib/post";
 import utilStyles from "@/styles/utils.module.css";
 import Head from "next/head";
+// import { ChakraProvider } from "@chakra-ui/react";
+// import theme from "@/styles/theme";
 
 // あくまでビルド時に事前に作成するための実行であることに注意
 // このファイルを使って表示したいページのパスのリストを作成する
@@ -17,7 +19,8 @@ import Head from "next/head";
 
 export async function getStaticPaths() {
     const paths = getAllPostIds();
-    // console.log(paths);
+    console.log("paths");
+    console.log(paths);
     return {
         paths,
         fallback: false,
@@ -26,14 +29,16 @@ export async function getStaticPaths() {
 
 // あくまでビルド時に事前に作成するための実行であることに注意
 // paramsには上記pathsで指定した値が入る（リストの要素1つずつ）
-// getStaticPropsで生成したパスのリストから1つずつデータを取得する
+// getStaticPathsで生成したパスのリストから1つずつデータを取得する
 // ここまでの処理で作成されたリストの数だけあるページのパスが、ビルド完了時に「post」配下に作成される
 /** paramsの中身の1つの例↓
  * { id: 'pre-rendering-about' }
  */
 export async function getStaticProps({ params }) {
-    // console.log(params);
+    console.log(params);
     const postData = await getPostData(params.id);
+    // console.log("postData");
+    // console.log(postData);
 
     return {
         props: {
@@ -44,15 +49,17 @@ export async function getStaticProps({ params }) {
 
 export default function Post({ postData }) {
     return (
+        // <ChakraProvider theme={theme}>
         <Layout>
-            <Head>
+            {/* <Head>
                 <title>{postData.title}</title>
             </Head>
             <article>
                 <h1 className={utilStyles.headingX1}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>{postData.date}</div>
                 <div dangerouslySetInnerHTML={{ __html: postData.blogContentHTML }} />
-            </article>
+            </article> */}
         </Layout>
+        // </ChakraProvider>
     );
 }
