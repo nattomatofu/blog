@@ -12,7 +12,7 @@ function Layout({ children, home }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <header className=" bg-neutral-700">
-                <div className="container mx-auto px-5">
+                <div className="container mx-auto px-5 xl:px-52">
                     <div className="flex flex-row flex-wrap justify-between py-2 md:py-6">
                         <Link href={"/"}>
                             <div className="title-font mb-1 text-gray-300 md:font-medium ">

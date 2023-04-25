@@ -24,7 +24,7 @@ export default function Home({ allPostsData }) {
                 <title>{siteTitle}</title>
             </Head>
             <section>
-                <div class="container mx-auto px-6">
+                <div class="container mx-auto px-6 xl:px-52">
                     <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-8">
                         <h1 className="ml-2 text-xl">Posts</h1>
                     </div>
@@ -32,7 +32,7 @@ export default function Home({ allPostsData }) {
             </section>
 
             <section class="body-font text-gray-600">
-                <div class="container mx-auto px-1 pb-24 md:pt-4">
+                <div class="container mx-auto px-1 pb-24 md:pt-4 xl:px-48">
                     <div class="flex flex-wrap">
                         <div class="p-4 md:w-1/2 lg:w-1/3">
                             <Link href="/posts/sample">

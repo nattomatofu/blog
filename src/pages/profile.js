@@ -7,12 +7,12 @@ const Profile = () => {
                 <div class="container mx-auto mt-8 flex items-center justify-center px-6">
                     <img src={"/images/profile_icon.png"} className={"w-2/12"} />
                 </div>
-                <div class="container mx-auto px-6 text-center">
+                <div class="container mx-auto px-6 text-center xl:px-72">
                     <h1 className={"text-3xl"}>natto</h1>
                 </div>
             </section>
             <section>
-                <div class="container mx-auto px-6  xl:px-72">
+                <div class="container mx-auto px-6 xl:px-72">
                     <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-8">
                         <h1 className="ml-2 text-xl">Profile</h1>
                     </div>
