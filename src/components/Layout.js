@@ -40,7 +40,7 @@ function Layout({ children, home }) {
                 </div>
             )}
             <footer class="body-font bg-neutral-200 text-gray-600">
-                <div class="container mx-auto flex flex-row flex-col  items-center px-5 py-5">
+                <div class="container mx-auto flex flex-col  items-center px-5 py-5">
                     <p class="text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">© natto</p>
                 </div>
             </footer>

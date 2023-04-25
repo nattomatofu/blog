@@ -12,7 +12,7 @@ const Profile = () => {
                 </div>
             </section>
             <section>
-                <div class="container mx-auto px-6">
+                <div class="container mx-auto px-6  xl:px-72">
                     <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-8">
                         <h1 className="ml-2 text-xl">Profile</h1>
                     </div>
