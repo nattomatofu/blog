@@ -49,7 +49,7 @@ const Profile = () => {
                             <h2 className="text-xl">Qualification</h2>
                         </div>
                         <div className="p-2">
-                            <ul className="mb-16 list-disc px-8 md:px-12 md:py-4">
+                            <ul className="list-disc px-8 md:px-12 md:py-4">
                                 <div className="mb-2">
                                     <li className="text-sm">基本情報技術者</li>
                                 </div>

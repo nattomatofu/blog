@@ -32,7 +32,7 @@ export default function Home({ allPostsData }) {
             </section>
 
             <section class="body-font text-gray-600">
-                <div class="container mx-auto px-1 pb-24 md:pt-4 xl:px-48">
+                <div class="container mx-auto px-1 md:pt-4 xl:px-48">
                     <div class="flex flex-wrap">
                         <div class="p-4 md:w-1/2 lg:w-1/3">
                             <Link href="/posts/sample">
