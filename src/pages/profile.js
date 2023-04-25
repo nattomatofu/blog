@@ -16,7 +16,7 @@ const Profile = () => {
                     <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-8">
                         <h1 className="ml-2 text-xl">Profile</h1>
                     </div>
-                    <div className="mt-10 px-5">
+                    <div className="mt-10 px-5  xl:px-40">
                         <div className=" border-b border-dashed border-gray-600 text-center">
                             <h2 className="text-xl">Skill</h2>
                         </div>
@@ -44,12 +44,12 @@ const Profile = () => {
                         </div>
                     </div>
 
-                    <div className="mt-10 px-5">
+                    <div className="mt-10 px-5  xl:px-40">
                         <div className=" border-b border-dashed border-gray-600 text-center">
                             <h2 className="text-xl">Qualification</h2>
                         </div>
                         <div className="p-2">
-                            <ul className="list-disc px-8 md:px-12 md:py-4">
+                            <ul className="mb-16 list-disc px-8 md:px-12 md:py-4">
                                 <div className="mb-2">
                                     <li className="text-sm">基本情報技術者</li>
                                 </div>
