@@ -33,7 +33,7 @@ const sample = () => {
                 </div>
                 <div className="mt-8">
                     <p className="md:p-8">
-                        結論から述べると、<span className="font-bold underline decoration-red-400 decoration-2">いづれフリーランスとして活動して、その時のポートフォリオにしたい</span>
+                        結論から述べると<span className="font-bold underline decoration-red-400 decoration-2">いづれフリーランスとして活動して、その時のポートフォリオにしたい</span>
                         と思っていたからです笑。
                         <br />
                         <br />
@@ -44,16 +44,16 @@ const sample = () => {
                         ただ、ネガティブな理由だけではなく、自分の学びを発信することでそれが誰かの助けになったり、自分自身の知識定着に繋がるので、文章にまとめる（そして発信する）ってとても大切なことだと思っています。
                         <br />
                         <br />
-                        ブログを作ろうと思った理由というより社会への文句になってしまいましたが、フリーランスになってみたい！という思いが年々高まってきているので、その準備の第一弾としてこのブログを作ってみました。
+                        ブログを作ろうと思った理由というより社会への文句になってしまいましたが、フリーランスになってみたい！という思いが年々高まってきているので、その準備第一弾としてこのブログを作ってみました。
                     </p>
                 </div>
                 <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-12">
                     <h2 className="ml-2 text-xl">使った技術</h2>
                 </div>
                 <div className="mt-8">
-                    <p className="md:p-8">このブログサイト作成に作成には以下の技術やプログラミング言語を使っています。</p>
+                    <p className="md:p-8">このブログ作成には以下の技術やプログラミング言語を使っています。</p>
                     <div className="md:pl-8">
-                        <h3 className="mb-2 font-bold">HTML</h3>
+                        <h3 className="my-2 font-bold">HTML</h3>
                         <p className="pl-4">
                             おそらく皆さんご存じのHTML(HyperText Markup Language)です。
                             <br />
@@ -61,32 +61,31 @@ const sample = () => {
                         </p>
                         <h3 className="my-2 font-bold">CSS(Tailwindcss)</h3>
                         <p className="pl-4">
-                            HTMLで作成したコンテンツをデザインするための言語で、「Cascading Style Sheets」の略だそうです。
+                            HTMLで作成したコンテンツをデザインするための言語で「Cascading Style Sheets」の略だそうです。
                             <br />
-                            今回はプレーンのCSSを使用するか、Bootstrapなどのフレームワークを使用するかで少し悩みましたが、 CSSの基本を理解したいという気持ちの上に、楽もしたいという気持ちがあったので、
+                            今回はプレーンのCSSを使用するか、Bootstrapなどのフレームワークを使用するかで少し悩みましたが、 CSSの基本を理解したいという気持ちの上に楽もしたいという気持ちがあったので、
                             中間くらいに位置するTailwindcssを使用することにしました。
                         </p>
                         <h3 className="my-2 font-bold">JavaScript</h3>
                         <p className="pl-4">
                             HTML, CSSときたらJavaScriptですよね。フロントエンドではサイトのコンテンツに動きを付ける時などに使われます。
-                            今回はブログを作成するだけなのでコンテンツに動きを付けたり難しいことはやっていないのですが、 以前から下記のReactというフレームワークに興味があったので、使ってみました。
+                            今回はブログを作成するだけなので難しいことはやっていないのですが、 以前から下記のReactというフレームワークに興味があったので使ってみました。
                         </p>
                         <h3 className="my-2 font-bold">React</h3>
                         <p className="pl-4">
                             JavaScriptのフレームワークで、コンテンツをコンポーネントという単位でまとめて管理することができます。
                             <br />
-                            ブログ程度の静的なサイトだと、HTMLとCSSのみでも問題なく作ることができるのですが、前述の通りReactというものに以前から興味があったので、ページ自体や、良く使うHTMLタグをコンポーネント化するために使用しています。
+                            ブログ程度の静的なサイトだとHTMLとCSSのみでも問題なく作ることができるのですが、前述の通りReactというものに以前から興味があったので、ページ自体や良く使うHTMLタグをコンポーネント化するために使用しています。
                         </p>
                         <h3 className="my-2 font-bold">Next.js</h3>
                         <p className="pl-4">
-                            JavaScriptのフレームワークであるReactの、さらにフレームワークであるNext.jsです。
+                            JavaScriptのフレームワークであるReactのさらにフレームワークであるNext.jsです。
                             <br />
-                            Next.jsを使用することで、難しい設定をしなくとも高速で快適なWebサイトを作ることが出来ます。
+                            Next.jsを使用することで難しい設定をしなくとも高速で快適なWebサイトを作ることが出来ます。
                             <br />
                             また、ルーティングで面倒な設定が不要なことも大きなメリットだと感じています。
                             <br />
-                            こちらは、Reactについて調べている間にこのNext.jsの存在を知り、Reactを使うなら便利そうだ！使ってみよう！と思ったのがきっかけです。（SSG,
-                            SSRの詳しい仕組みは現在勉強中です。。）
+                            Next.jsはReactについて調べている間に存在を知り、Reactを使うなら便利そうだ！使ってみよう！と思ったのがきっかけです。（Next.jsのSSG, SSRの詳しい仕組みは現在勉強中です。。）
                         </p>
                         <h3 className="my-2 font-bold">Vercel</h3>
                         <p className="pl-4"></p>
