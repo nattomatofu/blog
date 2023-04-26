@@ -1,4 +1,4 @@
-export const title = "Next.jsでブログを作ってみた";
+export const title = "Next.jsでブログを作ってみた（※技術的な内容はありません）";
 export const updateDate = "2023/4/25";
 
 const sample = () => {
@@ -28,7 +28,9 @@ const sample = () => {
                         まずは作ろうと思ったきっかけです。
                     </p>
                 </div>
-                <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-12">
+            </section>
+            <section>
+                <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                     <h2 className="ml-2 text-xl">作ろうと思ったきっかけ</h2>
                 </div>
                 <div className="mt-8">
@@ -47,7 +49,9 @@ const sample = () => {
                         ブログを作ろうと思った理由というより社会への文句になってしまいましたが、フリーランスになってみたい！という思いが年々高まってきているので、その準備第一弾としてこのブログを作ってみました。
                     </p>
                 </div>
-                <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-12">
+            </section>
+            <section>
+                <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                     <h2 className="ml-2 text-xl">使った技術</h2>
                 </div>
                 <div className="mt-8">
@@ -69,7 +73,7 @@ const sample = () => {
                         <h3 className="my-2 font-bold">JavaScript</h3>
                         <p className="pl-4">
                             HTML, CSSときたらJavaScriptですよね。フロントエンドではサイトのコンテンツに動きを付ける時などに使われます。
-                            今回はブログを作成するだけなので難しいことはやっていないのですが、 以前から下記のReactというフレームワークに興味があったので使ってみました。
+                            今回は静的なブログを作成するだけなのでJavaScriptはなくても作れるのですが、 以前から下記のReactというJavaScriptのフレームワークに興味があったので使ってみました。
                         </p>
                         <h3 className="my-2 font-bold">React</h3>
                         <p className="pl-4">
@@ -88,8 +92,17 @@ const sample = () => {
                             Next.jsはReactについて調べている間に存在を知り、Reactを使うなら便利そうだ！使ってみよう！と思ったのがきっかけです。（Next.jsのSSG, SSRの詳しい仕組みは現在勉強中です。。）
                         </p>
                         <h3 className="my-2 font-bold">Vercel</h3>
-                        <p className="pl-4"></p>
+                        <p className="pl-4">
+                            作成したサイト（今回だとブログ）を世に配信するためのサービスです。 Next.jsを開発している会社がVercelという名前で、社名と同名のサービスとなります。
+                            Next.jsの開発会社が開発したサービスということもあってNext.jsとの相性は抜群だそうで、
+                            Gitの更新をトリガーにして、ビルド→デプロイの流れを自動で行ってくれます。（こちらも現在勉強中です。。）
+                        </p>
                     </div>
+                </div>
+            </section>
+            <section>
+                <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                    <h2 className="ml-2 text-xl">プログラミング言語などの勉強方法</h2>
                 </div>
             </section>
         </div>

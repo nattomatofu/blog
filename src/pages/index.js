@@ -39,7 +39,7 @@ export default function Home({ allPostsData }) {
                                 <div class="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
                                     <img class="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail01.jpg" alt="blog" />
                                     <div class="p-6">
-                                        <h1 class="title-font mb-3 truncate border-l-neutral-700 text-lg font-medium">Next.jsでブログを作ってみた</h1>
+                                        <h1 class="title-font mb-3 truncate border-l-neutral-700 text-lg font-medium">Next.jsでブログを作ってみた（※技術的な内容はありません）</h1>
                                         <div class="flex flex-wrap items-center">
                                             <p class="inline-flex items-center  border-l-neutral-700 md:mb-2 lg:mb-0">更新日 : 2023/4/25</p>
                                         </div>

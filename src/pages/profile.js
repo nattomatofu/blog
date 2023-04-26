@@ -35,10 +35,10 @@ const Profile = () => {
                                     <li className="text-sm">JavaScript（趣味で少し）</li>
                                 </div>
                                 <div className="mb-2">
-                                    <li className="text-sm">Java（業務で約1年ほど）</li>
+                                    <li className="text-sm">Java（大学で約1年）</li>
                                 </div>
                                 <div className="mb-2">
-                                    <li className="text-sm">AWS（業務で約3年ほど）</li>
+                                    <li className="text-sm">AWS（業務で約3年）</li>
                                 </div>
                             </ul>
                         </div>
