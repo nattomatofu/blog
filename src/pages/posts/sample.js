@@ -98,12 +98,102 @@ const sample = () => {
                             Gitの更新をトリガーにしてビルド→デプロイの流れを自動で行ってくれます。（こちらも現在勉強中です。。）
                         </p>
                     </div>
+                    <p className="md:p-8">
+                        本ブログで使った技術はざっと以上となります。
+                        <br />
+                        続いて、以上のプログラミング言語や技術をどのように勉強したかを書こうと思うのですが、その前にブログ制作を始める前の私のスキルについて簡単に触れようと思います。
+                    </p>
                 </div>
             </section>
             <section>
                 <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                    <h2 className="ml-2 text-xl">プログラミング言語などの勉強方法</h2>
+                    <h2 className="ml-2 text-xl">ブログ制作を始める前の自身のスキル</h2>
                 </div>
+                <div className="mt-8">
+                    <p className="md:p-8">
+                        大学を卒業後、システムエンジニアや社内SEの職を3年ほど経験しましたが、 ぶっちゃけ業務ではバックエンド側を担当することがほとんどで、
+                        <span className="font-bold underline decoration-red-400 decoration-2">上記のプログラミング言語はほぼ触れたことはない状態でした。</span>
+                        <br />
+                        <br />
+                        ですので、このブログ制作を始める前はHTMLはもちろんCSS、JavaScriptにも触れたことはほとんどなく、どちらかというとPythonやSQL、基盤でいうとAWS等の知識しかありませんでした。
+                        <br />
+                        <br />
+                        ただIT業界で働いていると、業務内で嫌でもITについての話題はでてくるので、
+                        このブログを作るにあたって触れたことのない技術であっても、何となく聞いたことがあるなーという技術やサービス名はいくつかあったという感じです。
+                        <br />
+                        <br />
+                        はい、要するにフロントエンド初心者ということですね笑。
+                    </p>
+                </div>
+            </section>
+            <section>
+                <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                    <h2 className="ml-2 text-xl">プログラミング言語などの学習方法</h2>
+                </div>
+                <div className="mt-8">
+                    <p className="md:p-8">上記の通り、フロントエンドについてのスキルはほぼ皆無な私ですが、その状態からどんな過程で学習してこの記事を執筆するまでに至ったか、期間別でご紹介します。</p>
+                </div>
+                <div className="md:pl-8">
+                    <h3 className="my-2 font-bold">0～1ヶ月半程度 : HTML, CSSの勉強</h3>
+                    <p className="pl-4">
+                        始めの1か月半の学習はほぼ全てHTMLとCSSの習得にあてていました。
+                        <br />
+                        やはりWebサイトを作成する上で欠かせないプログラミング言語ですし、基本中の基本ということでじっくり時間を書けて勉強しました。
+                        <br />
+                        その甲斐あってか、3カ月前はHTMLとCSSを使って"Hello
+                        World"と表示するだけのページでもどう作れば良いか思いつかなったのが、現在ではこのようにブログ程度の簡単なサイトであればある程度自由に編集できるようになりました。
+                        <br />
+                        ちなみにHTML, CSSに限らず、基本的に勉強はUdemyというオンライン学習サイトを使って勉強しています。
+                    </p>
+                    <h3 className="my-2 font-bold">1ヶ月半～2ヶ月 : JavaScriptの勉強</h3>
+                    <p className="pl-4">
+                        大体1ヶ月半～2ヶ月の半月ではJavaScriptを主に学習していました。
+                        <br />
+                        バックエンドで良く使われるプログラミング言語はある程度使える知識は持っていたので、JavaScriptの勉強はあまり時間がかからなかった印象です。
+                        <br />
+                        ただ、せっかく勉強するならある程度深い部分まで知っておきたいという思いがあったので、
+                        同期処理/非同期処理の違いやProxyなどの少し難しめの内容も勉強していたこともあり、少し長めに時間を取りました。（現時点の当ブログではそれら技術って本当に全く使ってないんですけどね、、）
+                    </p>
+                    <h3 className="my-2 font-bold">2ヶ月～2ヶ月半 : Reactの勉強</h3>
+                    <p className="pl-4">
+                        ここに来てやっとですが、Reactの勉強を始めます。 実をいうと、ブログを作ろうと思ってまず初めにUdemyでReactの講座を受講したのですが、HTMLやCSSが全く分からず、
+                        Reactの内容が全く頭に入ってこなかったので、HTML, CSSの勉強時間をまず初めに多めに取り、このタイミングでReactの勉強を始めました。
+                        <br />
+                        約2カ月の地道な下積みの甲斐もあって、基本的なReactの仕組みの理解にはあまり時間はかからなかったと思っています。
+                        <br />
+                        ただ、コンポーネントを分ける単位や、コンポーネント間でデータを共有するuseContextやReduxをどの区切りで整理するのが良いのかは、実際にWeb制作を経験して学ぶ必要があるなーと思っています。
+                    </p>
+                    <h3 className="my-2 font-bold">2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作</h3>
+                    <p className="pl-4">
+                        ここでいきなりブログを作り始めます笑。Reactの勉強を始めた頃から早くブログを作りたい欲が高まっていたんですよね笑。
+                        <br />
+                        当初はプレーンのReactでブログ作成する予定だったのですが、
+                        UdemyでReactの講座を見ていた時に、あわせてNext.jsというフレームワークの紹介があったので、そこでNext.jsを使うことに方向転換しました。
+                        <br />
+                        前に書いた通りNext.jsについては現在も勉強中であまり詳しくは理解できていないのですが、便利さ故にこの早さでブログを公開できています。 （
+                        Next.jsを使ったブログの制作から公開まで一気に学ぶことが出来る講座がUdemyにあったからというのが早く作れた一番の理由です。はい。）
+                    </p>
+                </div>
+                <p className="md:p-8">ブログを作ろう！と思い立ってからこの記事を書くまでの経緯は以上のような感じでした。 せっかくなので私が受講したUdemyの講座をご紹介させていただきます。</p>
+            </section>
+            <section>
+                <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                    <h2 className="ml-2 text-xl">今後の課題や実装したい機能</h2>
+                </div>
+                <div className="mt-8">
+                    <p className="md:p-8">上記の通り、フロントエンドについてのスキルはほぼ皆無な私ですが、その状態からどんな過程で学習してこの記事を執筆するまでに至ったか、期間別でご紹介します。</p>
+                </div>
+                <div className="md:pl-8">
+                    <h3 className="my-2 font-bold">0～1ヶ月半程度 : HTML, CSSの勉強</h3>
+                    <p className="pl-4"></p>
+                    <h3 className="my-2 font-bold">1ヶ月半～2ヶ月 : JavaScriptの勉強</h3>
+                    <p className="pl-4"></p>
+                    <h3 className="my-2 font-bold">2ヶ月～2ヶ月半 : Reactの勉強</h3>
+                    <p className="pl-4"></p>
+                    <h3 className="my-2 font-bold">2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作</h3>
+                    <p className="pl-4"></p>
+                </div>
+                <p className="md:p-8">ブログを作ろう！と思い立ってからこの記事を書くまでの経緯は以上のような感じでした。 せっかくなので私が受講したUdemyの講座をご紹介させていただきます。</p>
             </section>
         </div>
     );
