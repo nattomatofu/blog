@@ -6,9 +6,6 @@ const updateDate = "2023/4/29";
 const sample = () => {
     return (
         <>
-            <Head>
-                <title>{title}</title>
-            </Head>
             <div className="container mx-auto px-5 xl:px-52">
                 <section>
                     <div className="mt-8 border-b-2 border-t-2 border-neutral-700">
