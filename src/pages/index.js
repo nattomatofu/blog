@@ -5,6 +5,7 @@ import Layout, { siteTitle } from "@/components/Layout";
 import { getPostsData } from "@/lib/post";
 
 const inter = Inter({ subsets: ["latin"] });
+const siteTitle = "natto TechBlog";
 
 //SSGの場合
 export async function getStaticProps() {
