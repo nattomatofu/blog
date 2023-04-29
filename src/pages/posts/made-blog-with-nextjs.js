@@ -7,7 +7,7 @@ const sample = () => {
     return (
         <div className="container mx-auto px-5 xl:px-52">
             <Head>
-                <title>{"Next.jsでブログを作ってみた（※技術的な内容はありません）"}</title>
+                <title>{title}</title>
             </Head>
             <section>
                 <div className="mt-8 border-b-2 border-t-2 border-neutral-700">
