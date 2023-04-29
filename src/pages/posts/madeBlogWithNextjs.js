@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const title = "Next.jsでブログを作ってみた（※技術的な内容はありません）";
-export const updateDate = "2023/4/25";
+export const updateDate = "2023/4/29";
 
 const sample = () => {
     return (
@@ -90,14 +90,14 @@ const sample = () => {
                     <p>このブログ作成には以下の技術やプログラミング言語を使っています。</p>
                     <div>
                         {/* <h3 className="my-2 font-bold underline decoration-dotted underline-offset-4">HTML</h3> */}
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">HTML</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">HTML</h3>
                         <p className="pl-4">
                             おそらく皆さんご存じのHTML(HyperText Markup Language)です。
                             <br />
                             <br />
                             Webサイトを作るうえで基本中の基本の言語ということで使用しています。
                         </p>
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">CSS(Tailwindcss)</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">CSS(Tailwindcss)</h3>
                         <p className="pl-4">
                             HTMLで作成したコンテンツをデザインするための言語で「Cascading Style Sheets」の略だそうです。
                             <br />
@@ -105,21 +105,21 @@ const sample = () => {
                             今回はプレーンのCSSを使用するか、Bootstrapなどのフレームワークを使用するかで少し悩みましたが、 CSSの基本を理解したいという気持ちの上に楽もしたいという気持ちがあったので、
                             中間くらいに位置するTailwindcssを使用することにしました。
                         </p>
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">JavaScript</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">JavaScript</h3>
                         <p className="pl-4">
                             HTML, CSSときたらJavaScriptですよね。フロントエンドではサイトのコンテンツに動きを付ける時などに使われます。
                             <br />
                             <br />
                             今回は静的なブログを作成するだけなのでJavaScriptはなくても作れるのですが、 以前から下記のReactというJavaScriptのフレームワークに興味があったので使ってみました。
                         </p>
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">React</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">React</h3>
                         <p className="pl-4">
                             JavaScriptのフレームワークで、コンテンツをコンポーネントという単位でまとめて管理することができます。
                             <br />
                             <br />
                             ブログ程度の静的なサイトだとHTMLとCSSのみでも問題なく作ることができるのですが、前述の通りReactというものに以前から興味があったので、ページ自体や良く使うHTMLタグをコンポーネント化するために使用しました。
                         </p>
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">Next.js</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Next.js</h3>
                         <p className="pl-4">
                             JavaScriptのフレームワークであるReactのさらにフレームワークであるNext.jsです。
                             <br />
@@ -132,7 +132,7 @@ const sample = () => {
                             <br />
                             Next.jsはReactについて調べている間に存在を知り、Reactを使うなら便利そうだ！使ってみよう！と思ったのがきっかけです。（Next.jsのSSG, SSRの詳しい仕組みは現在勉強中です。。）
                         </p>
-                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">Vercel</h3>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Vercel</h3>
                         <p className="pl-4">
                             作成したサイト（今回だとブログ）を世に配信するためのサービスです。 Next.jsを開発している会社がVercelという名前で、社名と同名のサービスとなります。
                             <br />
@@ -141,7 +141,7 @@ const sample = () => {
                             Gitの更新をトリガーにしてビルド→デプロイの流れを自動で行ってくれます。（こちらも現在勉強中です。。）
                         </p>
                     </div>
-                    <p className="pt-8">
+                    <p className="pt-8 md:mt-4">
                         本ブログで使った技術はざっと以上となります。
                         <br />
                         続いて、以上のプログラミング言語や技術をどのように勉強したかを書こうと思うのですが、その前にブログ制作を始める前の私のスキルについて簡単に触れようと思います。
@@ -181,7 +181,7 @@ const sample = () => {
                     <p className="md:p-8">上記の通り、フロントエンドについてのスキルはほぼ皆無な私ですが、その状態からどんな過程で学習してこの記事を執筆するまでに至ったか、期間別でご紹介します。</p>
                 </div>
                 <div className="md:pl-8">
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">0～1ヶ月半程度 : HTML, CSSの勉強</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">0～1ヶ月半程度 : HTML, CSSの勉強</h3>
                     <p className="pl-4">
                         始めの1か月半の学習はほぼ全てHTMLとCSSの習得にあてていました。
                         <br />
@@ -195,7 +195,7 @@ const sample = () => {
                         <br />
                         ちなみにHTML, CSSに限らず、基本的に勉強はUdemyというオンライン学習サイトを使って勉強しています。
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">1ヶ月半～2ヶ月 : JavaScriptの勉強</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">1ヶ月半～2ヶ月 : JavaScriptの勉強</h3>
                     <p className="pl-4">
                         大体1ヶ月半～2ヶ月の半月ではJavaScriptを主に学習していました。
                         <br />
@@ -206,7 +206,7 @@ const sample = () => {
                         ただ、せっかく勉強するならある程度深い部分まで知っておきたいという思いがあったので、
                         同期処理/非同期処理の違いやProxyなどの少し難しめの内容も勉強していたこともあり、少し長めに時間を取りました。（現時点の当ブログではそれら技術は本当に全く使ってないんですけどね、、）
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">2ヶ月～2ヶ月半 : Reactの勉強</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">2ヶ月～2ヶ月半 : Reactの勉強</h3>
                     <p className="pl-4">
                         ここに来てやっとですが、Reactの勉強を始めます。 実をいうと、ブログを作ろうと思ってまず初めにUdemyでReactの講座を受講したのですが、HTMLやCSSが全く分からず、
                         Reactの内容が全く頭に入ってこなかったので、HTML, CSSの勉強時間をまず初めに多めに取り、このタイミングでReactの勉強を始めました。
@@ -217,7 +217,7 @@ const sample = () => {
                         <br />
                         ただ、コンポーネントを分ける単位や、コンポーネント間でデータを共有するuseContextやReduxをどの区切りで整理するのが良いのかは、実際にWeb制作を経験して学ぶ必要があるなーと思っています。
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作</h3>
                     <p className="pl-4">
                         ここでいきなりブログを作り始めます笑。Reactの勉強を始めた頃から早くブログを作りたい欲が高まっていたんですよね笑。
                         <br />
@@ -230,7 +230,7 @@ const sample = () => {
                         Next.jsを使ったブログの制作から公開まで一気に学ぶことが出来る講座がUdemyにあったからというのが早く作れた一番の理由です。はい。）
                     </p>
                 </div>
-                <p className="pt-8 md:p-8">
+                <p className="pt-8 md:mt-8 md:p-8">
                     ブログを作ろう！と思い立ってからこの記事を書くまでの経緯は以上のような感じでした。
                     <br />
                     <br />
@@ -335,7 +335,7 @@ const sample = () => {
                     </p>
                 </div>
                 <div className="md:pl-8">
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">ドメインの購入とサーバへの設定</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">ドメインの購入とサーバへの設定</h3>
                     <p className="pl-4">
                         いや、早くやれよって感じですよね笑。というかもはや、独自ドメインを設定せずにサイトを公開したと言えないのでは
                         、、という感じなのですが、一応固定のURLでサイトを公開でいているので、一旦良しとしています笑。
@@ -343,7 +343,7 @@ const sample = () => {
                         <br />
                         ただやはり、本格的に運用していくのであれば独自ドメインは設定した方が良いと思うので（愛着がわきますし、、）、まず初めにドメインを買って設定したいと思っています。
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">良く使うもののコンポーネント化</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">良く使うもののコンポーネント化</h3>
                     <p className="pl-4">
                         良く使うHTMLタグなどその他コンポーネント化できそうな部分が現状はまだまだあります。
                         <br />
@@ -352,7 +352,7 @@ const sample = () => {
                         <br />
                         と思っているのでこちらも早めに対応したいことの1つに挙がっています。
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">GA(Google Analytics)の導入</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">GA(Google Analytics)の導入</h3>
                     <p className="pl-4">
                         ブログを作ったからにはやはりどのくらい見られているのかが気になりますよね。
                         <br />
@@ -362,7 +362,7 @@ const sample = () => {
                         このブログはまだまだ作ったばかりで、そんな機能があっても宝の持ち腐れ状態になる未来が見えるので急いではいないのですが、
                         いずれGAを導入して最低でも訪問者数の把握はできたらいいなーなんて思っています。
                     </p>
-                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold">AWSへの移行</h3>
+                    <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">AWSへの移行</h3>
                     <p className="pl-4">
                         ここまであまり触れてこなかったのですが、私は仕事でAWSを使っていて割と多くのサービスに触れたことがあるので、EC2に立てたWebサーバにブログを移行して、更にCI/CDの設定も自作してみようかなーと思っています。
                         <br />
@@ -370,13 +370,13 @@ const sample = () => {
                         現状のVercelのサーバと比較すると運用の負荷は上がること間違いなしな気がしていますが、その分サーバ周りの勉強にもなるので、こちらもいずれチャレンジしたいです。
                     </p>
                 </div>
-                <p className="pt-8 md:p-8">
+                <p className="pt-8 md:mt-8  md:p-8">
                     現時点でパッと思いつく課題は以上のような感じです。
                     <br />
                     <br />
                     もっと記事やコンテンツが増えれば、ナビゲーションメニューとかも作ってみたいなーと思っているのですが、現状では作っても画面遷移させる先がないので一旦保留としてます。
                     <br />
-                    それっぽいものでいうと、記事が増えてきたらジャンル（カテゴリ）別のメニューを作って、それぞれのジャンルの記事一覧にジャンプさせるとかですかね、、それっていつになるんだろう、、笑。
+                    それっぽいものでいうと、記事が増えてきたらジャンル（カテゴリ）別のメニューを作って、それぞれのジャンルの記事一覧にジャンプさせるとかですかね、、いつになるんだろう、、笑。
                 </p>
             </section>
             <section>
@@ -387,18 +387,24 @@ const sample = () => {
                 </div>
                 <div className="mt-8">
                     <p className="md:p-8">
-                        大学を卒業後、システムエンジニアや社内SEの職を3年ほど経験しましたが、 ぶっちゃけ業務ではバックエンド側を担当することがほとんどで、
-                        <span className="font-bold underline decoration-red-400 decoration-2">上記のプログラミング言語はほぼ触れたことはない状態でした。</span>
+                        以上、Next.jsでブログを作成したので、作るまでの学習や今後の課題についてまとめてみました。
                         <br />
                         <br />
-                        ですので、このブログ制作を始める前はHTMLはもちろんCSS、JavaScriptにも触れたことはほとんどなく、どちらかというとPythonやSQL、基盤でいうとAWS等の知識しかありませんでした。
+                        まだまだ改善しなければならない点も沢山あるのですが、今後もメンテナンスを続けてこのブログを育てていくことができたらいいなと思っています！
+                        <br />
+                        また冒頭でも書いたのですが、ブログを作った一番の目的はフリーランスになった時のアピール材料にすることなので、
+                        <span className="font-bold underline decoration-red-400 decoration-2">技術的な記事を沢山投稿していく予定です！</span>
+                        （その前にまずドメインを購入して設定します笑。）
                         <br />
                         <br />
-                        ただIT業界で働いていると、業務内で嫌でもITについての話題はでてくるので、
-                        このブログを作るにあたって触れたことのない技術であっても、何となく聞いたことがあるなーという技術やサービス名はいくつかあったという感じです。
+                        【お礼】
+                        <br />
+                        まともに記事を書いてみた経験がこの記事で始めてということもあり、汚い文章で申し訳ありませんが、読んでくださった方がもしいたら本当にありがとうございました！
+                        <br />
+                        今後は技術的な記事をメインに投稿していく予定なので、もしよかったらまた訪れてみてください！
                         <br />
                         <br />
-                        はい、要するにフロントエンド初心者ということですね笑。
+                        それでは！
                     </p>
                 </div>
             </section>
