@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BLOG_TITLE = "natto";
 const BLOG_SUB_TITLE = "TechBlog";
-export const siteTitle = "Blog";
+export const siteTitle = "natto TechBlog";
 
 function Layout({ children, home }) {
     return (
