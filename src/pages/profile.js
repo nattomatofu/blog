@@ -1,8 +1,12 @@
 import Image from "next/image";
+import Head from "next/head";
 
 const Profile = () => {
     return (
         <>
+            <Head>
+                <title>Profile</title>
+            </Head>
             <section>
                 <div class="container mx-auto mt-8 flex items-center justify-center px-6">
                     <img src={"/images/profile_icon.png"} className={"w-2/12"} />
