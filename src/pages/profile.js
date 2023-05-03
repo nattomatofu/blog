@@ -72,6 +72,56 @@ const Profile = () => {
                             </ul>
                         </div>
                     </div>
+
+                    <div className="mt-10 px-5  xl:px-40">
+                        <div className=" border-b border-dashed border-gray-600 text-center">
+                            <h2 className="text-xl">hobby</h2>
+                        </div>
+                        <div className="p-2">
+                            <ul className="list-disc px-8 md:px-12 md:py-4">
+                                <div className="mb-2">
+                                    <li className="text-sm">プログラミング（最近はWebサイトやWebアプリケーションに興味があります！）</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">ランニング</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">スマホゲーム（主にクラロワやってます）</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">飲酒</li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="mt-10 px-5  xl:px-40">
+                        <div className=" border-b border-dashed border-gray-600 text-center">
+                            <h2 className="text-xl">Favorite food</h2>
+                        </div>
+                        <div className="p-2">
+                            <ul className="list-disc px-8 md:px-12 md:py-4">
+                                <div className="mb-2">
+                                    <li className="text-sm">納豆（ゲームの主人公の名前をなっとうにするくらい好きです笑）</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">トマト</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">豆腐</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">ラーメン</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">お寿司</li>
+                                </div>
+                                <div className="mb-2">
+                                    <li className="text-sm">焼肉</li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
         </>

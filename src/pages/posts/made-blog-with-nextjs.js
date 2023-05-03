@@ -243,7 +243,7 @@ const sample = () => {
                         <div class="container mx-auto flex flex-wrap px-5 py-6">
                             <div class="-m-4 flex flex-wrap">
                                 <div class="p-4 md:w-full">
-                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row">
+                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                         <div class="flex-grow">
                                             <h2 class="title-font mb-3 text-lg font-medium text-gray-900">HTML/CSSの講座</h2>
                                             <ul className="list-disc">
@@ -268,7 +268,7 @@ const sample = () => {
                                     </div>
                                 </div>
                                 <div class="p-4 md:w-full">
-                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row">
+                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                         <div class="flex-grow">
                                             <h2 class="title-font mb-3 text-lg font-medium text-gray-900">JavaScriptの講座</h2>
                                             <ul className="list-disc">
@@ -282,7 +282,7 @@ const sample = () => {
                                     </div>
                                 </div>
                                 <div class="p-4 md:w-full">
-                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row">
+                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                         <div class="flex-grow">
                                             <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Reactの講座</h2>
                                             <ul className="list-disc">
@@ -304,7 +304,7 @@ const sample = () => {
                                     </div>
                                 </div>
                                 <div class="p-4 md:w-full">
-                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row">
+                                    <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                         <div class="flex-grow">
                                             <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Next.jsの講座</h2>
                                             <ul className="list-disc">
