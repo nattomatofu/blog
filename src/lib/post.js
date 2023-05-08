@@ -16,8 +16,8 @@ export function getPostsData() {
         // console.log(fullPath);
         // const fileContent = fs.readFileSync(fullPath, "utf8");
         const fileContent = fs.readFileSync(fullPath, "utf8");
-        console.log("fileContent");
-        console.log(fileContent);
+        // console.log("fileContent");
+        // console.log(fileContent);
 
         // const matterResult = matter(fileContent);
 

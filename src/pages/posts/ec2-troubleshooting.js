@@ -1,14 +1,14 @@
 import Head from "next/head";
 
-const title = "Next.jsでブログを作ってみた（※技術的な内容はありません）";
-const updateDate = "2023/4/29";
-const thumbnailImagePath = "images/nextjs_thumbnail.jpg";
+const title = "AWSのEC2立ち上げからセッションマネージャーでアクセスするまでに出会ったエラー対処法";
+const updateDate = "2023/5/8";
+const thumbnailImagePath = "images/AWS_EC2_thumbnail.jpg";
 const metaDescription =
-    "フロントエンドはほとんど未経験の社会人が、この度Next.jsでブログを作成してみました。作成着手前の自身のスキルや、HTML / CSS / JavaScript（React）の勉強にかけた時間をご紹介します。また、勉強する際にためになったUdemyの講座についてもご紹介しています。";
-const metaOgUrl = "https://www.nattomatofu.com/posts/made-blog-with-nextjs";
+    "Amazon EC2を立ち上げてからセッションマネージャーで接続するまでに遭遇したエラーの解消方法についてまとめます。私自身、一見簡単にできると思っていたのですが、ほんの少し苦戦したので記事としてまとめておきます。「既存の 参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」「AWS EC2にセッションマネージャーで接続できない」";
+const metaOgUrl = "https://www.nattomatofu.com/posts/ec2-troubleshooting";
 const metaOgType = "article";
 
-const sample = () => {
+const Ec2TroubleShooting = () => {
     return (
         <>
             <Head>
@@ -37,13 +37,10 @@ const sample = () => {
                 <section>
                     <div className="mt-4">
                         <p className="md:p-8">
-                            この度Next.jsでブログを作ってみました。
+                            つい先日、仕事でAWSのEC2を立ち上げる必要があり、AWSマネジメントコンソール上のセッションマネージャーで接続する方法を個人で簡単に確認していました。
                             <br />
                             <br />
-                            作ったのはこのブログです。
-                            <br />
-                            <br />
-                            技術的なことはまだまだ勉強中で分からないことだらけですが、せっかくブログを作ったので、作ろうと思ったきっかけや使った技術、今後の課題などをまとめてみようと思います。
+                            EC2はこれまで何度か使用したことがあるので苦戦することなくできるだろうなーと思っていたのですが、意外と躓いた部分があったのでこの記事にまとめます。
                             <br />
                             <br />
                         </p>
@@ -52,50 +49,298 @@ const sample = () => {
                                 <p className="mb-4 text-center text-xl">目次</p>
                                 <ul className="list-disc pl-6">
                                     <li className="pb-2">
-                                        <a href="#id1">作ろうと思ったきっかけ</a>
+                                        <a href="#id1">「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー対処法</a>
                                     </li>
                                     <li className="pb-2">
-                                        <a href="#id2">使った技術</a>
-                                    </li>
-                                    <li className="pb-2">
-                                        <a href="#id3">ブログ制作を始める前の自身のスキル</a>
-                                    </li>
-                                    <li className="pb-2">
-                                        <a href="#id4">プログラミング言語などの学習方法</a>
-                                    </li>
-                                    <li className="pb-2">
-                                        <a href="#id5">今後の課題や実装したい機能</a>
-                                    </li>
-                                    <li className="pb-2">
-                                        <a href="#id6">最後に</a>
+                                        <a href="#id2">AWS EC2にセッションマネージャーで接続できない場合の対処法</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <p className="md:p-8">まずは作ろうと思ったきっかけです。</p>
+                        <p className="md:p-8">まず1つ目のエラーです。</p>
                     </div>
                 </section>
                 <section>
                     <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                         <h2 className="ml-2 text-xl" id="id1">
-                            作ろうと思ったきっかけ
+                            「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー対処法
                         </h2>
                     </div>
-                    <div className="mt-8">
+                    <div className="mt-8 md:p-8">
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-0">エラーの内容</h3>
                         <p className="md:p-8">
-                            結論から述べると<span className="font-bold underline decoration-red-400 decoration-2">いづれフリーランスとして活動して、その時のポートフォリオにしたい</span>
-                            と思っていたからです笑。
+                            最終的に確認したいのは、Nginxのサーバの挙動だったので、コンソール上でEC2を立ち上げた後、まずEC2インスタンスへ外部から HTTP / HTTPS
+                            で接続できるようにインバウンドルールの設定を行いました。
                             <br />
                             <br />
-                            大学を卒業後、現在まで約3年間社会人として働いていますが、仕事の内容と時間をなかなか自分で調節できないことや、
-                            苦手な人とのコミュニケーションを避けられない点が私としてはストレスに感じ、実力が発揮できていないなーと感じている今日この頃です。（たぶん社会不適合者なんです。。）
+                            すると、以下のようなエラーが、、
+                            <br />
+                            (下の画像はソースの部分を「0.0.0.0/0」からセキュリティグループへ変更しようとした際の画像ですが、セキュリティグループから「0.0.0.0/0」へ変更しようとしても同様のエラーが発生します。)
                             <br />
                             <br />
-                            ただ、ネガティブな理由だけではなく、自分の学びを発信することでそれが誰かの助けになったり、自分自身の知識定着に繋がるので、文章にまとめる（そして発信する）ってとても大切なことだと思っています。
+                            <img src={"/images/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面.png"} />
                             <br />
                             <br />
-                            ブログを作ろうと思った理由というより社会への文句になってしまいましたが、フリーランスになってみたい！という思いが年々高まってきているので、その準備第一弾としてこのブログを作ってみました。
+                            <span className="font-bold underline decoration-red-400 decoration-2">「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」</span>
+                            と表示されています。
+                        </p>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">対処法</h3>
+                        <p className="md:p-8">
+                            結論からいうと、
+                            <span className="font-bold underline decoration-red-400 decoration-2">
+                                前に作成した（されていた）ルールを一度削除した後に改めて作成したいルールを作成することでこのエラーは解消されます。
+                            </span>
+                            <br />
+                            <br />
+                            具体的には、以下の画像の赤枠の部分を押下して既存のルールを削除した後、画面左下の「ルールを追加」ボタンを押下して作成したいルールを作成するといった感じです。
+                            <br />
+                            <br />
+                            <img src={"/images/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面削除ボタン印付き.png"} />
+                            <br />
+                            <br />
+                            AWSエンジニアの方からすると当たり前のことかもしれませんが、恥ずかしながら私はここで少々つまずきました、、
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                        <h2 className="ml-2 text-xl" id="id2">
+                            AWS EC2にセッションマネージャーで接続できない場合の対処法
+                        </h2>
+                    </div>
+                    <div className="mt-8 md:p-8">
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-0">エラーの内容</h3>
+                        <p className="md:p-8">
+                            今回は個人的な動作確認だったので、公開鍵を使ったSSH接続ではなく、
+                            AWSマネジメントコンソール上のセッションマネージャーでぱぱっと設定しようと思い、EC2のコンソールからセッションマネージャーを開きました。
+                            <br />
+                            <br />
+                            すると、今度は以下のようなエラーが、、
+                            <br />
+                            <br />
+                            <img src={"/images/インスタンスに接続できませんでしたエラー画面.png"} className="m-auto w-8/12" />
+                            <br />
+                            <br />
+                            はい、
+                            <br />
+                            <br />
+                            <span className="font-bold underline decoration-red-400 decoration-2">インスタンスに接続できませんでした。</span>
+                            <br />
+                            <br />
+                            だそうです。。
+                        </p>
+                        <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">対処法</h3>
+                        <p className="md:p-8">
+                            こちらの原因はいくつかあるようですが、
+                            セキュリティグループなど特に設定していない、作成したてのEC2インスタンスにコンソールからセッションマネージャーでアクセスする場合は、大体以下の2点を確認すると解決するのではないかと思います。
+                            <br />
+                            <br />
+                            <ul className="ml-8 list-disc">
+                                <li>EC2インスタンスにSSM Agentがインストールされているか</li>
+                                <li>EC2インスタンスに「AmazonSSMManagedInstanceCore」のIAMポリシーがついているか</li>
+                            </ul>
+                            <br />
+                            <br />
+                            それぞれ詳しく見ていきます。
+                            <br />
+                            <br />
+                            <br />
+                            <span className="text-xl font-bold">【EC2インスタンスにSSM Agentがインストールされているか】</span>
+                            <br />
+                            <br />
+                            まず前提として、以下のインスタンスについては、インスタンスを立ち上げた時点で既にインストールされているので、特に作業する必要はありません。（2023年4月時点）
+                            <br />
+                            <br />
+                            参考 :{" "}
+                            <a
+                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/ami-preinstalled-agent.html"
+                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                            >
+                                SSM Agent がプリインストールされた Amazon Machine Images (AMIs)
+                            </a>
+                            <br />
+                            <br />
+                            <ul className="ml-8 list-disc">
+                                <li>2017 年 9 月以降の Amazon Linux Base AMI</li>
+                                <li>Amazon Linux 2</li>
+                                <li>Amazon Linux 2 ECS に最適化されたベース AMIs</li>
+                                <li>Amazon Linux 2023 (AL2023)</li>
+                                <li>Amazon EKS 最適化 Amazon Linux AMIs</li>
+                                <li>macOS 10.14.x (Mojave)、10.15.x (Catalina)、11.x (Big Sur)</li>
+                                <li>SUSE Linux Enterprise Server(SLES) 12 と 15</li>
+                                <li>Ubuntu Server 16.04、18.04、および 20.04</li>
+                                <li>2016 年 11 月以降に公開された Windows Server 2008-2012 R2 AMIs</li>
+                                <li>Windows Server 2016、2019、および 2022</li>
+                            </ul>
+                            <br />
+                            <br />
+                            色々あって少し混乱しそうですが、Amazon Linux系はほぼ全てにプリインストールされています。
+                            <br />
+                            UbuntuやWindowsは良く使われるものはプリインストールされていて、その他RedHat, Debianなどは自分でインストールしなければ、セッションマネージャーで接続はできないようです。
+                            <br />
+                            <br />
+                            私はAmazon Linux 2023
+                            (AL2023)だったのでこちらは問題ありませんでしたが、もしプリインストールされていないインスタンスを使用されている方は以下のサイトを参考にインストールしてみてください。
+                            <br />
+                            <br />
+                            <section class="body-font text-gray-600">
+                                <div class="container mx-auto flex flex-wrap px-5 py-6">
+                                    <div class="-m-4 flex flex-wrap">
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Windowsの場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/sysman-install-ssm-win.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                Windows Server 用 EC2 インスタンスで SSM Agent を使用する
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">macOSの場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/install-ssm-agent-macos.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                macOS 用 EC2 インスタンスで SSM Agent を使用する
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Ubuntuの場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/agent-install-ubuntu.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                Ubuntu Server インスタンスに SSM Agent を手動でインストールする
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Red Hatの場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/agent-install-rhel.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                Red Hat Enterprise Linux インスタンスに SSM Agent を手動でインストールする
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Debianの場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/agent-install-deb.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                Debian Server インスタンスに SSM Agent を手動でインストールする
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 md:w-full">
+                                            <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
+                                                <div class="flex-grow">
+                                                    <h2 class="title-font mb-3 text-lg font-medium text-gray-900">その他の場合</h2>
+                                                    <ul className="list-disc">
+                                                        <li>
+                                                            その他のインスタンスの場合は
+                                                            <a
+                                                                href="https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/sysman-manual-agent-install.html"
+                                                                className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                            >
+                                                                こちら
+                                                            </a>
+                                                            のサイト下部のリンクが参考になります。
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <br />
+                            <br />
+                            続いて2つ目の確認ポイントです。
+                            <br />
+                            <br />
+                            <br />
+                            <span className="text-xl font-bold">【EC2インスタンスに「AmazonSSMManagedInstanceCore」のIAMポリシーがついているか】</span>
+                            <br />
+                            <br />
+                            こちらは恐らくどのOSを選択していたとしても必要になる作業だと思います。
+                            <br />
+                            <br />
+                            確認ポイントの文章の通り、
+                            <span className="font-bold underline decoration-red-400 decoration-2">「AmazonSSMManagedInstanceCore」のIAMポリシーをEC2インスタンスへアタッチすれば問題ない</span>
+                            のですが、慣れていない人はその方法が分からないかもしれないので、簡単に手順を説明します。
+                            <br />
+                            <br />
+                            ＜手順①＞　「AmazonSSMManagedInstanceCore」のIAMポリシーがアタッチされたIAMロールの作成
+                            <br />
+                            <br />
+                            <ul className="ml-8 list-decimal">
+                                <li>AWSマネジメントコンソールでIAMのコンソールへアクセスします。</li>
+                                <li>アクセスした後、左メニューから「ロール」＞「ロールを作成」の順で選択します。</li>
+                                <li>「信頼されたエンティティを選択」画面で、「AWSのサービス」にチェックを入れ、「ユースケース」で「EC2」にチェックを入れます。「次へ」を押下します。</li>
+                                <li>
+                                    「許可を追加」画面で、検索窓に「AmazonSSMManagedInstanceCore」と入力して表示された「AmazonSSMManagedInstanceCore」にチェックを入れ、「次へ」を押下します。（ここで選択したものがIAMポリシーです。）
+                                </li>
+                                <li>作成するロールの内容確認画面が表示されるので、任意のロール名を入力し、「ロールを作成」を押下します。</li>
+                            </ul>
+                            <br />
+                            <br />
+                            以下はロール作成時の最後の確認画面です。
+                            <br />
+                            <br />
+                            <img src={"/images/ロール作成画面.png"} />
+                            <br />
+                            <br />
+                            ＜手順②＞　作成したポリシーをEC2インスタンスへアタッチ
+                            <br />
+                            <br />
+                            <ul className="ml-8 list-decimal">
+                                <li>AWSマネジメントコンソールでEC2のコンソールへアクセスします。</li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </p>
                     </div>
                 </section>
@@ -433,4 +678,4 @@ const sample = () => {
     );
 };
 
-export default sample;
+export default Ec2TroubleShooting;

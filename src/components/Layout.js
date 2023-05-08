@@ -6,7 +6,7 @@ const BLOG_SUB_TITLE = "TechBlog";
 
 function Layout({ children, home }) {
     return (
-        <div>
+        <>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -43,7 +43,7 @@ function Layout({ children, home }) {
                     <p class="text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">© natto</p>
                 </div>
             </footer>
-        </div>
+        </>
     );
 }
 

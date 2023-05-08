@@ -1,10 +1,25 @@
-import Image from "next/image";
 import Head from "next/head";
+
+const metaDescription = "当ブログ natto techBlog を作成した私の自己紹介です。IT業界で3年ほど社会人を経験した上でのスキルセットをご紹介します。";
+const metaOgUrl = "https://www.nattomatofu.com/profile";
+const metaOgType = "article";
+const title = "natto TechBlog 管理人の自己紹介";
+const thumbnailImagePath = "/images/profile_icon.png";
 
 const Profile = () => {
     return (
         <>
             <Head>
+                <meta content={metaDescription} name="description"></meta>
+                <meta charset="utf-8"></meta>
+                <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
+                <meta name="robots" content="noindex,nofollow"></meta>
+                <meta property="og:url" content={metaOgUrl} />
+                <meta property="og:type" content={metaOgType} />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={metaDescription} />
+                <meta property="og:site_name" content={title} />
+                <meta property="og:image" content={thumbnailImagePath} />
                 <title>Profile</title>
             </Head>
             <section>
