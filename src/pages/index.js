@@ -8,7 +8,7 @@ const siteTitle = "natto TechBlog";
 const metaDescription = "natto TechBlogです。技術的な記事をメインに投稿していきます。";
 const metaOgUrl = "https://www.nattomatofu.com/";
 const metaOgType = "article";
-const thumbnailImagePath = "/images/profile_icon.png";
+const thumbnailImagePath = "/images/profile/profile_icon.png";
 
 //SSGの場合
 export async function getStaticProps() {
@@ -51,7 +51,7 @@ export default function Home({ allPostsData }) {
                         <div class="w-full p-4 md:w-1/2">
                             <Link href="/posts/ec2-troubleshooting">
                                 <div class="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
-                                    <img class="w-full object-cover object-center md:h-36 lg:h-48" src="images/AWS_EC2_thumbnail.jpg" alt="blog" />
+                                    <img class="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/AWS_EC2_thumbnail.jpg" alt="blog" />
                                     <div class="p-6">
                                         <div className="overflow-hidden  md:h-16">
                                             <h1 class="title-font mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">
@@ -59,7 +59,7 @@ export default function Home({ allPostsData }) {
                                             </h1>
                                         </div>
                                         <div class="flex flex-wrap items-center">
-                                            <p class="inline-flex items-center  border-l-neutral-700 md:mb-2 lg:mb-0">更新日 : 2023/4/29</p>
+                                            <p class="inline-flex items-center  border-l-neutral-700 md:mb-2 lg:mb-0">更新日 : 2023/5/9</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@ export default function Home({ allPostsData }) {
                         <div class="w-full p-4 md:w-1/2">
                             <Link href="/posts/made-blog-with-nextjs">
                                 <div class="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
-                                    <img class="w-full object-cover object-center md:h-36 lg:h-48" src="images/nextjs_thumbnail.jpg" alt="blog" />
+                                    <img class="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/nextjs_thumbnail.jpg" alt="blog" />
                                     <div class="p-6">
                                         <div className="overflow-hidden  md:h-16">
                                             <h1 class="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">Next.jsでブログを作ってみた（※技術的な内容はありません）</h1>

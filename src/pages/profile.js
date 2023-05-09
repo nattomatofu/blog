@@ -4,7 +4,7 @@ const metaDescription = "当ブログ natto techBlog を作成した私の自己
 const metaOgUrl = "https://www.nattomatofu.com/profile";
 const metaOgType = "article";
 const title = "natto TechBlog 管理人の自己紹介";
-const thumbnailImagePath = "/images/profile_icon.png";
+const thumbnailImagePath = "/images/profile/profile_icon.png";
 
 const Profile = () => {
     return (
@@ -24,7 +24,7 @@ const Profile = () => {
             </Head>
             <section>
                 <div class="container mx-auto mt-8 flex items-center justify-center px-6">
-                    <img src={"/images/profile_icon.png"} className={"w-2/12"} />
+                    <img src={"/images/profile/profile_icon.png"} className={"w-2/12"} />
                 </div>
                 <div class="container mx-auto px-6 text-center xl:px-72">
                     <h1 className={"text-3xl"}>natto</h1>
