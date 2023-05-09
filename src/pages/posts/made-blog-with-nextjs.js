@@ -15,7 +15,6 @@ const sample = () => {
                 <meta content={metaDescription} name="description"></meta>
                 <meta charset="utf-8"></meta>
                 <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
-                <meta name="robots" content="noindex,nofollow"></meta>
                 <meta property="og:url" content={metaOgUrl} />
                 <meta property="og:type" content={metaOgType} />
                 <meta property="og:title" content={title} />

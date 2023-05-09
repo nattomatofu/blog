@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 const title = "AWSのEC2立ち上げからセッションマネージャーでアクセスするまでに出会ったエラー対処法";
-const updateDate = "2023/5/8";
+const updateDate = "2023/5/9";
 const thumbnailImagePath = "images/ec2-troubleshooting/AWS_EC2_thumbnail.jpg";
 const metaDescription =
     "Amazon EC2を立ち上げてからセッションマネージャーで接続するまでに遭遇したエラーの解消方法についてまとめます。私自身、一見簡単にできると思っていたのですが、ほんの少し苦戦したので記事としてまとめておきます。「既存の 参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」「AWS EC2にセッションマネージャーで接続できない」";
@@ -15,7 +15,6 @@ const Ec2TroubleShooting = () => {
                 <meta content={metaDescription} name="description"></meta>
                 <meta charset="utf-8"></meta>
                 <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
-                <meta name="robots" content="noindex,nofollow"></meta>
                 <meta property="og:url" content={metaOgUrl} />
                 <meta property="og:type" content={metaOgType} />
                 <meta property="og:title" content={title} />
@@ -81,7 +80,10 @@ const Ec2TroubleShooting = () => {
                             (下の画像はソースの部分を「0.0.0.0/0」からセキュリティグループへ変更しようとした際の画像ですが、セキュリティグループから「0.0.0.0/0」へ変更しようとしても同様のエラーが発生します。)
                             <br />
                             <br />
-                            <img src={"/images/ec2-troubleshooting/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面.png"} />
+                            <img
+                                src={"/images/ec2-troubleshooting/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面.png"}
+                                alt="「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面"
+                            />
                             <br />
                             <br />
                             <span className="font-bold underline decoration-red-400 decoration-2">「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」</span>
@@ -98,7 +100,10 @@ const Ec2TroubleShooting = () => {
                             具体的には、以下の画像の赤枠の部分を押下して既存のルールを削除した後、画面左下の「ルールを追加」ボタンを押下して作成したいルールを作成するといった感じです。
                             <br />
                             <br />
-                            <img src={"/images/ec2-troubleshooting/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面削除ボタン印付き.png"} />
+                            <img
+                                src={"/images/ec2-troubleshooting/「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面削除ボタン印付き.png"}
+                                alt="「既存の参照先のグループ ID ルールに 1 つの IPv4 CIDR を指定することはできません。」のエラー画面削除ボタン印付き"
+                            />
                             <br />
                             <br />
                             AWSエンジニアの方からすると当たり前のことかもしれませんが、恥ずかしながら私はここで少々つまずきました、、
@@ -121,7 +126,7 @@ const Ec2TroubleShooting = () => {
                             すると、今度は以下のようなエラーが、、
                             <br />
                             <br />
-                            <img src={"/images/ec2-troubleshooting/インスタンスに接続できませんでしたエラー画面.png"} className="m-auto md:w-8/12" />
+                            <img src={"/images/ec2-troubleshooting/インスタンスに接続できませんでしたエラー画面.png"} className="m-auto md:w-8/12" alt="インスタンスに接続できませんでしたエラー画面" />
                             <br />
                             <br />
                             はい、
@@ -151,7 +156,7 @@ const Ec2TroubleShooting = () => {
                             <span className="text-xl font-bold">【EC2インスタンスにSSM Agentがインストールされているか】</span>
                             <br />
                             <br />
-                            まず前提として、以下のインスタンスについては、インスタンスを立ち上げた時点で既にインストールされているので、特に作業する必要はありません。（2023年4月時点）
+                            まず前提として、以下のインスタンスについては、インスタンスを立ち上げた時点で既にSSM Agentはインストールされているので、特に作業する必要はありません。（2023年4月時点）
                             <br />
                             <br />
                             参考 :{" "}
@@ -330,7 +335,7 @@ const Ec2TroubleShooting = () => {
                             以下はロール作成時の最後の確認画面です。
                             <br />
                             <br />
-                            <img src={"/images/ec2-troubleshooting/ロール作成画面.png"} />
+                            <img src={"/images/ec2-troubleshooting/ロール作成画面.png"} alt="ロール作成画面" />
                             <br />
                             <br />
                             ＜手順②＞　作成したポリシーをEC2インスタンスへアタッチ
@@ -353,7 +358,7 @@ const Ec2TroubleShooting = () => {
                             <br />
                             <br />
                             <br />
-                            <img src={"/images/ec2-troubleshooting/セッションマネージャーエラー解消後.png"} className="m-auto md:w-10/12" />
+                            <img src={"/images/ec2-troubleshooting/セッションマネージャーエラー解消後.png"} className="m-auto md:w-10/12" alt="セッションマネージャーエラー解消後" />
                             <br />
                             <br />
                             <br />
