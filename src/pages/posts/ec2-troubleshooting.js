@@ -109,6 +109,9 @@ const Ec2TroubleShooting = () => {
                                 <br />
                                 <br />
                                 AWSエンジニアの方からすると当たり前のことかもしれませんが、恥ずかしながら私はここで少々つまずきました、、
+                                <br />
+                                <br />
+                                続いて2つ目のエラーです。
                             </p>
                         </div>
                     </section>
@@ -350,7 +353,7 @@ const Ec2TroubleShooting = () => {
                                 <ul className="ml-8 list-decimal">
                                     <li>AWSマネジメントコンソールでEC2のコンソールへアクセスし、対象のインスタンスにチェックを入れて「アクション▲」を押下します。</li>
                                     <li>「アクション▲」の下に表示されたメニューから「セキュリティ」＞「IAMロールを変更」の順で選択します。</li>
-                                    <li>「IAMロールを作成」の部分をクリックし、先ほど作成したロールを選択して「IAMロールの更新」を押下します。</li>
+                                    <li>「IAMロールを選択」の部分をクリックし、先ほど作成したロールを選択して「IAMロールの更新」を押下します。</li>
                                     <li>
                                         <span className="font-bold underline decoration-red-400 decoration-2">ここでインスタンスを起動している場合はインスタンスを再起動してください。</span>
                                     </li>
