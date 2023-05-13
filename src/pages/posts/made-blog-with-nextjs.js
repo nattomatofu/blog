@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import Head from "next/head";
 
-const title = "Next.jsでブログを作ってみた";
+const title = "Next.jsでブログを作ってみた（やった勉強や、今後実装したい機能などをメインにまとめています！）";
 const updateDate = "2023/5/13";
 const thumbnailImagePath = "images/thumbnail/nextjs_thumbnail.jpg";
 const metaDescription =
