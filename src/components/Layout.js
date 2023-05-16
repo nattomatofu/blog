@@ -8,7 +8,7 @@ function Layout({ children, home }) {
     return (
         <>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/natto_favicon.ico" />
             </Head>
             <header className=" bg-neutral-700">
                 <div className="container mx-auto px-5 xl:px-52">
