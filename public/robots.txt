@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.nattomatofu.com
+
+# Sitemaps
+Sitemap: https://www.nattomatofu.com/sitemap.xml
