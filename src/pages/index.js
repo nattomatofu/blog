@@ -70,7 +70,9 @@ export default function Home({ allPostsData }) {
                                         <img className="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/gitlab_thumbnail.jpg" alt="blog" />
                                         <div className="p-6">
                                             <div className="overflow-hidden  md:h-16">
-                                                <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">GitLabについて簡単にまとめてみた</h1>
+                                                <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">
+                                                    GitLabのエディションやインストール手順について簡単にまとめてみた
+                                                </h1>
                                             </div>
                                             <div className="flex flex-wrap items-center">
                                                 <p className="inline-flex items-center  border-l-neutral-700 md:mb-2 lg:mb-0">更新日 : 2023/6/4</p>

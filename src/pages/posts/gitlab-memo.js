@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "GitLabについて簡単にまとめてみた";
+const title = "GitLabのエディションやインストール手順について簡単にまとめてみた";
 const updateDate = "2023/6/4";
 const thumbnailImagePath = "/images/thumbnail/gitlab_thumbnail.jpg";
 const metaDescription =
@@ -246,7 +246,6 @@ $ sudo EXTERNAL_URL="https://gitlab.example.com" apt-get install gitlab-ee`}
                             </div>
                         </div>
                     </section>
-
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id5">
