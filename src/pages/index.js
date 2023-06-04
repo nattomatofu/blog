@@ -71,7 +71,7 @@ export default function Home({ allPostsData }) {
                                         <div className="p-6">
                                             <div className="overflow-hidden  md:h-16">
                                                 <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">
-                                                    GitLabのエディションやインストール手順について簡単にまとめてみた
+                                                    GitLabのエディションやインストール手順についてまとめてみた
                                                 </h1>
                                             </div>
                                             <div className="flex flex-wrap items-center">

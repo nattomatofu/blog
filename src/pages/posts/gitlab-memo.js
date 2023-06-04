@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "GitLabのエディションやインストール手順について簡単にまとめてみた";
+const title = "GitLabのエディションやインストール手順についてまとめてみた";
 const updateDate = "2023/6/4";
 const thumbnailImagePath = "/images/thumbnail/gitlab_thumbnail.jpg";
 const metaDescription =
