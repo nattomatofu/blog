@@ -2,14 +2,11 @@ import Head from "next/head";
 import Link from "next/link";
 
 const BLOG_TITLE = "natto";
-const BLOG_SUB_TITLE = "TechBlog";
+const BLOG_SUB_TITLE = "memo";
 
 function Layout({ children, home }) {
     return (
         <>
-            {/* <Head>
-                <link rel="icon" href="/natto_favicon.ico" />
-            </Head> */}
             <header className=" bg-neutral-700">
                 <div className="container mx-auto px-5 xl:px-52">
                     <div className="flex flex-row flex-wrap justify-between py-2 md:py-6">

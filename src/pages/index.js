@@ -5,8 +5,8 @@ import { getPostsData } from "@/lib/post";
 import Layout from "@/components/Layout";
 
 const inter = Inter({ subsets: ["latin"] });
-const siteTitle = "natto TechBlog";
-const metaDescription = "どうも、納豆大好きnattoです。natto TechBlogです。IT関係の技術的な記事をメインに投稿していきます。";
+const siteTitle = "natto memo";
+const metaDescription = "どうも、納豆大好きnattoです。natto memoです。IT関係の技術的な記事をメインに投稿していきます。";
 const metaOgUrl = "https://www.nattomatofu.com/";
 const metaOgType = "article";
 const thumbnailImagePath = "/images/profile/profile_icon.png";
@@ -49,6 +49,21 @@ export default function Home({ allPostsData }) {
                 <section className="body-font text-gray-600">
                     <div className="container mx-auto px-1 md:pt-4 xl:px-48">
                         <div className="flex flex-wrap">
+                            <div className="w-full p-4 md:w-1/2">
+                                <Link href="/posts/gitlab-memo">
+                                    <div className="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
+                                        <img className="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/gitlab_thumbnail.jpg" alt="blog" />
+                                        <div className="p-6">
+                                            <div className="overflow-hidden  md:h-16">
+                                                <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">GitLabについて簡単にまとめてみた</h1>
+                                            </div>
+                                            <div className="flex flex-wrap items-center">
+                                                <p className="inline-flex items-center  border-l-neutral-700 md:mb-2 lg:mb-0">更新日 : 2023/6/4</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
                             <div className="w-full p-4 md:w-1/2">
                                 <Link href="/posts/ec2-troubleshooting">
                                     <div className="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
