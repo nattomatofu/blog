@@ -67,9 +67,12 @@ const JenkinsMemo = () => {
                                 <br />
                                 <br />
                                 <ul className="list-disc pl-6 md:pl-12">
-                                    <li>サーバ機　:　AWS EC2 t2.micro</li>
-                                    <li>OS　　　:　Ubuntu Server 22.05 LTS (HVM), SSD Volume Type</li>
-                                    <li>Jenkins　:　バージョン2.401.1</li>
+                                    <li>サーバ機</li>
+                                    <li className="ml-6">AWS EC2 t2.micro</li>
+                                    <li>OS</li>
+                                    <li className="ml-6">Ubuntu Server 22.05 LTS (HVM), SSD Volume Type</li>
+                                    <li>Jenkins</li>
+                                    <li className="ml-6">バージョン2.401.1</li>
                                 </ul>
                                 <br />
                                 <br />
