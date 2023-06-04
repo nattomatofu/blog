@@ -7,7 +7,7 @@ const title = "GitLabについて簡単にまとめてみた";
 const updateDate = "2023/6/4";
 const thumbnailImagePath = "/images/thumbnail/gitlab_thumbnail.jpg";
 const metaDescription =
-    "どうも、納豆大好きnattoです。仕事でGitLabのインストールや設定の仕方を勉強する機会があったので学んだことをまとめてみました。Ubuntuへのインストール手順や、GitLabの機能の説明をします。";
+    "どうも、納豆大好きnattoです。仕事でGitLabのインストールや設定の仕方を勉強する機会があったので学んだことをまとめてみました。GitLabのエディションやUbuntuへのインストール手順をまとめています。";
 const metaOgUrl = "https://www.nattomatofu.com/posts/gitlab-memo";
 const metaOgType = "article";
 
@@ -44,6 +44,7 @@ const GitlabMemo = () => {
                                 <br />
                                 <br />
                                 今回、私はブラウザ上でGitLabを使うユーザーというより、サーバを管理する立場だったこともあり、GitLabのエディションやサーバ管理についての内容がメインです。
+                                <br />
                                 <br />
                             </p>
                             <div className="flex justify-center">
