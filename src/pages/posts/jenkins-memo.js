@@ -207,6 +207,8 @@ $ sudo systemctl status jenkins`}
                                 <br />
                                 <br />
                                 その手順を記載していきます。
+                                <br />
+                                <br />
                                 <ul className="list-decimal space-y-6 px-6 md:my-6">
                                     <li>
                                         <span className="text-lg font-bold">Jenkinsへブラウザでアクセス</span>
