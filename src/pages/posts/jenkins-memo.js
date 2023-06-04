@@ -6,7 +6,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 const title = "UbuntuへのJenkinsインストール手順";
 const updateDate = "2023/6/4";
 const thumbnailImagePath = "/images/thumbnail/jenkins_thumbnail.png";
-const metaDescription = "どうも、納豆大好きnattoです。仕事でJenkinsを使う機会があり、Ubuntuサーバ上にインストールしてみました。その時のインストール手順を備忘もかねてまとめます。";
+const metaDescription = "どうも、納豆大好きnattoです。仕事でJenkinsを使う機会があり、個人でUbuntuサーバ上にインストールしてみました。その時のインストール手順を備忘もかねてまとめます。";
 const metaOgUrl = "https://www.nattomatofu.com/posts/jenkins-memo";
 const metaOgType = "article";
 
@@ -39,7 +39,7 @@ const JenkinsMemo = () => {
                     <section>
                         <div className="mt-4">
                             <div className="md:p-8">
-                                最近お仕事でJenkinsを使う必要があり、JenkinsをUbuntuにインストールしてみたのでその時の手順をまとめます。
+                                最近お仕事でJenkinsを使う必要があり、個人でJenkinsをUbuntuにインストールしてみたのでその時の手順をまとめます。
                                 <br />
                                 <br />
                             </div>
@@ -68,7 +68,7 @@ const JenkinsMemo = () => {
                                 <br />
                                 <ul className="list-disc pl-6 md:pl-12">
                                     <li>サーバ機　:　AWS EC2 t2.micro</li>
-                                    <li>OS　:　Ubuntu Server 22.05 LTS (HVM), SSD Volume Type</li>
+                                    <li>OS　　　:　Ubuntu Server 22.05 LTS (HVM), SSD Volume Type</li>
                                     <li>Jenkins　:　バージョン2.401.1</li>
                                 </ul>
                                 <br />
@@ -229,7 +229,9 @@ xxxxxxxxxxxxxxxxxxxxxxxx　　←　　これを入力`}
                                         <br />
                                         ロックを解除すると、プラグインのインストール画面が表示されます。
                                         <br />
-                                        このタイミングで必要なプラグインをインストールしなくても、プラグインの追加インストールは後から可能なので、お好みで選択してください。
+                                        <span className="font-bold underline decoration-red-400 decoration-2">
+                                            このタイミングで必要なプラグインをインストールしなくても、プラグインの追加インストールは後から可能なので、お好みで選択してください。
+                                        </span>
                                         <br />
                                         <br />
                                         私は一旦、推奨プラグインのみがインストールされる「Install suggested plugins」を選択しました。
@@ -285,7 +287,7 @@ xxxxxxxxxxxxxxxxxxxxxxxx　　←　　これを入力`}
                                         <br />
                                         <img src="/images/jenkins-memo/Jenkins_Home.png" alt="セットアップ完了画面" className="m-auto my-4 w-8/12" />
                                         <br />
-                                        Jenkinsのホーム画面が表示されました！！
+                                        <span className="font-bold underline decoration-red-400 decoration-2">Jenkinsのホーム画面が表示されました！！</span>
                                     </li>
                                 </ul>
                             </div>
