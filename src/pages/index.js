@@ -39,7 +39,7 @@ export default function Home({ allPostsData }) {
             </Head>
             <main>
                 <section>
-                    <div className="container mx-auto px-6 xl:px-52">
+                    <div className="container mx-auto px-6 xl:pl-52">
                         <div className="mt-4 border-b border-l-4 border-neutral-700 border-l-neutral-700 md:mt-8">
                             <h1 className="ml-2 text-xl">Posts</h1>
                         </div>
@@ -47,7 +47,7 @@ export default function Home({ allPostsData }) {
                 </section>
 
                 <section className="body-font text-gray-600">
-                    <div className="container mx-auto px-1 md:pt-4 xl:px-48">
+                    <div className="container mx-auto px-1 md:pt-4 xl:pl-48">
                         <div className="flex flex-wrap">
                             <div className="w-full p-4 md:w-1/2">
                                 <Link href="/posts/jenkins-memo">
