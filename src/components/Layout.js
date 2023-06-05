@@ -37,7 +37,7 @@ function Layout({ children, home }) {
                 </div>
             )} */}
                 <div className="container mx-auto mt-8 p-6 text-gray-600 lg:mx-0 lg:mt-0 lg:w-4/12 xl:pr-52">
-                    <Link href="/posts/jenkins-memo">
+                    <Link href="/profile">
                         <div className="rounded-md border border-t-8  border-neutral-600 p-5 align-middle">
                             <div className="mb-4 text-lg font-bold ">プロフィール</div>
                             <div className="flex flex-wrap items-center">
