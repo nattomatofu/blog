@@ -85,7 +85,7 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git status`}
                                 </SyntaxHighlighter>
-                                ワークツリーとステージングの差分が赤色の文字で、ステージングとローカルリポジトリの差分が緑色の文字で表示されます。
+                                ワークツリーとステージングの差分は赤色の文字で、ステージングとローカルリポジトリの差分は緑色の文字で表示されます。
                                 <p className="mt-4 font-bold">▼nginxの停止</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ gitlab-ctl stop nginx`}
