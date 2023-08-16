@@ -99,10 +99,6 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git log`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼変更（コミット）履歴を一行で確認</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ git log --oneline`}
-                                </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼変更（コミット）履歴を一行ずつで確認</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git log --oneline`}
@@ -128,13 +124,13 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git mv 旧ファイル名 新ファイル名`}
                                 </SyntaxHighlighter>
-                                上のmvコマンドを実行すると、ワークツリーだけでなくステージにも変更が反映された状態になります。すなわち、変更後、git addした状態になるということです。 <br />
+                                上のmvコマンドを実行すると、ワークツリーだけでなくステージにも変更が反映された状態になります。すなわち、変更後git addした状態になるということです。 <br />
                                 ディレクトリを移動する場合は、ファイル名の部分にディレクトリパスを入力すれば可能です。
                                 <p className="mt-4 font-bold">▼ローカルPCのディレクトリをリモートリポジトリへ登録</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git remote add origin リモートリポジトリのURL`}
                                 </SyntaxHighlighter>
-                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」でリモートリポジトリの省略名を設定します。
+                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」で今後使用するリモートリポジトリの省略名を設定します。
                                 <p className="mt-4 font-bold">▼リモートリポジトリに変更を反映</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git push リモート名 ブランチ名`}
