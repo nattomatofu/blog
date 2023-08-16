@@ -128,7 +128,7 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git mv 旧ファイル名 新ファイル名`}
                                 </SyntaxHighlighter>
-                                上のmvコマンドを実行すると、ワークツリーだけでなくステージにも変更が反映された状態になります。すなわち、変更後、git addした状態になるということです。 
+                                上のmvコマンドを実行すると、ワークツリーだけでなくステージにも変更が反映された状態になります。すなわち、変更後、git addした状態になるということです。 <br />
                                 ディレクトリを移動する場合は、ファイル名の部分にディレクトリパスを入力すれば可能です。
                                 <p className="mt-4 font-bold">▼ローカルPCのディレクトリをリモートリポジトリへ登録</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
@@ -144,8 +144,8 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git config --global alias.エイリアス名 エイリアス登録するコマンド`}
                                 </SyntaxHighlighter>
-                                例としては、「git config --global alias.co commit」のような感じです。
-                                「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。
+                                例としては、「git config --global alias.co commit」のような感じです。<br />
+                                「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。<br />
                                 「--global」をつけない場合は、コマンドを実行した際にいるプロジェクトの「.git/config」ファイルに設定が反映されます。
                                 <br />
                                 <br />
