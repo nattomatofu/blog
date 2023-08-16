@@ -77,7 +77,7 @@ const GitCommand = () => {
                                     {`$ git config --list`}
                                 </SyntaxHighlighter>
                                     このコマンドで表示される内容の設定ファイルは「~/.gitconfig」に記載されていて、ファイルの中身はcatコマンドなどで確認できます。
-                                <p className="mt-4 font-bold">▼ワークツリーの変更をステージングへ追加（＝ステージングにインデックスを作成）</p>
+                                <p className="mt-4 font-bold">▼ワークツリーの変更をステージへ追加（＝ステージにインデックスを作成）</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git add <ファイル名>`}
                                 </SyntaxHighlighter>
@@ -85,18 +85,71 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git status`}
                                 </SyntaxHighlighter>
-                                ワークツリーとステージングの差分は赤色の文字で、ステージングとローカルリポジトリの差分は緑色の文字で表示されます。
-                                <p className="mt-4 font-bold">▼nginxの停止</p>
+                                ワークツリーとステージの差分は赤色の文字で、ステージとローカルリポジトリの差分は緑色の文字で表示されます。
+                                <p className="mt-4 font-bold">▼ワークツリーとステージの変更差分を確認</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ gitlab-ctl stop nginx`}
+                                    {`$ git diff`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼GitLabサーバのログの確認</p>
+                                ステージとローカルリポジトリの変更差分を確認する場合は、以下のコマンドを使用します。
+                                <p className="mt-4 font-bold">▼ステージとローカルリポジトリの変更差分を確認</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ gitlab-ctl tail`}
+                                    {`$ git diff --staged`}
                                 </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴を確認</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git log`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴を一行で確認</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git log --oneline`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴を一行ずつで確認</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git log --oneline`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴の変更差分のみを確認する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git log -p`}
+                                </SyntaxHighlighter>
+                                「-p」の後ろにスペースを開けて、ファイル名を追加することで特定のファイルに絞って確認することができます。
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴を表示数を制限して確認</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git log -n コミット数`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ワークツリーとローカルリポジトリの両方からファイル（またはディレクトリ）を削除する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git rm ファイル名（またはディレクトリ名）`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ローカルリポジトリからのみファイル（またはディレクトリ）を削除する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git rm --cached ファイル名（またはディレクトリ名）`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ファイルを移動（またはリネーム）</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git mv 旧ファイル名 新ファイル名`}
+                                </SyntaxHighlighter>
+                                上のmvコマンドを実行すると、ワークツリーだけでなくステージにも変更が反映された状態になります。すなわち、変更後、git addした状態になるということです。 
+                                ディレクトリを移動する場合は、ファイル名の部分にディレクトリパスを入力すれば可能です。
+                                <p className="mt-4 font-bold">▼ローカルPCのディレクトリをリモートリポジトリへ登録</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote add origin リモートリポジトリのURL`}
+                                </SyntaxHighlighter>
+                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」でリモートリポジトリの省略名を設定します。
+                                <p className="mt-4 font-bold">▼リモートリポジトリに変更を反映</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git push リモート名 ブランチ名`}
+                                </SyntaxHighlighter>
+                                リモート名は「origin」が一般的かと思います。
+                                <p className="mt-4 font-bold">▼Gitコマンドにエイリアスを登録</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git config --global alias.エイリアス名 エイリアス登録するコマンド`}
+                                </SyntaxHighlighter>
+                                例としては、「git config --global alias.co commit」のような感じです。
+                                「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。
+                                「--global」をつけない場合は、コマンドを実行した際にいるプロジェクトの「.git/config」ファイルに設定が反映されます。
                                 <br />
                                 <br />
-                                コマンドは他にも沢山ありますが、基本的なコマンドは以上です。
+                                コマンドは他にも沢山ありますが、以上です。
                             </div>
                         </div>
                     </section>
@@ -108,10 +161,12 @@ const GitCommand = () => {
                         </div>
                         <div className="mt-8">
                             <p className="md:p-8">
-                                以上、GitLabについて簡単でしたがまとめてみました。
+                                以上、Gitのコマンドについて簡単でしたがまとめてみました。
                                 <br />
                                 <br />
-                                冒頭でも書きましたが、今回GitLabを管理する側の立場だったこともあり、インストールや管理コマンド中心の内容となりましたが、少しでもどなたかの参考になればと思います！
+                                何度も打っているはずのコマンドですが、多くのコマンドが頭の中に保存されず抜けていってしまいます笑。
+                                <br />
+                                こんなの知ってるよ！という内容だったかと思いますが、以上、どなたかの役にたてば幸いです！
                                 <br />
                                 <br />
                                 それでは！
