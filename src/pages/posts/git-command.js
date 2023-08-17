@@ -103,7 +103,7 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git log --oneline`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼変更（コミット）履歴の変更差分のみを確認する</p>
+                                <p className="mt-4 font-bold">▼変更（コミット）履歴の変更差分のみを確認</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git log -p`}
                                 </SyntaxHighlighter>
@@ -112,11 +112,11 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git log -n コミット数`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼ワークツリーとローカルリポジトリの両方からファイル（またはディレクトリ）を削除する</p>
+                                <p className="mt-4 font-bold">▼ワークツリーとローカルリポジトリの両方からファイル（またはディレクトリ）を削除</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git rm ファイル名（またはディレクトリ名）`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼ローカルリポジトリからのみファイル（またはディレクトリ）を削除する</p>
+                                <p className="mt-4 font-bold">▼ローカルリポジトリからのみファイル（またはディレクトリ）を削除</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git rm --cached ファイル名（またはディレクトリ名）`}
                                 </SyntaxHighlighter>
@@ -130,7 +130,8 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git remote add origin リモートリポジトリのURL`}
                                 </SyntaxHighlighter>
-                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」で今後使用するリモートリポジトリの省略名を設定します。
+                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」で今後使用するリモートリポジトリの省略名を設定します。<br />
+                                また、使う機会はあまりないかもしれませんが、複数のリモートリポジトリを設定することもできます。
                                 <p className="mt-4 font-bold">▼リモートリポジトリに変更を反映</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git push リモート名 ブランチ名`}
@@ -143,6 +144,43 @@ const GitCommand = () => {
                                 例としては、「git config --global alias.co commit」のような感じです。<br />
                                 「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。<br />
                                 「--global」をつけない場合は、コマンドを実行した際にいるプロジェクトの「.git/config」ファイルに設定が反映されます。
+                                <p className="mt-4 font-bold">▼ワークツリーの変更を取り消す（＝ステージの状態に戻す）</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git checkout -- ファイル名（またはディレクトリ名）`}
+                                </SyntaxHighlighter>                                
+                                「checkout」コマンドはブランチを切り替える時にも使用しますが、ブランチの切り替えなのか、ファイルの変更取り消しなのかを区別するために「--」がついています。<br />
+                                また、前回のaddコマンド実行時からの全ファイルの変更を取り消したい場合は、「git checkout -- .」のコマンドで取り消すことができます。
+                                <p className="mt-4 font-bold">▼ステージに追加した変更を取り消す（＝最新のコミットの状態に戻す）</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git reset HEAD ファイル名（またはディレクトリ名）`}
+                                </SyntaxHighlighter>
+                                「git reset HEAD .」とすると、全ファイルの変更が前回のコミットの状態に戻ります。<br />
+                                また、このコマンドのみではワークツリーの変更は元に戻らないので注意が必要です。<br />
+                                ワークツリーも元に戻したい場合は、このresetコマンドを実行した後、前述のcheckoutコマンドを実行しましょう。
+                                <p className="mt-4 font-bold">▼直前のコミットをやり直す</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git commit --amend`}
+                                </SyntaxHighlighter>
+                                最新のステージの状態で最新のコミットをやり直します。<br />
+                                一点注意点があり、他の人の余計な混乱を招くため、リモートリポジトリへ既にプッシュしてしまった変更は取り消さないようにしましょう。<br />
+                                既にリモートへプッシュしてしまった後に変更したい場合は、新しいコミットを作成してプッシュし直しましょう。
+                                <p className="mt-4 font-bold">▼リモートリポジトリの情報を表示する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote`}
+                                </SyntaxHighlighter>
+                                「git remote -v」と入力するとより詳細な情報を確認することができます。
+                                <p className="mt-4 font-bold">▼リモートから情報を取得する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git fetch リモート名`}
+                                </SyntaxHighlighter>
+                                リモート名は「origin」などとなります。<br />
+                                このコマンドでローカルリポジトリへ情報が取得されますが、ワークツリーへは反映されないことに注意してください。<br />
+                                ワークツリーに取り込む場合は以下のコマンドを実行しましょう。
+                                <p className="mt-4 font-bold">▼別ブランチの変更を現在のワークツリーへ反映する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git merge ブランチ名`}
+                                </SyntaxHighlighter>
+                                ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
