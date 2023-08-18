@@ -49,6 +49,12 @@ const GitCommand = () => {
                                         <li className="pb-2">
                                             <a href="#id1">Gitコマンドまとめ</a>
                                         </li>
+                                        <li className="pb-2">
+                                            <a href="#id2">その他メモ</a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id3">最後に</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,14 +168,32 @@ const GitCommand = () => {
                                     {`$ git commit --amend`}
                                 </SyntaxHighlighter>
                                 最新のステージの状態で最新のコミットをやり直します。<br />
-                                一点注意点があり、他の人の余計な混乱を招くため、リモートリポジトリへ既にプッシュしてしまった変更は取り消さないようにしましょう。<br />
+                                一点注意点があり、リモートリポジトリへ既にプッシュしてしまった変更は取り消さないようにしましょう。他の人の余計な混乱を招く可能性があります。<br />
                                 既にリモートへプッシュしてしまった後に変更したい場合は、新しいコミットを作成してプッシュし直しましょう。
-                                <p className="mt-4 font-bold">▼リモートリポジトリの情報を表示する</p>
+                                <p className="mt-4 font-bold">▼リモートリポジトリの情報を表示</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git remote`}
                                 </SyntaxHighlighter>
                                 「git remote -v」と入力するとより詳細な情報を確認することができます。
-                                <p className="mt-4 font-bold">▼リモートから情報を取得する</p>
+                                <p className="mt-4 font-bold">▼リモートリポジトリのより詳細な情報を表示</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote show リモート名`}
+                                </SyntaxHighlighter>
+                                リモート名は「origin」などが入ります。
+                                <p className="mt-4 font-bold">▼リモートの情報を変更</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote rename 旧リモート名 新リモート名`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼リモートの情報を削除</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote rm 旧リモート名 新リモート名`}
+                                </SyntaxHighlighter>
+                                当たり前ですが、ロケールのリポジトリから指定したリモートリポジトリの情報が削除されるだけで、リモートリポジトリが削除されるわけではありません。
+                                <p className="mt-4 font-bold">▼リモートの情報を変更・削除</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git remote rename 旧リモート名 新リモート名`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼リモートから情報を取得</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git fetch リモート名`}
                                 </SyntaxHighlighter>
@@ -181,6 +205,26 @@ const GitCommand = () => {
                                     {`$ git merge ブランチ名`}
                                 </SyntaxHighlighter>
                                 ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。
+                                <p className="mt-4 font-bold">▼リモートからデータを取得してマージ</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git pull リモート名 ブランチ名`}
+                                </SyntaxHighlighter>
+                                pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。
+                                マージ先のブランチはコマンド実行時にチェックアウトしているブランチになる点に注意しましょう。
+                                <p className="mt-4 font-bold">▼ローカルのブランチ一覧を表示</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git branch`}
+                                </SyntaxHighlighter>
+                                「-a」オプションを付けることによって、リモートのブランチもすべて表示されます。
+                                <p className="mt-4 font-bold">▼ローカルにブランチを新規作成</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git branch ブランチ名`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ブランチを切り替える</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git checkout ブランチ名`}
+                                </SyntaxHighlighter>
+                                「git checkout -b ブランチ名」のように「-b」オプションを付けることで、ブランチの作成と切り替えを同時に行うことができます。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
@@ -189,7 +233,21 @@ const GitCommand = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id6">
+                            <h2 className="ml-2 text-xl" id="id2">
+                                その他メモ
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <ul className="list-disc md:p-8">
+                                <li>ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
+                                <li>「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
+                                
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id3">
                                 最後に
                             </h2>
                         </div>
