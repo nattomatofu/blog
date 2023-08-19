@@ -39,7 +39,7 @@ const GitCommand = () => {
 
                     <section>
                         <div className="mt-4">
-                            <p className="md:p-8">
+                            <p className="mb-8 md:p-8">
                                 今更ですが、Gitについて最近学び直しているので備忘メモとして簡単にまとめます。
                                 雑ですがコマンド以外のメモも残します。
                             </p>
@@ -227,7 +227,18 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch ブランチ名`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼ブランチを切り替える</p>
+                                <p className="mt-4 font-bold">▼ブランチ名を変更</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git branch -m 新ブランチ名`}
+                                </SyntaxHighlighter>
+                                コマンド実行時にチェックアウトしているブランチの名前が変更されます。
+                                <p className="mt-4 font-bold">▼ブランチを削除</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git branch -d ブランチ名`}
+                                </SyntaxHighlighter>
+                                masterにマージされていない変更が残っている場合は警告が出て削除はされません。
+                                「-d」の部分を「-D」に変更することで、警告を無視して強制削除できます。
+                                <p className="mt-4 font-bold">▼ブランチを切り替え</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git checkout ブランチ名`}
                                 </SyntaxHighlighter>
