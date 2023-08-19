@@ -41,6 +41,7 @@ const GitCommand = () => {
                         <div className="mt-4">
                             <p className="md:p-8">
                                 今更ですが、Gitについて最近学び直しているので備忘メモとして簡単にまとめます。
+                                雑ですがコマンド以外のメモも残します。
                             </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
@@ -50,10 +51,13 @@ const GitCommand = () => {
                                             <a href="#id1">Gitコマンドまとめ</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id2">その他メモ</a>
+                                            <a href="#id2">コンフリクトが起きた場合の対処法</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id3">最後に</a>
+                                            <a href="#id3">その他メモ</a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id4">最後に</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -204,12 +208,15 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git merge ブランチ名`}
                                 </SyntaxHighlighter>
-                                ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。
+                                マージ先のブランチはコマンド実行時にチェックアウトしているブランチとなります。<br />
+                                ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。<br />
+                                「origin」をつけずにブランチ名だけ（featureなど）を指定すると、そのローカルのブランチの内容をマージすることができます。<br />
+                                また、マージ先ブランチの最新コミット履歴にマージされた側のコミット履歴が追加され、マージ先ブランチの最新コミットが更新されます。（例：masterにfeatureを取り込んだ場合、masterの最新コミット履歴にfeatureの最新コミット履歴が追加され、masterの最新コミットはfeatureでコミットしたものとなる。）
                                 <p className="mt-4 font-bold">▼リモートからデータを取得してマージ</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git pull リモート名 ブランチ名`}
                                 </SyntaxHighlighter>
-                                pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。
+                                pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。<br />
                                 マージ先のブランチはコマンド実行時にチェックアウトしているブランチになる点に注意しましょう。
                                 <p className="mt-4 font-bold">▼ローカルのブランチ一覧を表示</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
@@ -229,6 +236,29 @@ const GitCommand = () => {
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
                             </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id2">
+                                コンフリクトが起きた場合の対処法
+                            </h2>
+                        </div>
+                        <div className="mt-8 md:p-8">
+                            いつまで経ってもコンフリクトが起きるとテンパるので、対処法をまとめます。
+                            <ul className="list-decimal md:p-8">
+                                <li>「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
+                                <li>任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
+                                <li>最終的にしたい形にファイルを変更する。</li>
+                                <li>不要な行（コンフリクトが起きた箇所で捨てたい方の内容）と、以下の行を削除する。</li>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`<<<<<<< HEAD
+=======
+>>>>>>> feature`}
+                                </SyntaxHighlighter>
+                                <li>ファイルを保存し、「git add」、「git commit」を実行する。</li>
+                            </ul>
+                            以上です。これで安心です。
                         </div>
                     </section>
                     <section>

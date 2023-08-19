@@ -69,7 +69,7 @@ export default function Home({ allPostsData }) {
                             <div className="w-full p-4 md:w-1/2">
                                 <Link href="/posts/jenkins-memo">
                                     <div className="overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60 duration-300 hover:scale-105">
-                                        <img className="w-11/12 object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/jenkins_thumbnail.png" alt="blog" />
+                                        <img className="w-full object-cover object-center md:h-36 lg:h-48" src="images/thumbnail/jenkins_thumbnail.png" alt="blog" />
                                         <div className="p-6">
                                             <div className="overflow-hidden  md:h-16">
                                                 <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">UbuntuへのJenkinsインストール手順</h1>
