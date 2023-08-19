@@ -257,7 +257,7 @@ const GitCommand = () => {
                         </div>
                         <div className="mt-8 md:p-8">
                             いつまで経ってもコンフリクトが起きるとテンパるので、対処法をまとめます。
-                            <ul className="list-decimal md:p-8">
+                            <ul className="list-decimal md:p-8 list-inside">
                                 <li>「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
                                 <li>任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
                                 <li>最終的にしたい形にファイルを変更する。</li>
@@ -279,7 +279,7 @@ const GitCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8">
-                            <ul className="list-disc md:p-8">
+                            <ul className="list-disc md:p-8 list-inside">
                                 <li>ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
                                 <li>「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
                                 
