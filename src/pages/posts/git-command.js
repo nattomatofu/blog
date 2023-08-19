@@ -211,7 +211,7 @@ const GitCommand = () => {
                                 マージ先のブランチはコマンド実行時にチェックアウトしているブランチとなります。<br />
                                 ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。<br />
                                 「origin」をつけずにブランチ名だけ（featureなど）を指定すると、そのローカルのブランチの内容をマージすることができます。<br />
-                                また、マージ先ブランチの最新コミット履歴にマージされた側のコミット履歴が追加され、マージ先ブランチの最新コミットが更新されます。（例：masterにfeatureを取り込んだ場合、masterの最新コミット履歴にfeatureの最新コミット履歴が追加され、masterの最新コミットはfeatureでコミットしたものとなる。）
+                                また、マージ先ブランチの最新コミット履歴にマージされた側のコミット履歴が追加され、マージ先ブランチの最新コミットが新たに作られ更新されます。（例：masterにfeatureを取り込んだ場合、masterの最新コミット履歴にfeatureの最新コミット履歴が追加され、masterの最新コミットはfeatureでコミットしたものとなる。）
                                 <p className="mt-4 font-bold">▼リモートからデータを取得してマージ</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git pull リモート名 ブランチ名`}
@@ -227,6 +227,11 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch ブランチ名`}
                                 </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼リモートブランチからローカルブランチを新規作成</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git branch ブランチ名 リモートブランチ名`}
+                                </SyntaxHighlighter>
+                                例としては「git branch feature origin/feature」のような感じです。
                                 <p className="mt-4 font-bold">▼ブランチ名を変更</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch -m 新ブランチ名`}
@@ -243,6 +248,11 @@ const GitCommand = () => {
                                     {`$ git checkout ブランチ名`}
                                 </SyntaxHighlighter>
                                 「git checkout -b ブランチ名」のように「-b」オプションを付けることで、ブランチの作成と切り替えを同時に行うことができます。
+                                <p className="mt-4 font-bold">▼リモートブランチからローカルブランチを作成して切り替え</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git checkout -b 作成するローカルブランチ名 リモートブランチ名`}
+                                </SyntaxHighlighter>
+                                「git checkout -b feature origin/feature」のような感じです。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
@@ -256,12 +266,12 @@ const GitCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8 md:p-8">
-                            いつまで経ってもコンフリクトが起きるとテンパるので、対処法をまとめます。
+                            いつまで経ってもコンフリクトが起きるとテンパるので、解消手順をまとめます。
                             <ul className="list-decimal md:p-8 list-inside">
                                 <li className="my-4">「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
                                 <li className="my-4">任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
-                                <li className="my-4">最終的にしたい形にファイルを変更する。</li>
-                                <li className="my-4">不要な行（コンフリクトが起きた箇所で捨てたい方の内容）と、以下の行を削除する。</li>
+                                <li className="my-4">不要な行は削除して、最終的にしたい形にファイルを変更する。</li>
+                                <li className="my-4">以下の行を削除する。</li>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`<<<<<<< HEAD
 =======
@@ -282,7 +292,6 @@ const GitCommand = () => {
                             <ul className="list-disc md:p-8 list-inside">
                                 <li className="my-4">ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
                                 <li className="my-4">「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
-                                
                             </ul>
                         </div>
                     </section>
