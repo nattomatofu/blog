@@ -258,16 +258,16 @@ const GitCommand = () => {
                         <div className="mt-8 md:p-8">
                             いつまで経ってもコンフリクトが起きるとテンパるので、対処法をまとめます。
                             <ul className="list-decimal md:p-8 list-inside">
-                                <li>「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
-                                <li>任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
-                                <li>最終的にしたい形にファイルを変更する。</li>
-                                <li>不要な行（コンフリクトが起きた箇所で捨てたい方の内容）と、以下の行を削除する。</li>
+                                <li className="my-4">「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
+                                <li className="my-4">任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
+                                <li className="my-4">最終的にしたい形にファイルを変更する。</li>
+                                <li className="my-4">不要な行（コンフリクトが起きた箇所で捨てたい方の内容）と、以下の行を削除する。</li>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`<<<<<<< HEAD
 =======
 >>>>>>> feature`}
                                 </SyntaxHighlighter>
-                                <li>ファイルを保存し、「git add」、「git commit」を実行する。</li>
+                                <li className="my-4">ファイルを保存し、「git add」、「git commit」を実行する。</li>
                             </ul>
                             以上です。これで安心です。
                         </div>
@@ -280,8 +280,8 @@ const GitCommand = () => {
                         </div>
                         <div className="mt-8">
                             <ul className="list-disc md:p-8 list-inside">
-                                <li>ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
-                                <li>「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
+                                <li className="my-4">ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
+                                <li className="my-4">「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
                                 
                             </ul>
                         </div>
