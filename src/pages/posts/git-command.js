@@ -202,7 +202,7 @@ const GitCommand = () => {
                                     {`$ git fetch リモート名`}
                                 </SyntaxHighlighter>
                                 リモート名は「origin」などとなります。<br />
-                                このコマンドでローカルリポジトリへ情報が取得されますが、ワークツリーへは反映されないことに注意してください。<br />
+                                このコマンドでローカルリポジトリへリモートのブランチとコミットの情報が取得されますが、ワークツリーへは反映されないことに注意してください。<br />
                                 ワークツリーに取り込む場合は以下のコマンドを実行しましょう。
                                 <p className="mt-4 font-bold">▼別ブランチの変更を現在のワークツリーへ反映する</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
@@ -218,6 +218,12 @@ const GitCommand = () => {
                                 </SyntaxHighlighter>
                                 pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。<br />
                                 マージ先のブランチはコマンド実行時にチェックアウトしているブランチになる点に注意しましょう。
+                                <p className="mt-4 font-bold">▼リモートからデータを取得してリベース</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git pull --rebase リモート名 ブランチ名`}
+                                </SyntaxHighlighter>
+                                rebaseで取り込むことで、マージコミットがコミット履歴に残らないようになります。
+                                シンプルにローカルブランチを最新に更新したい時に使用しましょう。
                                 <p className="mt-4 font-bold">▼ローカルのブランチ一覧を表示</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch`}
@@ -253,6 +259,20 @@ const GitCommand = () => {
                                     {`$ git checkout -b 作成するローカルブランチ名 リモートブランチ名`}
                                 </SyntaxHighlighter>
                                 「git checkout -b feature origin/feature」のような感じです。
+                                <p className="mt-4 font-bold">▼ブランチの履歴（親コミット）を更新する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git rebase ブランチ名`}
+                                </SyntaxHighlighter>
+                                コマンド実行時にチェックアウトしているブランチの履歴（親コミット）を更新します。<br />
+                                featureブランチで作業をしている途中に、最新のmasterブランチの内容を取り込みたい場合などで使用します。<br />
+                                もちろん、masterへfeatureを取り込むことの可能です。<br />
+                                <span className="font-bold underline decoration-red-400 decoration-2">一点、一度リモートへプッシュしたコミットが最新の状態ではrebaseコマンドは実行しないようにしましょう。</span><br />
+                                <span className="font-bold underline decoration-red-400 decoration-2">リモートリポジトリとのコミット履歴の整合性が合わず、プッシュできなくなります。</span>
+                                <p className="mt-4 font-bold">▼過去のコミットを修正する・まとめる</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git rebase -i HEAD~数字`}
+                                </SyntaxHighlighter>
+                                このコマンドは実行後のステップが他のコマンドより少し複雑ですが、<a href="https://qiita.com/yuya_yuzen/items/274b8e9cde840492d7e8" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">こちら</a>の記事がわかりやすくまとめられていました。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
@@ -280,6 +300,19 @@ const GitCommand = () => {
                                 <li className="my-4">ファイルを保存し、「git add」、「git commit」を実行する。</li>
                             </ul>
                             以上です。これで安心です。
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id2">
+                                mergeとrebaseの使い分け
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <ul className="list-disc md:p-8 list-inside">
+                                <li className="my-4">merge　→　リモートへプッシュした後に取り込む場合。</li>
+                                <li className="my-4">rebase　→　リモートへプッシュしておらずローカルの履歴を整理したい場合。</li>
+                            </ul>
                         </div>
                     </section>
                     <section>
