@@ -6,8 +6,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 const title = "Gitのコマンドをまとめてみた";
 const updateDate = "2023/8/16";
 const thumbnailImagePath = "/images/thumbnail/git_command_thumbnail.png";
-const metaDescription =
-    "どうも、納豆大好きnattoです。Gitのコマンドをよく忘れるので、忘れたときのメモ用にまとめます。";
+const metaDescription = "どうも、納豆大好きnattoです。Gitのコマンドをよく忘れるので、忘れたときのメモ用にまとめます。";
 const metaOgUrl = "https://www.nattomatofu.com/posts/git-command";
 const metaOgType = "article";
 
@@ -39,10 +38,7 @@ const GitCommand = () => {
 
                     <section>
                         <div className="mt-4">
-                            <p className="mb-8 md:p-8">
-                                今更ですが、Gitについて最近学び直しているので備忘メモとして簡単にまとめます。
-                                雑ですがコマンド以外のメモも残します。
-                            </p>
+                            <p className="mb-8 md:p-8">今更ですが、Gitについて最近学び直しているので備忘メモとして簡単にまとめます。 雑ですがコマンド以外のメモも残します。</p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
                                     <p className="mb-4 text-center text-xl">目次</p>
@@ -86,7 +82,7 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git config --list`}
                                 </SyntaxHighlighter>
-                                    このコマンドで表示される内容の設定ファイルは「~/.gitconfig」に記載されていて、ファイルの中身はcatコマンドなどで確認できます。
+                                このコマンドで表示される内容の設定ファイルは「~/.gitconfig」に記載されていて、ファイルの中身はcatコマンドなどで確認できます。
                                 <p className="mt-4 font-bold">▼ワークツリーの変更をステージへ追加（＝ステージにインデックスを作成）</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git add <ファイル名>`}
@@ -140,7 +136,8 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git remote add origin リモートリポジトリのURL`}
                                 </SyntaxHighlighter>
-                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」で今後使用するリモートリポジトリの省略名を設定します。<br />
+                                「git remote add」の部分でリモートリポジトリを登録して、その後の「origin」で今後使用するリモートリポジトリの省略名を設定します。
+                                <br />
                                 また、使う機会はあまりないかもしれませんが、複数のリモートリポジトリを設定することもできます。
                                 <p className="mt-4 font-bold">▼リモートリポジトリに変更を反映</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
@@ -151,28 +148,35 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git config --global alias.エイリアス名 エイリアス登録するコマンド`}
                                 </SyntaxHighlighter>
-                                例としては、「git config --global alias.co commit」のような感じです。<br />
-                                「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。<br />
+                                例としては、「git config --global alias.co commit」のような感じです。
+                                <br />
+                                「--global」をつけた場合は、ホームディレクトリ配下の「~/.gitconfig」ファイルに設定が反映されます。
+                                <br />
                                 「--global」をつけない場合は、コマンドを実行した際にいるプロジェクトの「.git/config」ファイルに設定が反映されます。
                                 <p className="mt-4 font-bold">▼ワークツリーの変更を取り消す（＝ステージの状態に戻す）</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git checkout -- ファイル名（またはディレクトリ名）`}
-                                </SyntaxHighlighter>                                
-                                「checkout」コマンドはブランチを切り替える時にも使用しますが、ブランチの切り替えなのか、ファイルの変更取り消しなのかを区別するために「--」がついています。<br />
+                                </SyntaxHighlighter>
+                                「checkout」コマンドはブランチを切り替える時にも使用しますが、ブランチの切り替えなのか、ファイルの変更取り消しなのかを区別するために「--」がついています。
+                                <br />
                                 また、前回のaddコマンド実行時からの全ファイルの変更を取り消したい場合は、「git checkout -- .」のコマンドで取り消すことができます。
                                 <p className="mt-4 font-bold">▼ステージに追加した変更を取り消す（＝最新のコミットの状態に戻す）</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git reset HEAD ファイル名（またはディレクトリ名）`}
                                 </SyntaxHighlighter>
-                                「git reset HEAD .」とすると、全ファイルの変更が前回のコミットの状態に戻ります。<br />
-                                また、このコマンドのみではワークツリーの変更は元に戻らないので注意が必要です。<br />
+                                「git reset HEAD .」とすると、全ファイルの変更が前回のコミットの状態に戻ります。
+                                <br />
+                                また、このコマンドのみではワークツリーの変更は元に戻らないので注意が必要です。
+                                <br />
                                 ワークツリーも元に戻したい場合は、このresetコマンドを実行した後、前述のcheckoutコマンドを実行しましょう。
                                 <p className="mt-4 font-bold">▼直前のコミットをやり直す</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git commit --amend`}
                                 </SyntaxHighlighter>
-                                最新のステージの状態で最新のコミットをやり直します。<br />
-                                一点注意点があり、リモートリポジトリへ既にプッシュしてしまった変更は取り消さないようにしましょう。他の人の余計な混乱を招く可能性があります。<br />
+                                最新のステージの状態で最新のコミットをやり直します。
+                                <br />
+                                一点注意点があり、リモートリポジトリへ既にプッシュしてしまった変更は取り消さないようにしましょう。他の人の余計な混乱を招く可能性があります。
+                                <br />
                                 既にリモートへプッシュしてしまった後に変更したい場合は、新しいコミットを作成してプッシュし直しましょう。
                                 <p className="mt-4 font-bold">▼リモートリポジトリの情報を表示</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
@@ -201,29 +205,34 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git fetch リモート名`}
                                 </SyntaxHighlighter>
-                                リモート名は「origin」などとなります。<br />
-                                このコマンドでローカルリポジトリへリモートのブランチとコミットの情報が取得されますが、ワークツリーへは反映されないことに注意してください。<br />
+                                リモート名は「origin」などとなります。
+                                <br />
+                                このコマンドでローカルリポジトリへリモートのブランチとコミットの情報が取得されますが、ワークツリーへは反映されないことに注意してください。
+                                <br />
                                 ワークツリーに取り込む場合は以下のコマンドを実行しましょう。
                                 <p className="mt-4 font-bold">▼別ブランチの変更を現在のワークツリーへ反映する</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git merge ブランチ名`}
                                 </SyntaxHighlighter>
-                                マージ先のブランチはコマンド実行時にチェックアウトしているブランチとなります。<br />
-                                ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。<br />
-                                「origin」をつけずにブランチ名だけ（featureなど）を指定すると、そのローカルのブランチの内容をマージすることができます。<br />
+                                マージ先のブランチはコマンド実行時にチェックアウトしているブランチとなります。
+                                <br />
+                                ブランチ名を「origin/main」のようにすることで、前述のfetchコマンドで取ってきた情報を現在のワークツリーへ反映することができます。
+                                <br />
+                                「origin」をつけずにブランチ名だけ（featureなど）を指定すると、そのローカルのブランチの内容をマージすることができます。
+                                <br />
                                 また、マージ先ブランチの最新コミット履歴にマージされた側のコミット履歴が追加され、マージ先ブランチの最新コミットが新たに作られ更新されます。（例：masterにfeatureを取り込んだ場合、masterの最新コミット履歴にfeatureの最新コミット履歴が追加され、masterの最新コミットはfeatureでコミットしたものとなる。）
                                 <p className="mt-4 font-bold">▼リモートからデータを取得してマージ</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git pull リモート名 ブランチ名`}
                                 </SyntaxHighlighter>
-                                pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。<br />
+                                pullコマンドは、fecth → mergeの順番でコマンドを実行した場合と同じ挙動となります。
+                                <br />
                                 マージ先のブランチはコマンド実行時にチェックアウトしているブランチになる点に注意しましょう。
                                 <p className="mt-4 font-bold">▼リモートからデータを取得してリベース</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git pull --rebase リモート名 ブランチ名`}
                                 </SyntaxHighlighter>
-                                rebaseで取り込むことで、マージコミットがコミット履歴に残らないようになります。
-                                シンプルにローカルブランチを最新に更新したい時に使用しましょう。
+                                rebaseで取り込むことで、マージコミットがコミット履歴に残らないようになります。 シンプルにローカルブランチを最新に更新したい時に使用しましょう。
                                 <p className="mt-4 font-bold">▼ローカルのブランチ一覧を表示</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch`}
@@ -247,8 +256,7 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git branch -d ブランチ名`}
                                 </SyntaxHighlighter>
-                                masterにマージされていない変更が残っている場合は警告が出て削除はされません。
-                                「-d」の部分を「-D」に変更することで、警告を無視して強制削除できます。
+                                masterにマージされていない変更が残っている場合は警告が出て削除はされません。 「-d」の部分を「-D」に変更することで、警告を無視して強制削除できます。
                                 <p className="mt-4 font-bold">▼ブランチを切り替え</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git checkout ブランチ名`}
@@ -263,16 +271,26 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git rebase ブランチ名`}
                                 </SyntaxHighlighter>
-                                コマンド実行時にチェックアウトしているブランチの履歴（親コミット）を更新します。<br />
-                                featureブランチで作業をしている途中に、最新のmasterブランチの内容を取り込みたい場合などで使用します。<br />
-                                もちろん、masterへfeatureを取り込むことの可能です。<br />
-                                <span className="font-bold underline decoration-red-400 decoration-2">一点、一度リモートへプッシュしたコミットが最新の状態ではrebaseコマンドは実行しないようにしましょう。</span><br />
+                                コマンド実行時にチェックアウトしているブランチの履歴（親コミット）を更新します。
+                                <br />
+                                featureブランチで作業をしている途中に、最新のmasterブランチの内容を取り込みたい場合などで使用します。
+                                <br />
+                                もちろん、masterへfeatureを取り込むことの可能です。
+                                <br />
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    一点、一度リモートへプッシュしたコミットが最新の状態ではrebaseコマンドは実行しないようにしましょう。
+                                </span>
+                                <br />
                                 <span className="font-bold underline decoration-red-400 decoration-2">リモートリポジトリとのコミット履歴の整合性が合わず、プッシュできなくなります。</span>
                                 <p className="mt-4 font-bold">▼過去のコミットを修正する・まとめる</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git rebase -i HEAD~数字`}
                                 </SyntaxHighlighter>
-                                このコマンドは実行後のステップが他のコマンドより少し複雑ですが、<a href="https://qiita.com/yuya_yuzen/items/274b8e9cde840492d7e8" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">こちら</a>の記事がわかりやすくまとめられていました。
+                                このコマンドは実行後のステップが他のコマンドより少し複雑ですが、
+                                <a href="https://qiita.com/yuya_yuzen/items/274b8e9cde840492d7e8" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
+                                    こちら
+                                </a>
+                                の記事がわかりやすくまとめられていました。
                                 <p className="mt-4 font-bold">▼タグを作成する</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git tag タグ名`}
@@ -308,6 +326,35 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git push origin タグ名`}
                                 </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼作業を一時退避する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash`}
+                                </SyntaxHighlighter>
+                                ワークツリーとステージの変更が一時退避されます。
+                                <br />
+                                現在のブランチで変更をコミットしたくないが、別のブランチに切り替えたい場合などに使用します。
+                                <p className="mt-4 font-bold">▼一時退避した（stashした）変更の一覧を確認</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash list`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼一時退避した（stashした）変更をワークツリーに復元</p>
+                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash apply`}
+                                </SyntaxHighlighte>
+                                一番最後にstashした内容が復元されます。
+                                <br />
+                                また、このコマンドだけではステージに追加した内容は退避されないことに注意しましょう。
+                                <br />
+                                ステージにも復元したい場合は以下のコマンドを実行します。
+                                <p className="mt-4 font-bold">▼一時退避した（stashした）変更をワークツリーとステージに復元</p>
+                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash apply --index`}
+                                </SyntaxHighlighte>
+                                <p className="mt-4 font-bold">▼一時退避した（stashした）特定の変更を復元</p>
+                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash apply stash@{スタッシュ番号}`}
+                                </SyntaxHighlighte>
+                                スタッシュ番号は「git stash list」コマンドで確認しましょう。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
@@ -322,8 +369,10 @@ const GitCommand = () => {
                         </div>
                         <div className="mt-8 md:p-8">
                             いつまで経ってもコンフリクトが起きるとテンパるので、解消手順をまとめます。
-                            <ul className="list-decimal md:p-8 list-inside">
-                                <li className="my-4">「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）</li>
+                            <ul className="list-inside list-decimal md:p-8">
+                                <li className="my-4">
+                                    「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）
+                                </li>
                                 <li className="my-4">任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
                                 <li className="my-4">不要な行は削除して、最終的にしたい形にファイルを変更する。</li>
                                 <li className="my-4">以下の行を削除する。</li>
@@ -344,7 +393,7 @@ const GitCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8">
-                            <ul className="list-disc md:p-8 list-inside">
+                            <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">merge　→　リモートへプッシュした後に取り込む場合。</li>
                                 <li className="my-4">rebase　→　リモートへプッシュしておらずローカルの履歴を整理したい場合。</li>
                             </ul>
@@ -357,9 +406,11 @@ const GitCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8">
-                            <ul className="list-disc md:p-8 list-inside">
+                            <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
-                                <li className="my-4">「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）</li>
+                                <li className="my-4">
+                                    「HEAD」はその時点でチェックアウトしているポインタ（ブランチ）を指し示すものである。（featureにチェックアウトしている場合は、featureを示すことになる）
+                                </li>
                             </ul>
                         </div>
                     </section>
