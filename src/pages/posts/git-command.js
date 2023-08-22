@@ -273,6 +273,11 @@ const GitCommand = () => {
                                     {`$ git rebase -i HEAD~数字`}
                                 </SyntaxHighlighter>
                                 このコマンドは実行後のステップが他のコマンドより少し複雑ですが、<a href="https://qiita.com/yuya_yuzen/items/274b8e9cde840492d7e8" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">こちら</a>の記事がわかりやすくまとめられていました。
+                                <p className="mt-4 font-bold">▼タグの一覧を表示する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git tag`}
+                                </SyntaxHighlighter>
+                                上記コマンドの後ろに「-l 文字列」とオブションを追加することで、指定した文字列で始まるタグのみを表示することができます。
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
