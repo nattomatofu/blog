@@ -300,6 +300,14 @@ const GitCommand = () => {
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git show タグ名`}
                                 </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ローカルの全タグの情報をリモートへ反映</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git push origin --tag`}
+                                </SyntaxHighlighter>
+                                <p className="mt-4 font-bold">▼ローカルの特定のタグの情報をリモートへ反映</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git push origin タグ名`}
+                                </SyntaxHighlighter>
                                 <br />
                                 <br />
                                 コマンドは他にも沢山ありますが、以上です。
