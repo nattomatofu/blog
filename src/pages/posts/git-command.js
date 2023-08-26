@@ -332,32 +332,37 @@ const GitCommand = () => {
                                 </SyntaxHighlighter>
                                 ワークツリーとステージの変更が一時退避されます。
                                 <br />
-                                現在のブランチで変更をコミットしたくないが、別のブランチに切り替えたい場合などに使用します。
+                                現在のブランチで変更をコミットしたくないが、別のブランチにチェックアウトしたい場合などに使用します。
                                 <p className="mt-4 font-bold">▼一時退避した（stashした）変更の一覧を確認</p>
                                 <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git stash list`}
                                 </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼一時退避した（stashした）変更をワークツリーに復元</p>
-                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git stash apply`}
-                                </SyntaxHighlighte>
+                                </SyntaxHighlighter>
                                 一番最後にstashした内容が復元されます。
                                 <br />
                                 また、このコマンドだけではステージに追加した内容は退避されないことに注意しましょう。
                                 <br />
                                 ステージにも復元したい場合は以下のコマンドを実行します。
                                 <p className="mt-4 font-bold">▼一時退避した（stashした）変更をワークツリーとステージに復元</p>
-                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git stash apply --index`}
-                                </SyntaxHighlighte>
+                                </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼一時退避した（stashした）特定の変更を復元</p>
-                                <SyntaxHighlighte language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
                                     {`$ git stash apply stash@{スタッシュ番号}`}
-                                </SyntaxHighlighte>
+                                </SyntaxHighlighter>
                                 スタッシュ番号は「git stash list」コマンドで確認しましょう。
+                                <p className="mt-4 font-bold">▼一時退避した（stashした）作業を削除する</p>
+                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    {`$ git stash drop`}
+                                </SyntaxHighlighter>
+                                dropの後に「stash@{'{'}スタッシュ番号{'}'}」をつけると特定の退避作業を、「clear」をつけるとすべての退避中作業が削除されます。
                                 <br />
                                 <br />
-                                コマンドは他にも沢山ありますが、以上です。
+                                コマンドは他にもあると思いますが、以上です。
                             </div>
                         </div>
                     </section>
