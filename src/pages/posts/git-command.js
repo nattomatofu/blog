@@ -50,10 +50,13 @@ const GitCommand = () => {
                                             <a href="#id2">コンフリクトが起きた場合の対処法</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id3">その他メモ</a>
+                                            <a href="#id3">mergeとrebaseの使い分け</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id4">最後に</a>
+                                            <a href="#id4">その他メモ</a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id5">最後に</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -393,7 +396,7 @@ const GitCommand = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id2">
+                            <h2 className="ml-2 text-xl" id="id3">
                                 mergeとrebaseの使い分け
                             </h2>
                         </div>
@@ -406,7 +409,7 @@ const GitCommand = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id2">
+                            <h2 className="ml-2 text-xl" id="id4">
                                 その他メモ
                             </h2>
                         </div>
@@ -421,7 +424,7 @@ const GitCommand = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id3">
+                            <h2 className="ml-2 text-xl" id="id5">
                                 最後に
                             </h2>
                         </div>
