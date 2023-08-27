@@ -1,16 +1,17 @@
 import Layout from "@/components/Layout";
 import Head from "next/head";
+import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "Dockerコマンド一覧";
+const title = "Dockerイメージファイルの書き方";
 const updateDate = "2023/8/27";
 const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.png";
-const metaDescription = "どうも、納豆大好きnattoです。Dockerコマンドについてまとめます。";
-const metaOgUrl = "https://www.nattomatofu.com/posts/docker-memo";
+const metaDescription = "どうも、納豆大好きnattoです。Dockerイメージファイルについてまとめます。";
+const metaOgUrl = "https://www.nattomatofu.com/posts/docker-imagefile";
 const metaOgType = "article";
 
-const DockerCommand = () => {
+const DockerImage = () => {
     return (
         <Layout>
             <Head>
@@ -39,17 +40,15 @@ const DockerCommand = () => {
                     <section>
                         <div className="mt-4">
                             <p className="mb-8 md:p-8">
-                                これまでコンテナやDockerを使ったプロジェクトに参加したこともあるものの、<br/>
-                                「各々のPC環境に依存せず、ソフトが使える便利なもの」<br/>
-                                程度にしか理解できておらず、どこかで学びたいと思っていました。<br/><br/>
-                                ちょうど時間があって勉強してみたので、メモ程度に簡単にまとめます。
-                                </p>
+                                前に<Link href="./docker-memo" className="cursor-pointer text-blue-500 underline decoration-blue">Dockerのコマンド一覧ページ</Link>を簡単でしたがまとめました。<br/>
+                                今度はDockerイメージの作り方をまとめようと思います。
+                            </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
                                     <p className="mb-4 text-center text-xl">目次</p>
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
-                                            <a href="#id1">Dockerコマンド一覧</a>
+                                            <a href="#id1">Dockerイメージを作るステップ</a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id2">その他メモ</a>
@@ -66,7 +65,7 @@ const DockerCommand = () => {
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id1">
-                            Dockerコマンド一覧
+                            Dockerイメージを作るステップ
                             </h2>
                         </div>
                         <div className="mt-8">
@@ -184,4 +183,4 @@ const DockerCommand = () => {
     );
 };
 
-export default DockerCommand;
+export default DockerImage;
