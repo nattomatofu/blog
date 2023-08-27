@@ -65,87 +65,21 @@ const DockerImage = () => {
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id1">
-                            Dockerイメージを作るステップ
+                            Dockerイメージファイルを作るステップ
                             </h2>
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                <p className="font-bold">▼Dockerイメージからコンテナを作成</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker create イメージ名`}
-                                </SyntaxHighlighter>
-                                このコマンドを実行することで、コンテナで使用するファイルシステムが作成されます。
-                                また、実行後、作成されたコンテナのコンテナIDが表示されます。
-                                <p className="font-bold">▼Dockerコンテナを起動</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker start コンテナID`}
-                                </SyntaxHighlighter>
-                                「docker start -a コンテナID」と入力することで起動時のログが出力されるようになります。
-                                また、「docker run」コマンドでは起動時コマンドを指定できますが、この「docker start」では指定することはできません。
-                                <p className="font-bold">▼Dockerイメージの起動</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker run イメージ名`}
-                                </SyntaxHighlighter>
-                                「docker create」と「docker start」コマンドをまとめて実行する挙動になります。
-                                まずローカルのキャッシュ領域に該当するイメージがあるか確認し、なければDockerHubに該当する名前のイメージを探しに行きます。<br/>
-                                該当するイメージがあった場合、実行されます。
-                                <p className="mt-4 font-bold">▼デフォルトの起動コマンドを上書きしてイメージを実行</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker run イメージ名 コマンド`}
-                                </SyntaxHighlighter>
-                                Dockerイメージは「起動時コマンド」なるものをイメージの一部として保持しており、名前の通りイメージ実行時にそのコマンドを実行します。<br/>
-                                そのコマンドを上書きしてイメージを実行するコマンドです。
-                                <p className="mt-4 font-bold">▼コンテナを実行して、実行と同時にシェルに接続</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker run  -it イメージ名 sh`}
-                                </SyntaxHighlighter>
-                                コンテナを立ち上げてすぐに、コンテナ内でコマンド操作したい場合はこのコマンドを使いましょう。
-                                <p className="mt-4 font-bold">▼実行中のコンテナ一覧を表示</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker ps`}
-                                </SyntaxHighlighter>
-                                起動しているコンテナがない場合は、表示される項目の項目名しか表示されません。
-                                <p className="mt-4 font-bold">▼これまでに作成した全てのコンテナ一覧を表示</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker ps --all`}
-                                </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼実行中以外のコンテナを削除</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker system prune`}
-                                </SyntaxHighlighter>
-                                このコマンドはDockerHubからダウンロードされてきたビルドキャッシュも削除されるのでその点は注意しましょう。
-                                <p className="mt-4 font-bold">▼コンテナの実行ログを表示</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker logs コンテナID`}
-                                </SyntaxHighlighter>
-                                「docker run」コマンド実行時に表示されるようなログが表示されます。
-                                <p className="mt-4 font-bold">▼起動中のコンテナを停止</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker stop コンテナID`}
-                                </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼起動中のコンテナを強制終了</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker kill コンテナID`}
-                                </SyntaxHighlighter>
-                                このコマンドはコンテナを強制終了させます。<br/>
-                                基本的には上記の「docker stop」コマンドを実行するようにして、どうしても固まってしまって動かない場合などにこのコマンドを実行しましょう。
-                                <p className="mt-4 font-bold">▼起動中のコンテナ内部でコマンドを実行</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker exec -it コンテナID 実行したいコマンド`}
-                                </SyntaxHighlighter>
-                                コンテナを起動した上で、そのコンテナ上で何らかのコマンドを実行したい場合に使用します。<br/>
-                                ここで「-it」とは、「-i」と「-t」の合体バージョンであり、<br/>
-                                「-i」は、コンテナ内のターミナルを自分で操作しているターミナルへ表示する（接続する）ためのオプションで、<br/>
-                                「-t」は、コンテナと接続したターミナルを綺麗に見やすく表示する（コマンド入力する際の左のインデントなどを表示する）ためのオプションです。
-                                <p className="mt-4 font-bold">▼起動中のコンテナをターミナルで操作</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
-                                    {`$ docker exec -it コンテナID sh`}
-                                </SyntaxHighlighter>
-                                指定したコンテナをターミナルで操作することができます。<br/>
-                                接続先はLinuxになっていることをお忘れなく。
-                                <br />
-                                <br />
-                                コマンドは他にもありますが、以上です。
+                                Dockerファイルを作成する時は、大まかに以下の流れとなります。
+                                <ul className="list-inside list-decimal md:p-8">
+                                    <li className="my-4">
+                                        「git status」コマンドでコンフリクトが起きているファイルを特定する。（「both modified」と表示されているファイルがコンフリクトが起きているファイル）
+                                    </li>
+                                    <li className="my-4">任意のテキストエディタで、コンフリクトが起きているファイルを開く。</li>
+                                    <li className="my-4">不要な行は削除して、最終的にしたい形にファイルを変更する。</li>
+                                    <li className="my-4">以下の行を削除する。</li>
+                                    <li className="my-4">ファイルを保存し、「git add」、「git commit」を実行する。</li>
+                                </ul>
                             </div>
                         </div>
                     </section>

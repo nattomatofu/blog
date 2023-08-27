@@ -414,6 +414,7 @@ const GitCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8">
+                            以下、その他個人的なメモです。
                             <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
                                 <li className="my-4">

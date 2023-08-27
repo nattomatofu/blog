@@ -157,6 +157,7 @@ const DockerCommand = () => {
                             </h2>
                         </div>
                         <div className="mt-8">
+                            以下、その他個人的なメモです。
                             <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">WindowsやMacOSでDockerを動かす場合、Windows/MacOS上でLinuxの仮想マシンが立ち上がり、その上で各プロセスが実行される</li>
                                 <li className="my-4">「docker run イメージ名 コマンド」で実行する場合、指定したイメージに含まれていないコマンドは実行することができない。（例：指定したイメージが「HelloWorld」と表示するプログラム1つしか含んでいないイメージの場合、そのDocker上で「ls」や「echo」コマンドは実行できない）</li>
