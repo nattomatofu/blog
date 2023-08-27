@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "Dockerについてのメモ";
+const title = "Dockerコマンド一覧";
 const updateDate = "2023/9/1";
 const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.png";
 const metaDescription = "どうも、納豆大好きnattoです。Dockerについてのメモをまとめます。";
