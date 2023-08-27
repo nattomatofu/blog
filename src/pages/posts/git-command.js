@@ -400,7 +400,8 @@ const GitCommand = () => {
                                 mergeとrebaseの使い分け
                             </h2>
                         </div>
-                        <div className="mt-8">
+                        <div className="mt-8 md:p-8">
+                            mergeとrebaseをどのように使い分ければよいか迷うので、参考としてまとめます。
                             <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">merge　→　リモートへプッシュした後に取り込む場合。</li>
                                 <li className="my-4">rebase　→　リモートへプッシュしておらずローカルの履歴を整理したい場合。</li>
@@ -413,7 +414,7 @@ const GitCommand = () => {
                                 その他メモ
                             </h2>
                         </div>
-                        <div className="mt-8">
+                        <div className="mt-8 md:p-8">
                             以下、その他個人的なメモです。
                             <ul className="list-inside list-disc md:p-8">
                                 <li className="my-4">ブランチは飽くまで、最新のコミットがどれかを指し示すポインタである。</li>
