@@ -154,6 +154,21 @@ const DockerCommand = () => {
                                 サンプルとして、「docker run -it alpine
                                 sh」のように入力すると、プレーンのaplineイメージでコンテナが作成され、同時にシェルが開かれます。
                                 <p className="mt-4 font-bold">
+                                    ▼ポートマッピングを作成してコンテナを起動
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker run  -p PC側のポート番号:コンテナ側のポート番号 イメージID`}
+                                </SyntaxHighlighter>
+                                例えば、ローカルPC上のコンテナのポート8080番にアクセスしようとする時、「localhost:8080」へブラウザでアクセスすれば良さそうですが、実は普通にdocker
+                                runコマンドを実行するだけではできません。
+                                <br />
+                                そのような場合は、こちらのコマンドでローカルPCとコンテナのポートを紐付ける必要があるんですね。
+                                <br />
+                                <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
                                 <SyntaxHighlighter

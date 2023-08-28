@@ -74,9 +74,6 @@ const DockerImage = () => {
                                             </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id2">その他メモ</a>
-                                        </li>
-                                        <li className="pb-2">
                                             <a href="#id3">最後に</a>
                                         </li>
                                     </ul>
@@ -124,12 +121,25 @@ const DockerImage = () => {
                         <div className="mt-8 md:p-8">
                             Dockerイメージファイルには、コンテナに必要なライブラリをインストールするためのコマンドや、コンテナ実行時に実行されるコマンドを定義します。
                             <br />
-                            定義した内容で「docker build .」
+                            サンプルとしては以下のような感じです。
+                            <SyntaxHighlighter
+                                language="shell"
+                                style={vscDarkPlus}
+                                showLineNumbers={false}
+                            >
+                                {`FROM alpine
+
+RUN apk add -update redis
+
+CMD ["redis-server"]`}
+                            </SyntaxHighlighter>
+                            こんな感じで定義したファイルに対して「docker build
+                            .」
                             コマンドを実行することでその設定に沿ったイメージファイルが作成され、「docker
                             run」コマンドで全て勝手に準備・実行してくれるような感じです。
                             <br />
                             <br />
-                            イメージファイルの書き方にはいくつか決まった句があり、まずはそれらをまとめます。
+                            イメージファイルの書き方にはいくつか決まった句があり、上記のサンプルをベースにそれらをまとめようと思います。
                             <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                 FROM
                             </h3>
@@ -196,14 +206,6 @@ const DockerImage = () => {
                                 </SyntaxHighlighter>
                             </div>
                         </div>
-                    </section>
-                    <section>
-                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id2">
-                                その他メモ
-                            </h2>
-                        </div>
-                        <div className="mt-8"></div>
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
