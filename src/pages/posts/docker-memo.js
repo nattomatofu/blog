@@ -151,6 +151,8 @@ const DockerCommand = () => {
                                     {`$ docker run  -it イメージ名 sh`}
                                 </SyntaxHighlighter>
                                 コンテナを立ち上げてすぐに、コンテナ内でコマンド操作したい場合はこのコマンドを使いましょう。
+                                サンプルとして、「docker run -it alpine
+                                sh」のように入力すると、プレーンのaplineイメージでコンテナが作成され、同時にシェルが開かれます。
                                 <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
@@ -283,6 +285,20 @@ const DockerCommand = () => {
                                 <br />
                                 このコマンドで作成したイメージは「docker run
                                 イメージ名:タグ名」で実行できます。
+                                <p className="mt-4 font-bold">
+                                    ▼起動中のコンテナからDockerイメージファイルを作成・保存
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker commit -c 'CMD ["コマンド"]' コンテナID`}
+                                </SyntaxHighlighter>
+                                CMDの後のコマンドは、コンテナ実行時起動コマンドです。
+                                具体的には「docker commit -c &#39;CMD
+                                [&quot;redis-server &quot;]&#39;
+                                abcdef」のようなコマンドになります。
                                 <br />
                                 <br />
                                 コマンドは他にもありますが、以上です。
