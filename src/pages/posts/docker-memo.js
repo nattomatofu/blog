@@ -168,6 +168,7 @@ const DockerCommand = () => {
                                 <br />
                                 そのような場合は、こちらのコマンドでローカルPCとコンテナのポートを紐付ける必要があるんですね。
                                 <br />
+                                ちなみにローカルPCのポート番号と、コンテナのポート番号は別に一致していなくても問題ありません。
                                 <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
@@ -294,7 +295,7 @@ const DockerCommand = () => {
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`$ docker build -t イメージ名:タグ名`}
+                                    {`$ docker build -t イメージ名:タグ名 .`}
                                 </SyntaxHighlighter>
                                 イメージ名もタグ名の任意の文字列を設定することができます。
                                 <br />

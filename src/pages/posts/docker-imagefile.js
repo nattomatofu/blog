@@ -74,7 +74,12 @@ const DockerImage = () => {
                                             </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id3">最後に</a>
+                                            <a href="#id3">
+                                                イメージファイルを再ビルド時する時の時間短縮について
+                                            </a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id4">最後に</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -121,17 +126,20 @@ const DockerImage = () => {
                         <div className="mt-8 md:p-8">
                             Dockerイメージファイルには、コンテナに必要なライブラリをインストールするためのコマンドや、コンテナ実行時に実行されるコマンドを定義します。
                             <br />
-                            サンプルとしては以下のような感じです。
+                            以下はnode.jsで作成されたWebサイトを公開するコンテナを作成する際のサンプルのイメージファイルです。
                             <SyntaxHighlighter
                                 language="shell"
                                 style={vscDarkPlus}
                                 showLineNumbers={false}
                             >
-                                {`FROM alpine
+                                {`FROM node:14-alpine
 
-RUN apk add -update redis
+WORKDIR /usr/app
 
-CMD ["redis-server"]`}
+COPY ./ ./
+RUN npm install
+
+CMD ["npm", "start"]`}
                             </SyntaxHighlighter>
                             こんな感じで定義したファイルに対して「docker build
                             .」
@@ -163,8 +171,54 @@ CMD ["redis-server"]`}
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`FROM alpine`}
+                                    {`FROM node:14-alpine`}
                                 </SyntaxHighlighter>
+                            </div>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                WORKDIR
+                            </h3>
+                            <div className="pl-4">
+                                続いて「WORKDIR」です。
+                                <br />
+                                Dockerfile内に記載している「WORKDIR」以降の行（コマンド）を実行するディレクトリを指定します。
+                                <br />
+                                今回の例だと、次に紹介する「COPY」コマンド以降ということですね。
+                                <br />
+                                指定したディレクトリがコンテナ内にない場合は勝手に作成され、指定したディレクトリまでcdコマンドを実行したときのようにカレントディレクトリが移動します。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`WORKDIR /usr/app`}
+                                </SyntaxHighlighter>
+                            </div>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                COPY
+                            </h3>
+                            <div className="pl-4">
+                                続いて「COPY」です。
+                                <br />
+                                COPY
+                                は、ローカルPCからコンテナのファイルシステムへファイルをコピーする際に使用します。
+                                <br />
+                                COPYの後の、1つ目のオプションにローカルPC上のパスを、2つ目のオプションにコンテナ上のパスを記載します。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`COPY ./ ./`}
+                                </SyntaxHighlighter>
+                                例えば、Node.jsで作ったWebサイトを公開するときには「npm
+                                install」コマンドを実行する必要があるかと思いますが、
+                                <br />
+                                「npm
+                                install」コマンドは「package.json」のファイルが必要です。
+                                <br />
+                                もちろん、できたてのコンテナの中には「package.json」はないので、ローカルPCからコピーする必要があります。
+                                <br />
+                                そのような時に使用するコマンドです。
                             </div>
                             <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                 RUN
@@ -181,7 +235,7 @@ CMD ["redis-server"]`}
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`RUN apk add -update redis`}
+                                    {`RUN npm install`}
                                 </SyntaxHighlighter>
                                 「FROM」で指定したベースイメージとは別途用意が必要なライブラリをインストールしなければならない場合などに使用しましょう。
                             </div>
@@ -202,7 +256,7 @@ CMD ["redis-server"]`}
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`CMD ["redis-server"]`}
+                                    {`CMD ["npm", "start"]`}
                                 </SyntaxHighlighter>
                             </div>
                         </div>
@@ -210,6 +264,49 @@ CMD ["redis-server"]`}
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id3">
+                                イメージファイルを再ビルド時する時の時間短縮について
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <div className="md:p-8">
+                                上記のDockerfileでは、例えばindex.jsのみに変更を加えてイメージを再ビルド（再作成）する場合でも（package.jsonに変更がない場合でも）、
+                                「COPY ./
+                                ./」のコマンド実行時にファイル変更があったと見なされ、それに続く「RUN
+                                npm
+                                install」はキャッシュを参照せず実行されることとなります。
+                                <br />
+                                Dockerfileのビルドでは上から順にコマンドが実行され、もしコマンド自体や参照するファイルに変更があった場合（今回の例の場合index.jsに変更あり）、それ以降のコマンドはキャッシュは参照せずに実行されるんですね。
+                                <br />
+                                そのため、「npm
+                                install」コマンドの実行に余分な時間がかかってしまいます。
+                                <br />
+                                このような場合、以下のようにDockerfileを書き直すことで、package.jsonに変更があった場合のみ「RUN
+                                npm
+                                install」がキャッシュを参照せず実行されるようにできます。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`FROM node:14-alpine
+
+WORKDIR /usr/app
+
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+
+CMD ["npm", "start"]`}
+                                </SyntaxHighlighter>
+                                まずpackage.jsonを先にコピーしてから「RUN npm
+                                install」を実行することでpackage.jsonに変更があった場合のみ、「RUN
+                                npm install」されるようになります。
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id4">
                                 最後に
                             </h2>
                         </div>
