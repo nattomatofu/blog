@@ -5,7 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const title = "Dockerコマンド一覧";
-const updateDate = "2023/8/27";
+const updateDate = "2023/9/2";
 const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.png";
 const metaDescription =
     "どうも、納豆大好きnattoです。Dockerコマンドについてまとめます。";

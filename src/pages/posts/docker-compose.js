@@ -4,12 +4,12 @@ import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "Dockerイメージファイルの書き方";
-const updateDate = "2023/9/2";
-const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.png";
+const title = "Docker Composeファイルの書き方";
+const updateDate = "2023/9/5";
+const thumbnailImagePath = "/images/thumbnail/docker_compose_thumbnail.png";
 const metaDescription =
-    "どうも、納豆大好きnattoです。Dockerイメージファイルについてまとめます。";
-const metaOgUrl = "https://www.nattomatofu.com/posts/docker-imagefile";
+    "どうも、納豆大好きnattoです。Docker Composeファイルの書き方についてまとめます。";
+const metaOgUrl = "https://www.nattomatofu.com/posts/docker-compose";
 const metaOgType = "article";
 
 const DockerImage = () => {
@@ -48,14 +48,15 @@ const DockerImage = () => {
                             <p className="mb-8 md:p-8">
                                 前に
                                 <Link
-                                    href="./docker-memo"
+                                    href="./docker-imagefile"
                                     className="decoration-blue cursor-pointer text-blue-500 underline"
                                 >
-                                    Dockerのコマンド一覧ページ
+                                    Dockerイメージファイルの書き方
                                 </Link>
                                 を簡単でしたがまとめました。
                                 <br />
-                                今度はDockerイメージの作り方をまとめようと思います。
+                                今度はDocker
+                                Composeファイルの作り方をまとめようと思います。
                             </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
@@ -65,7 +66,8 @@ const DockerImage = () => {
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
                                             <a href="#id1">
-                                                Dockerイメージファイルを作るステップ
+                                                Docker
+                                                Composeファイルを作るステップ
                                             </a>
                                         </li>
                                         <li className="pb-2">
