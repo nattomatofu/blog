@@ -13,15 +13,15 @@ const metaOgType = "article";
 const thumbnailImagePath = "/images/profile/profile_icon.png";
 
 //SSGの場合
-export async function getStaticProps() {
-    const allPostsData = getPostsData();
-    // console.log(allPostsData);
-    return {
-        props: {
-            allPostsData,
-        },
-    };
-}
+// export async function getStaticProps() {
+// const allPostsData = getPostsData();
+// console.log(allPostsData);
+//     return {
+//         props: {
+//             allPostsData,
+//         },
+//     };
+// }
 
 export default function Home({ allPostsData }) {
     return (
