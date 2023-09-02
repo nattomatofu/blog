@@ -269,16 +269,18 @@ CMD ["npm", "start"]`}
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                上記のDockerfileでは、例えばindex.jsのみに変更を加えてイメージを再ビルド（再作成）する場合でも（package.jsonに変更がない場合でも）、
+                                上記のDockerfileでは、例えばindex.jsのみに変更を加えてイメージを再ビルドする場合でも（package.jsonに変更がない場合でも）、
                                 「COPY ./
                                 ./」のコマンド実行時にファイル変更があったと見なされ、それに続く「RUN
                                 npm
                                 install」はキャッシュを参照せず実行されることとなります。
                                 <br />
+                                <br />
                                 Dockerfileのビルドでは上から順にコマンドが実行され、もしコマンド自体や参照するファイルに変更があった場合（今回の例の場合index.jsに変更あり）、それ以降のコマンドはキャッシュは参照せずに実行されるんですね。
                                 <br />
                                 そのため、「npm
                                 install」コマンドの実行に余分な時間がかかってしまいます。
+                                <br />
                                 <br />
                                 このような場合、以下のようにDockerfileを書き直すことで、package.jsonに変更があった場合のみ「RUN
                                 npm
@@ -292,7 +294,7 @@ CMD ["npm", "start"]`}
 
 WORKDIR /usr/app
 
-COPY ./package.json ./
+COPY ./package.json ./  #　←　まずは「package.json」だけをコピーするように変更
 RUN npm install
 COPY ./ ./
 
