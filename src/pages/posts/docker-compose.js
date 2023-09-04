@@ -151,7 +151,7 @@ services:
     ports:
       - "4001:8081"`}
                                 </SyntaxHighlighter>
-                                このファイルから、redisサーバーでデータを管理するNode.jsで作成されたWebサイトを作成することができます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
+                                このファイルから、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
                                 このファイルを参考に次から各行についてまとめます。
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                     version
