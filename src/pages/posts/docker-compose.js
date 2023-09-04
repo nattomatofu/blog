@@ -267,7 +267,7 @@ services:
                                 前述の通り、ファイル（docker-compose.yml）を作成しただけで終わりではなく、コンテナを実行するためのコマンドを打つ必要があります。
                                 <br />
                                 実行以外にも、DockerCompose用のコマンドがいくつかあるのでまとめます。
-                                <p className="mt-4 font-bold">
+                                <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容を実行
                                 </p>
                                 <SyntaxHighlighter
@@ -278,7 +278,7 @@ services:
                                     {`$ docker-compose up`}
                                 </SyntaxHighlighter>
                                 docker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
-                                <p className="mt-4 font-bold">
+                                <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容をビルドして実行
                                 </p>
                                 <SyntaxHighlighter
@@ -291,7 +291,7 @@ services:
                                 一度docker-compose.ymlから作成したコンテナのソースコードを書き換えた場合は、普通の「停止」→「起動」では更新されません。
                                 <br />
                                 ビルドをし直す必要があるんですね。そんな時に使用します。
-                                <p className="mt-4 font-bold">
+                                <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容をバックグランドで実行
                                 </p>
                                 <SyntaxHighlighter
@@ -305,7 +305,7 @@ services:
                                 up」を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
                                 <br />
                                 ですが、このコマンドを使用するとコンテナがバックグランドで実行され、コンソールが開放されます。
-                                <p className="mt-4 font-bold">
+                                <p className="mt-6 font-bold">
                                     ▼起動中のDockerComposeを停止
                                 </p>
                                 <SyntaxHighlighter
