@@ -8,7 +8,7 @@ const title = "Docker Composeファイル（docker-compose.yml）の書き方";
 const updateDate = "2023/9/5";
 const thumbnailImagePath = "/images/thumbnail/docker_compose_thumbnail.png";
 const metaDescription =
-    "どうも、納豆大好きnattoです。Docker Composeファイルの書き方についてまとめます。";
+    "どうも、納豆大好きnattoです。Docker Composeファイル（docker-compose.yml）の書き方についてまとめます。";
 const metaOgUrl = "https://www.nattomatofu.com/posts/docker-compose";
 const metaOgType = "article";
 
@@ -55,8 +55,8 @@ const DockerImage = () => {
                                 </Link>
                                 を簡単でしたがまとめました。
                                 <br />
-                                今度はDocker
-                                Composeファイルの作り方をまとめようと思います。
+                                今回はDocker
+                                Composeファイル（docker-compose.yml）の作り方をまとめようと思います。
                             </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
@@ -151,7 +151,8 @@ services:
     ports:
       - "4001:8081"`}
                                 </SyntaxHighlighter>
-                                このファイルから、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
+                                以上の内容で、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
+                                <br />
                                 このファイルを参考に次から各行についてまとめます。
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                     version
@@ -238,7 +239,7 @@ services:
                                                     build
                                                 </td>
                                                 <td class="border border-slate-700 px-4">
-                                                    Dockerfileのあるディレクトリを指定します。
+                                                    実行したいDockerfileのあるディレクトリを指定します。
                                                 </td>
                                             </tr>
                                             <tr>
@@ -246,7 +247,7 @@ services:
                                                     ports
                                                 </td>
                                                 <td class="border border-slate-700 px-4">
-                                                    コンテナを起動する端末とのポートの対応を定義します。
+                                                    コンテナを起動する端末（ローカルPCなど）とのポートの対応を定義します。
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -263,12 +264,10 @@ services:
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                前述した通り、ファイル（docker-compose.yml）の作成で終わりではなく、実行するためのコマンドを実行する必要があります。
+                                前述の通り、ファイル（docker-compose.yml）を作成しただけで終わりではなく、コンテナを実行するためのコマンドを打つ必要があります。
                                 <br />
-                                実行以外にもDockerCompose用のコマンドがいくつかあるので、まとめます。
-                                <br />
-                                <br />
-                                <p className="font-bold">
+                                実行以外にも、DockerCompose用のコマンドがいくつかあるのでまとめます。
+                                <p className="mt-4 font-bold">
                                     ▼docker-compose.ymlの内容を実行
                                 </p>
                                 <SyntaxHighlighter
@@ -279,7 +278,7 @@ services:
                                     {`$ docker-compose up`}
                                 </SyntaxHighlighter>
                                 docker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
-                                <p className="font-bold">
+                                <p className="mt-4 font-bold">
                                     ▼docker-compose.ymlの内容をビルドして実行
                                 </p>
                                 <SyntaxHighlighter
@@ -292,7 +291,7 @@ services:
                                 一度docker-compose.ymlから作成したコンテナのソースコードを書き換えた場合は、普通の「停止」→「起動」では更新されません。
                                 <br />
                                 ビルドをし直す必要があるんですね。そんな時に使用します。
-                                <p className="font-bold">
+                                <p className="mt-4 font-bold">
                                     ▼docker-compose.ymlの内容をバックグランドで実行
                                 </p>
                                 <SyntaxHighlighter
@@ -306,7 +305,7 @@ services:
                                 up」を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
                                 <br />
                                 ですが、このコマンドを使用するとコンテナがバックグランドで実行され、コンソールが開放されます。
-                                <p className="font-bold">
+                                <p className="mt-4 font-bold">
                                     ▼起動中のDockerComposeを停止
                                 </p>
                                 <SyntaxHighlighter

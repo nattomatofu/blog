@@ -96,7 +96,10 @@ const DockerCommand = () => {
                                     {`$ docker create イメージ名`}
                                 </SyntaxHighlighter>
                                 このコマンドを実行することで、コンテナで使用するファイルシステムが作成されます。
+                                <br />
                                 また、実行後、作成されたコンテナのコンテナIDが表示されます。
+                                <br />
+                                <br />
                                 <p className="font-bold">
                                     ▼Dockerコンテナを起動
                                 </p>
@@ -109,9 +112,12 @@ const DockerCommand = () => {
                                 </SyntaxHighlighter>
                                 「docker start -a
                                 コンテナID」と入力することで起動時のログが出力されるようになります。
+                                <br />
                                 また、「docker
                                 run」コマンドでは起動時コマンドを指定できますが、この「docker
                                 start」では指定することはできません。
+                                <br />
+                                <br />
                                 <p className="font-bold">
                                     ▼Dockerイメージの起動
                                 </p>
@@ -124,9 +130,11 @@ const DockerCommand = () => {
                                 </SyntaxHighlighter>
                                 「docker create」と「docker
                                 start」コマンドをまとめて実行する挙動になります。
+                                <br />
                                 まずローカルのキャッシュ領域に該当するイメージがあるか確認し、なければDockerHubに該当する名前のイメージを探しに行きます。
                                 <br />
                                 該当するイメージがあった場合、実行されます。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼デフォルトの起動コマンドを上書きしてイメージを実行
                                 </p>
@@ -140,6 +148,7 @@ const DockerCommand = () => {
                                 Dockerイメージは「起動時コマンド」なるものをイメージの一部として保持しており、名前の通りイメージ実行時にそのコマンドを実行します。
                                 <br />
                                 そのコマンドを上書きしてイメージを実行するコマンドです。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼コンテナを実行して、実行と同時にシェルに接続
                                 </p>
@@ -153,6 +162,7 @@ const DockerCommand = () => {
                                 コンテナを立ち上げてすぐに、コンテナ内でコマンド操作したい場合はこのコマンドを使いましょう。
                                 サンプルとして、「docker run -it alpine
                                 sh」のように入力すると、プレーンのaplineイメージでコンテナが作成され、同時にシェルが開かれます。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼ポートマッピングを作成してコンテナを起動
                                 </p>
@@ -169,6 +179,7 @@ const DockerCommand = () => {
                                 そのような場合は、こちらのコマンドでローカルPCとコンテナのポートを紐付ける必要があるんですね。
                                 <br />
                                 ちなみにローカルPCのポート番号と、コンテナのポート番号は別に一致していなくても問題ありません。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
@@ -180,6 +191,7 @@ const DockerCommand = () => {
                                     {`$ docker ps`}
                                 </SyntaxHighlighter>
                                 起動しているコンテナがない場合は、表示される項目の項目名しか表示されません。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼これまでに作成した全てのコンテナ一覧を表示
                                 </p>
@@ -190,6 +202,7 @@ const DockerCommand = () => {
                                 >
                                     {`$ docker ps --all`}
                                 </SyntaxHighlighter>
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼実行中以外のコンテナを削除
                                 </p>
@@ -201,6 +214,7 @@ const DockerCommand = () => {
                                     {`$ docker system prune`}
                                 </SyntaxHighlighter>
                                 このコマンドはDockerHubからダウンロードされてきたビルドキャッシュも削除されるのでその点は注意しましょう。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼コンテナの実行ログを表示
                                 </p>
@@ -213,6 +227,7 @@ const DockerCommand = () => {
                                 </SyntaxHighlighter>
                                 「docker
                                 run」コマンド実行時に表示されるようなログが表示されます。
+                                <br />
                                 <p className="mt-4 font-bold">
                                     ▼起動中のコンテナを停止
                                 </p>
