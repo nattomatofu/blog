@@ -266,6 +266,8 @@ services:
                                 前述した通り、ファイル（docker-compose.yml）の作成で終わりではなく、実行するためのコマンドを実行する必要があります。
                                 <br />
                                 実行以外にもDockerCompose用のコマンドがいくつかあるので、まとめます。
+                                <br />
+                                <br />
                                 <p className="font-bold">
                                     ▼docker-compose.ymlの内容を実行
                                 </p>
