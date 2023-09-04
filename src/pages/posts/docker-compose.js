@@ -66,8 +66,7 @@ const DockerImage = () => {
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
                                             <a href="#id1">
-                                                Docker
-                                                Composeファイルを作るステップ
+                                                Docker Composeファイルの書き方
                                             </a>
                                         </li>
                                         <li className="pb-2">
@@ -91,31 +90,115 @@ const DockerImage = () => {
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id1">
-                                Dockerイメージファイルを作るステップ
+                                Docker Composeファイルの作り方
                             </h2>
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                Dockerファイルを作成する時は、大まかに以下の流れとなります。
-                                <ul className="list-inside list-decimal md:p-8">
-                                    <li className="my-4">
-                                        任意のディレクトリに「Dockerfile」のファイル名でファイル作成する。
-                                    </li>
-                                    <li className="my-4">
-                                        作成したDockerfileに内容を記載する。
-                                    </li>
-                                    <li className="my-4">
-                                        作成したDockerfileのあるディレクトリまで移動して、以下のコマンドを実行する。
-                                    </li>
+                                めちゃくちゃ簡単ですがDocker
+                                Composeファイルの中身は以下のように記載します。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    build:
+    ports:
+      - "4001:8081"`}
+                                </SyntaxHighlighter>
+                                このDockerComposeファイルから、redisサーバーでデータを管理するNode.jsで作成されたWebサイトを作成することができます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
+                                このファイルを参考に次から各行についてまとめます。
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    version
+                                </h3>
+                                <div className="pl-4">
+                                    まずは「version」です。この部分は定型文です。
+                                    <br />
+                                    コンテナの振る舞い自体に影響するものではないのではあまり重要ではないのですが、DockerComposeファイルの構文のバージョンを指定するものです。
+                                    <br />
+                                    バージョン2を使うことも可能ですが、せっかくなので最新版のバージョン3を使いましょう。（バージョン1は非推奨のようです。）
+                                    <br />
+                                    バージョンの細かい説明や違いは
+                                    <Link
+                                        href="https://docs.docker.jp/compose/compose-file/compose-versioning.html"
+                                        className="decoration-blue cursor-pointer text-blue-500 underline"
+                                    >
+                                        こちら
+                                    </Link>
+                                    に書いてあるのでここを確認しましょう。
+                                    <br />
+                                    書き方としては以下のような感じになります。
                                     <SyntaxHighlighter
                                         language="shell"
                                         style={vscDarkPlus}
                                         showLineNumbers={false}
                                     >
-                                        {`$ docker build .`}
+                                        {`version: '3'`}
                                     </SyntaxHighlighter>
-                                </ul>
-                                2の「作成したDockerfileに内容を記載する。」の部分について、書き方をこの後からまとめます。
+                                </div>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    services
+                                </h3>
+                                <div className="pl-4">
+                                    続いて「services」です。これも定型文です。
+                                    <br />
+                                    この部分には、まとめて管理するコンテナの中身を記載します。
+                                    <br />
+                                    この「services」より下に、階層構造でコンテナの振る舞いを詳細に書くことになりますので、次からは階層別でまとめます。
+                                </div>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    一階層目
+                                </h3>
+                                <div className="pl-4">
+                                    一階層目はサンプルだと、「redis-server」や「node-app」の部分にあたります。
+                                    <br />
+                                    この部分は、まとめて管理するコンテナの名前をつける部分なのですが、任意の名前を設定できます。
+                                    <br />
+                                    なのでプロジェクトで決められた規則がある場合はそれに沿った名前を、個人的な用途で使う場合は自分でわかりやすい名前を適当につけましょう。
+                                </div>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    二階層目
+                                </h3>
+                                <div className="pl-4">
+                                    二階層目はサンプルだと、「image:」や「build:」、「ports:」の部分にあたります。
+                                    <br />
+                                    この部分でコンテナの具体的な設定を定義してきます。
+                                    <br />
+                                    <table class="table-auto">
+                                        <thead>
+                                            <tr>
+                                                <th>Song</th>
+                                                <th>Artist</th>
+                                                <th>Year</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    The Sliding Mr. Bones (Next
+                                                    Stop, Pottersville)
+                                                </td>
+                                                <td>Malcolm Lockyer</td>
+                                                <td>1961</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Witchy Woman</td>
+                                                <td>The Eagles</td>
+                                                <td>1972</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shining Star</td>
+                                                <td>Earth, Wind, and Fire</td>
+                                                <td>1975</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </section>
