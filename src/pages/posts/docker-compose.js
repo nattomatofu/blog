@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
-const title = "Docker Composeファイルの書き方";
+const title = "Docker Composeファイル（docker-compose.yml）の書き方";
 const updateDate = "2023/9/5";
 const thumbnailImagePath = "/images/thumbnail/docker_compose_thumbnail.png";
 const metaDescription =

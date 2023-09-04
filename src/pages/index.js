@@ -65,7 +65,7 @@ export default function Home({ allPostsData }) {
                                             <div className="overflow-hidden  md:h-16">
                                                 <h1 className="title-font md:h-15 mb-3 border-l-neutral-700 text-lg font-medium line-clamp-2">
                                                     Docker
-                                                    Composeファイルの書き方
+                                                    Composeファイル（docker-compose.yml）の書き方
                                                 </h1>
                                             </div>
                                             <div className="flex flex-wrap items-center">
