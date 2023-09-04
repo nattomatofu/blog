@@ -66,12 +66,18 @@ const DockerImage = () => {
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
                                             <a href="#id1">
-                                                Docker Composeファイルの書き方
+                                                Docker
+                                                Composeファイルを作って実行するまでの手順
                                             </a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id2">
-                                                Dockerイメージファイルの書き方
+                                                docker-compose.ymlの書き方
+                                            </a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id3">
+                                                DockerCompose関連のコマンド一覧
                                             </a>
                                         </li>
                                         <li className="pb-2">
@@ -89,8 +95,42 @@ const DockerImage = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id3">
+                                Docker Composeファイルを作って実行するまでの手順
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <div className="md:p-8">
+                                DockerComposeファイルの書き方の前に、DockerComposeファイルを実行するまでの流れを簡単にまとめます。
+                                <ul className="list-inside list-decimal md:p-8">
+                                    <li className="my-4">
+                                        独自のコンテナを使用する場合は、コンテナのイメージファイル（Dockerfile）を用意する。
+                                    </li>
+                                    <li className="my-4">
+                                        任意のディレクトリに「docker-compose.yml」のファイル名でファイル作成する。
+                                    </li>
+                                    <li className="my-4">
+                                        作成した「docker-compose.yml」に内容を記載する。
+                                    </li>
+                                    <li className="my-4">
+                                        作成した「docker-compose.yml」のあるディレクトリまで移動して、以下のコマンドを実行する。
+                                    </li>
+                                    <SyntaxHighlighter
+                                        language="shell"
+                                        style={vscDarkPlus}
+                                        showLineNumbers={false}
+                                    >
+                                        {`$ docker-compose up`}
+                                    </SyntaxHighlighter>
+                                </ul>
+                                次のセクションから「3.作成した「docker-compose.yml」に内容を記載する」の具体的な書き方をまとめます。
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id1">
-                                Docker Composeファイルの作り方
+                                docker-compose.ymlの書き方
                             </h2>
                         </div>
                         <div className="mt-8">
@@ -107,11 +147,11 @@ services:
   redis-server:
     image: 'redis'
   node-app:
-    build:
+    build: ./
     ports:
       - "4001:8081"`}
                                 </SyntaxHighlighter>
-                                このDockerComposeファイルから、redisサーバーでデータを管理するNode.jsで作成されたWebサイトを作成することができます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
+                                このファイルから、redisサーバーでデータを管理するNode.jsで作成されたWebサイトを作成することができます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
                                 このファイルを参考に次から各行についてまとめます。
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                     version
@@ -152,7 +192,7 @@ services:
                                     この「services」より下に、階層構造でコンテナの振る舞いを詳細に書くことになりますので、次からは階層別でまとめます。
                                 </div>
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
-                                    一階層目
+                                    一階層目（services &gt; 一階層目）
                                 </h3>
                                 <div className="pl-4">
                                     一階層目はサンプルだと、「redis-server」や「node-app」の部分にあたります。
@@ -162,43 +202,119 @@ services:
                                     なのでプロジェクトで決められた規則がある場合はそれに沿った名前を、個人的な用途で使う場合は自分でわかりやすい名前を適当につけましょう。
                                 </div>
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
-                                    二階層目
+                                    二階層目（services &gt; 一階層目 &gt;
+                                    二階層目）
                                 </h3>
                                 <div className="pl-4">
                                     二階層目はサンプルだと、「image:」や「build:」、「ports:」の部分にあたります。
                                     <br />
                                     この部分でコンテナの具体的な設定を定義してきます。
                                     <br />
-                                    <table class="table-auto">
+                                    文章でまとめると分かり辛いので、表にします。
+                                    <br />
+                                    <br />
+                                    <table class="border-collapse border border-slate-500 ">
                                         <thead>
                                             <tr>
-                                                <th>Song</th>
-                                                <th>Artist</th>
-                                                <th>Year</th>
+                                                <th class="border border-slate-600 px-4 text-center">
+                                                    コマンド
+                                                </th>
+                                                <th class="border border-slate-600">
+                                                    使い方
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>
-                                                    The Sliding Mr. Bones (Next
-                                                    Stop, Pottersville)
+                                                <td class="border border-slate-700 px-8 text-center">
+                                                    image
                                                 </td>
-                                                <td>Malcolm Lockyer</td>
-                                                <td>1961</td>
+                                                <td class="border border-slate-700 px-4">
+                                                    起動するコンテナのイメージ名・IDを指定します。
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Witchy Woman</td>
-                                                <td>The Eagles</td>
-                                                <td>1972</td>
+                                                <td class="border border-slate-700 px-8 text-center">
+                                                    build
+                                                </td>
+                                                <td class="border border-slate-700 px-4">
+                                                    Dockerfileのあるディレクトリを指定します。
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Shining Star</td>
-                                                <td>Earth, Wind, and Fire</td>
-                                                <td>1975</td>
+                                                <td class="border border-slate-700 px-8 text-center">
+                                                    ports
+                                                </td>
+                                                <td class="border border-slate-700 px-4">
+                                                    コンテナを起動する端末とのポートの対応を定義します。
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id3">
+                                DockerCompose関連のコマンド一覧
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <div className="md:p-8">
+                                前述した通り、ファイル（docker-compose.yml）の作成で終わりではなく、実行するためのコマンドを実行する必要があります。
+                                <br />
+                                実行以外にもDockerCompose用のコマンドがいくつかあるので、まとめます。
+                                <p className="font-bold">
+                                    ▼docker-compose.ymlの内容を実行
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker-compose up`}
+                                </SyntaxHighlighter>
+                                docker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
+                                <p className="font-bold">
+                                    ▼docker-compose.ymlの内容をビルドして実行
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker-compose up --build`}
+                                </SyntaxHighlighter>
+                                一度docker-compose.ymlから作成したコンテナのソースコードを書き換えた場合は、普通の「停止」→「起動」では更新されません。
+                                <br />
+                                ビルドをし直す必要があるんですね。そんな時に使用します。
+                                <p className="font-bold">
+                                    ▼docker-compose.ymlの内容をバックグランドで実行
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker-compose up --d`}
+                                </SyntaxHighlighter>
+                                普通に「docker-compose
+                                up」を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
+                                <br />
+                                ですが、このコマンドを使用するとコンテナがバックグランドで実行され、コンソールが開放されます。
+                                <p className="font-bold">
+                                    ▼起動中のDockerComposeを停止
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker-compose down`}
+                                </SyntaxHighlighter>
+                                停止対象のdocker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
                             </div>
                         </div>
                     </section>
