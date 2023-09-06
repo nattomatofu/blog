@@ -180,6 +180,41 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">ports</td>
                                                 <td class="border border-slate-700 px-4">コンテナを起動する端末（ローカルPCなど）とのポートの対応を定義します。</td>
                                             </tr>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">restart</td>
+                                                <td class="border border-slate-700 px-4">
+                                                    コンテナがクラッシュなどして停止した場合の再起動の設定です。こちらはいくつか選択肢があるので別の表にまとめます。
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="border-collapse border border-slate-500 ">
+                                        <caption class="caption-top">restartで指定できるオプション</caption>
+                                        <thead>
+                                            <tr>
+                                                <th class="border border-slate-600 px-4 text-center">オプション</th>
+                                                <th class="border border-slate-600">オプションの説明</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">image</td>
+                                                <td class="border border-slate-700 px-4">起動するコンテナのイメージ名・IDを指定します。</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">build</td>
+                                                <td class="border border-slate-700 px-4">実行したいDockerfileのあるディレクトリを指定します。</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">ports</td>
+                                                <td class="border border-slate-700 px-4">コンテナを起動する端末（ローカルPCなど）とのポートの対応を定義します。</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">restart</td>
+                                                <td class="border border-slate-700 px-4">
+                                                    コンテナがクラッシュなどして停止した場合の再起動の設定です。こちらはいくつか選択肢があるので別の表にまとめます。
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
