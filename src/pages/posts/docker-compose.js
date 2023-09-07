@@ -221,7 +221,7 @@ services:
                                         </caption>
                                         <thead>
                                             <tr>
-                                                <th class="border border-slate-600 px-4 text-center">
+                                                <th class="border border-slate-600 p-2 text-center">
                                                     コマンド
                                                 </th>
                                                 <th class="border border-slate-600">
@@ -234,7 +234,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     image
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     起動するコンテナのイメージ名・IDを指定します。
                                                 </td>
                                             </tr>
@@ -242,7 +242,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     build
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     実行したいDockerfileのあるディレクトリを指定します。
                                                 </td>
                                             </tr>
@@ -250,7 +250,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     ports
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     コンテナを起動する端末（ローカルPCなど）とのポートの対応を定義します。
                                                 </td>
                                             </tr>
@@ -258,7 +258,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     restart
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     コンテナがクラッシュなどして停止した場合の再起動の設定です。こちらはいくつか選択肢があるので下の表に別でまとめます。
                                                 </td>
                                             </tr>
@@ -270,7 +270,7 @@ services:
                                         </caption>
                                         <thead>
                                             <tr>
-                                                <th class="border border-slate-600 px-2 text-center">
+                                                <th class="border border-slate-600 p-2 text-center">
                                                     オプション
                                                 </th>
                                                 <th class="border border-slate-600">
@@ -283,7 +283,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     'no'
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     再起動はしない設定です。デフォルトはこれになっています。
                                                 </td>
                                             </tr>
@@ -291,7 +291,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     always
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     コンテナが停止すると常に再起動する設定です。「Docker
                                                     stop」コマンドで停止できますが、Dockerデーモン（Docker
                                                     Desktopなど）を再起動すると、この設定をしたコンテナも謎に勝手に起動されます。
@@ -301,7 +301,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     on-failure
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     終了コードが0以外でコンテナが停止した場合、再起動する設定です。異常終了した場合、終了コードには０以外の何かしらの値が設定されるからですね。Dockerデーモン（Docker
                                                     Desktopなど）を再起動してもコンテナは再起動されません。
                                                     <br />
@@ -312,7 +312,7 @@ services:
                                                 <td class="border border-slate-700 px-8 text-center">
                                                     unless-stopped
                                                 </td>
-                                                <td class="border border-slate-700 px-4">
+                                                <td class="border border-slate-700 p-4">
                                                     手動で再起動した場合を除いて、コンテナを常に再起動する設定です。Dockerデーモン（Docker
                                                     Desktopなど）を再起動してもコンテナは再起動されません。
                                                 </td>
