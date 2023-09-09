@@ -317,6 +317,17 @@ const DockerCommand = () => {
                                 このコマンドで作成したイメージは「docker run
                                 イメージ名:タグ名」で実行できます。
                                 <p className="mt-4 font-bold">
+                                    ▼Dockerfileを指定してイメージファイルを作成
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker build -f ファイル名 .`}
+                                </SyntaxHighlighter>
+                                「Dockerfile」以外のファイル名で作成したファイルを使って、Dockerイメージを作成します。
+                                <p className="mt-4 font-bold">
                                     ▼起動中のコンテナからDockerイメージファイルを作成・保存
                                 </p>
                                 <SyntaxHighlighter
