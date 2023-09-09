@@ -144,13 +144,16 @@ const DockerImage = () => {
                                 >
                                     {`version: '3'
 services:
-  redis-server:
-    image: 'redis'
-  node-app:
-    restart: on-failure:5
-    build: ./
-    ports:
-      - "4001:8081"`}
+    redis-server:
+        image: 'redis'
+    node-app:
+        restart: on-failure:5
+        build: ./
+        ports:
+            - "4001:8081"
+        volumes: 
+            - /app/node_modules
+            - .:/app`}
                                 </SyntaxHighlighter>
                                 以上の内容で、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
                                 <br />
@@ -259,7 +262,18 @@ services:
                                                     restart
                                                 </td>
                                                 <td class="border border-slate-700 p-4">
-                                                    コンテナがクラッシュなどして停止した場合の再起動の設定です。こちらはいくつか選択肢があるので下の表に別でまとめます。
+                                                    コンテナがクラッシュなどして停止した場合の再起動の設定です。こちらはいくつか選択肢があるので別で表にまとめます。
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="border border-slate-700 px-8 text-center">
+                                                    volumes
+                                                </td>
+                                                <td class="border border-slate-700 p-4">
+                                                    ローカルPCとコンテナのフォルダのマッピングを設定します。
+                                                    <br />
+                                                    「/app/node_modules」は飽くまでサンプルなのですが、このように文の中に「:/」を含めない場合、コンテナ内の該当のフォルダはマウント対象から除外するという意味になります。
+                                                    一方、「.:/app」のように「:/」を含めた場合は、「:/」の左側にかかれているローカルPCのパスのフォルダが、「:/」の右側に書かれているコンテナ内のフォルダへマウントされます。
                                                 </td>
                                             </tr>
                                         </tbody>

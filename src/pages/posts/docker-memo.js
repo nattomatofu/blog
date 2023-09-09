@@ -193,26 +193,31 @@ const DockerCommand = () => {
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`$ docker run  -v PC側のフォルダパス:コンテナ側のフォルダパス イメージID`}
+                                    {`$ docker run  -v PC側のフォルダパス:/コンテナ側のフォルダパス イメージID`}
                                 </SyntaxHighlighter>
                                 ローカルPCのファイルシステムをマウントすることで、ローカルPCで何かしらファイルを変更した時、再ビルドをわざわざ行わなくてもよくなります。
                                 <br />
-                                「PC側のフォルダパス」には、絶対パスや「$(pwd)」などを設定することが可能です。
+                                「PC側のフォルダパス」には、絶対パスや「"$(pwd)"」などを設定することが可能です。（pwdなどを使う場合はダブルコーテーションで囲むことをお忘れなく）
                                 <br />
                                 「コンテナ側のフォルダパス」には、「/var」など指定しましょう。
                                 <br />
-                                また、コンテナ内の特定のファイルはマウントしたくない場合は以下のコマンドを使用しましょう。
+                                また、コンテナ内の特定のファイルはマウントしたくない場合は以下のコマンドを使いましょう。
                                 <br />
                                 <SyntaxHighlighter
                                     language="shell"
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`$ docker run -v コンテナ内のフォルダパス（またはファイルパス） -v PC側のフォルダパス:コンテナ側のフォルダパス イメージID`}
+                                    {`$ docker run -v コンテナ内のフォルダパス（またはファイルパス） -v PC側のフォルダパス:/コンテナ側のフォルダパス イメージID`}
                                 </SyntaxHighlighter>
                                 １つ目の -v
                                 コマンドが追加されていますが、この１つ目の -v
                                 で指定したコンテナ内のフォルダ（もしくはファイル）はマウント対象から除外されます。
+                                <br />
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    要するに -v
+                                    オプションでは「:/」の有無で、ローカルのファイルをマウントするのか、コンテナ内でファイルを固定するのかが決まるということですね。
+                                </span>
                                 <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
