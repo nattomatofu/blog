@@ -1,8 +1,8 @@
 import Layout from "@/components/Layout";
+import CodeText from "@/components/CodeText";
+import CodeBlock from "@/components/CodeBlock";
 import Head from "next/head";
 import Link from "next/link";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const title = "Docker Composeファイル（docker-compose.yml）の書き方";
 const updateDate = "2023/9/5";
@@ -104,26 +104,32 @@ const DockerImage = () => {
                                 DockerComposeファイルの書き方の前に、DockerComposeファイルを実行するまでの流れを簡単にまとめます。
                                 <ul className="list-inside list-decimal md:p-8">
                                     <li className="my-4">
-                                        独自のコンテナを使用する場合は、コンテナのイメージファイル（Dockerfile）を用意する。
+                                        独自のコンテナを使用する場合は、コンテナのイメージファイル（
+                                        <CodeText>Dockerfile</CodeText>
+                                        ）を用意する。
                                     </li>
                                     <li className="my-4">
-                                        任意のディレクトリに「docker-compose.yml」のファイル名でファイル作成する。
+                                        任意のディレクトリに
+                                        <CodeText>docker-compose.yml</CodeText>
+                                        のファイル名でファイル作成する。
                                     </li>
                                     <li className="my-4">
-                                        作成した「docker-compose.yml」に内容を記載する。
+                                        作成した
+                                        <CodeText>docker-compose.yml</CodeText>
+                                        に内容を記載する。
                                     </li>
                                     <li className="my-4">
-                                        作成した「docker-compose.yml」のあるディレクトリまで移動して、以下のコマンドを実行する。
+                                        作成した
+                                        <CodeText>docker-compose.yml</CodeText>
+                                        のあるディレクトリまで移動して、以下のコマンドを実行する。
                                     </li>
-                                    <SyntaxHighlighter
-                                        language="shell"
-                                        style={vscDarkPlus}
-                                        showLineNumbers={false}
-                                    >
+                                    <CodeBlock>
                                         {`$ docker-compose up`}
-                                    </SyntaxHighlighter>
+                                    </CodeBlock>
                                 </ul>
-                                次のセクションから「3.作成した「docker-compose.yml」に内容を記載する」の具体的な書き方をまとめます。
+                                次のセクションから「3.作成した
+                                <CodeText>docker-compose.yml</CodeText>
+                                に内容を記載する」の具体的な書き方をまとめます。
                             </div>
                         </div>
                     </section>
@@ -137,11 +143,7 @@ const DockerImage = () => {
                             <div className="md:p-8">
                                 めちゃくちゃ簡単ですがDocker
                                 Composeファイルの中身は以下のように記載します。
-                                <SyntaxHighlighter
-                                    language="shell"
-                                    style={vscDarkPlus}
-                                    showLineNumbers={false}
-                                >
+                                <CodeBlock>
                                     {`version: '3'
 services:
     redis-server:
@@ -154,7 +156,7 @@ services:
         volumes: 
             - /app/node_modules
             - .:/app`}
-                                </SyntaxHighlighter>
+                                </CodeBlock>
                                 以上の内容で、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
                                 <br />
                                 このファイルを参考に次から各行についてまとめます。
@@ -162,9 +164,12 @@ services:
                                     version
                                 </h3>
                                 <div className="pl-4">
-                                    まずは「version」です。この部分は定型文です。
+                                    まずは<CodeText>version</CodeText>
+                                    です。この部分は定型文です。
                                     <br />
-                                    コンテナの振る舞い自体に影響するものではないのではあまり重要ではないのですが、DockerComposeファイルの構文のバージョンを指定するものです。
+                                    コンテナの振る舞い自体に影響するものではないのではあまり重要ではないのですが、
+                                    <CodeText>docker-compose.yml</CodeText>
+                                    の構文のバージョンを指定するものです。
                                     <br />
                                     バージョン2を使うことも可能ですが、せっかくなので最新版のバージョン3を使いましょう。（バージョン1は非推奨のようです。）
                                     <br />
@@ -178,29 +183,28 @@ services:
                                     に書いてあるのでここを確認しましょう。
                                     <br />
                                     書き方としては以下のような感じになります。
-                                    <SyntaxHighlighter
-                                        language="shell"
-                                        style={vscDarkPlus}
-                                        showLineNumbers={false}
-                                    >
-                                        {`version: '3'`}
-                                    </SyntaxHighlighter>
+                                    <CodeBlock>{`version: '3'`}</CodeBlock>
                                 </div>
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                     services
                                 </h3>
                                 <div className="pl-4">
-                                    続いて「services」です。これも定型文です。
+                                    続いて<CodeText>services</CodeText>
+                                    です。これも定型文です。
                                     <br />
                                     この部分には、まとめて管理するコンテナの中身を記載します。
                                     <br />
-                                    この「services」より下に、階層構造でコンテナの振る舞いを詳細に書くことになりますので、次からは階層別でまとめます。
+                                    この<CodeText>services</CodeText>
+                                    より下に、階層構造でコンテナの振る舞いを詳細に書くことになりますので、次からは階層別でまとめます。
                                 </div>
                                 <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
                                     一階層目（services &gt; 一階層目）
                                 </h3>
                                 <div className="pl-4">
-                                    一階層目はサンプルだと、「redis-server」や「node-app」の部分にあたります。
+                                    一階層目はサンプルだと、
+                                    <CodeText>redis-server</CodeText>や
+                                    <CodeText>node-app</CodeText>
+                                    の部分にあたります。
                                     <br />
                                     この部分は、まとめて管理するコンテナの名前をつける部分なのですが、任意の名前を設定できます。
                                     <br />
@@ -211,7 +215,11 @@ services:
                                     二階層目）
                                 </h3>
                                 <div className="pl-4">
-                                    二階層目はサンプルだと、「image:」や「build:」、「ports:」の部分にあたります。
+                                    二階層目はサンプルだと、
+                                    <CodeText>image:</CodeText>や
+                                    <CodeText>build:</CodeText>、
+                                    <CodeText>ports:</CodeText>
+                                    の部分にあたります。
                                     <br />
                                     この部分でコンテナの具体的な設定を定義してきます。
                                     <br />
@@ -220,7 +228,7 @@ services:
                                     <br />
                                     <table class="mt-4 border-collapse border border-slate-500 ">
                                         <caption class="caption-top text-lg font-medium">
-                                            【２階層目で指定できるオプション】
+                                            【二階層目で指定できるオプション】
                                         </caption>
                                         <thead>
                                             <tr>
@@ -246,7 +254,30 @@ services:
                                                     build
                                                 </td>
                                                 <td class="border border-slate-700 p-4">
-                                                    実行したいDockerfileのあるディレクトリを指定します。
+                                                    実行したい
+                                                    <CodeText>
+                                                        Dockerfile
+                                                    </CodeText>
+                                                    のあるディレクトリを指定します。
+                                                    <br />
+                                                    また、
+                                                    <CodeText>
+                                                        Dockerfile
+                                                    </CodeText>
+                                                    が
+                                                    <CodeText>
+                                                        docker-compose.yml
+                                                    </CodeText>
+                                                    と同じ階層にない場合や、ファイル名が
+                                                    <CodeText>
+                                                        Dockerfile
+                                                    </CodeText>
+                                                    以外のファイルでイメージを作成したい場合は以下のように書けば良いです。
+                                                    <CodeBlock>
+                                                        {`build:
+    context: ./ # Dockerfileのあるパスを指定
+    dockerfile: Dockerfile.dev # Dockerfileのファイル名を指定`}
+                                                    </CodeBlock>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -272,8 +303,21 @@ services:
                                                 <td class="border border-slate-700 p-4">
                                                     ローカルPCとコンテナのフォルダのマッピングを設定します。
                                                     <br />
-                                                    「/app/node_modules」は飽くまでサンプルなのですが、このように文の中に「:/」を含めない場合、コンテナ内の該当のフォルダはマウント対象から除外するという意味になります。
-                                                    一方、「.:/app」のように「:/」を含めた場合は、「:/」の左側にかかれているローカルPCのパスのフォルダが、「:/」の右側に書かれているコンテナ内のフォルダへマウントされます。
+                                                    <CodeText>
+                                                        /app/node_modules
+                                                    </CodeText>
+                                                    は飽くまでサンプルなのですが、このように文の中に
+                                                    <CodeText>:/</CodeText>
+                                                    を含めない場合、コンテナ内の該当のフォルダはマウント対象から除外するという意味になります。
+                                                    一方、
+                                                    <CodeText>.:/app</CodeText>
+                                                    のように
+                                                    <CodeText>:/</CodeText>
+                                                    を含めた場合は、
+                                                    <CodeText>:/</CodeText>
+                                                    の左側にかかれているローカルPCのパスのフォルダが、
+                                                    <CodeText>:/</CodeText>
+                                                    の右側に書かれているコンテナ内のフォルダへマウントされます。
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -306,8 +350,11 @@ services:
                                                     always
                                                 </td>
                                                 <td class="border border-slate-700 p-4">
-                                                    コンテナが停止すると常に再起動する設定です。「Docker
-                                                    stop」コマンドで停止できますが、Dockerデーモン（Docker
+                                                    コンテナが停止すると常に再起動する設定です。
+                                                    <CodeText>
+                                                        Docker stop
+                                                    </CodeText>
+                                                    コマンドで停止できますが、Dockerデーモン（Docker
                                                     Desktopなど）を再起動すると、この設定をしたコンテナも謎に勝手に起動されます。
                                                 </td>
                                             </tr>
@@ -316,10 +363,17 @@ services:
                                                     on-failure
                                                 </td>
                                                 <td class="border border-slate-700 p-4">
-                                                    終了コードが0以外でコンテナが停止した場合、再起動する設定です。異常終了した場合、終了コードには０以外の何かしらの値が設定されるからですね。Dockerデーモン（Docker
+                                                    終了コードが
+                                                    <CodeText>0</CodeText>
+                                                    以外でコンテナが停止した場合、再起動する設定です。異常終了した場合、終了コードには
+                                                    <CodeText>0</CodeText>
+                                                    以外の何かしらの値が設定されるからですね。Dockerデーモン（Docker
                                                     Desktopなど）を再起動してもコンテナは再起動されません。
                                                     <br />
-                                                    「on-failure:5」のように記載すると５回再起動をトライするようになります。
+                                                    <CodeText>
+                                                        on-failure:5
+                                                    </CodeText>
+                                                    のように記載すると５回再起動をトライするようになります。
                                                 </td>
                                             </tr>
                                             <tr>
@@ -345,58 +399,44 @@ services:
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                前述の通り、ファイル（docker-compose.yml）を作成しただけで終わりではなく、コンテナを実行するためのコマンドを打つ必要があります。
+                                前述の通り、ファイル（
+                                <CodeText>docker-compose.yml</CodeText>
+                                ）を作成しただけで終わりではなく、コンテナを実行するためのコマンドを打つ必要があります。
                                 <br />
                                 実行以外にも、DockerCompose用のコマンドがいくつかあるのでまとめます。
                                 <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容を実行
                                 </p>
-                                <SyntaxHighlighter
-                                    language="shell"
-                                    style={vscDarkPlus}
-                                    showLineNumbers={false}
-                                >
-                                    {`$ docker-compose up`}
-                                </SyntaxHighlighter>
-                                docker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
+                                <CodeBlock>{`$ docker-compose up`}</CodeBlock>
+                                <CodeText>docker-compose.yml</CodeText>
+                                があるディレクトリまで移動してから実行しましょう。
                                 <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容をビルドして実行
                                 </p>
-                                <SyntaxHighlighter
-                                    language="shell"
-                                    style={vscDarkPlus}
-                                    showLineNumbers={false}
-                                >
+                                <CodeBlock>
                                     {`$ docker-compose up --build`}
-                                </SyntaxHighlighter>
-                                一度docker-compose.ymlから作成したコンテナのソースコードを書き換えた場合は、普通の「停止」→「起動」では更新されません。
+                                </CodeBlock>
+                                一度<CodeText>docker-compose.yml</CodeText>
+                                から作成したコンテナのソースコードを書き換えた場合は、普通の「停止」→「起動」では更新されません。
                                 <br />
                                 ビルドをし直す必要があるんですね。そんな時に使用します。
                                 <p className="mt-6 font-bold">
                                     ▼docker-compose.ymlの内容をバックグランドで実行
                                 </p>
-                                <SyntaxHighlighter
-                                    language="shell"
-                                    style={vscDarkPlus}
-                                    showLineNumbers={false}
-                                >
+                                <CodeBlock>
                                     {`$ docker-compose up --d`}
-                                </SyntaxHighlighter>
-                                普通に「docker-compose
-                                up」を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
+                                </CodeBlock>
+                                普通に<CodeText>docker-compose up</CodeText>
+                                を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
                                 <br />
                                 ですが、このコマンドを使用するとコンテナがバックグランドで実行され、コンソールが開放されます。
                                 <p className="mt-6 font-bold">
                                     ▼起動中のDockerComposeを停止
                                 </p>
-                                <SyntaxHighlighter
-                                    language="shell"
-                                    style={vscDarkPlus}
-                                    showLineNumbers={false}
-                                >
-                                    {`$ docker-compose down`}
-                                </SyntaxHighlighter>
-                                停止対象のdocker-compose.ymlがあるディレクトリまで移動してから実行しましょう。
+                                <CodeBlock>{`$ docker-compose down`}</CodeBlock>
+                                停止対象の
+                                <CodeText>docker-compose.yml</CodeText>
+                                があるディレクトリまで移動してから実行しましょう。
                             </div>
                         </div>
                     </section>
