@@ -448,7 +448,7 @@ services:
                         </div>
                         <div className="mt-8">
                             <p className="md:p-8">
-                                以上、Dockerのイメージファイル作成方法について簡単でしたがまとめてみました。
+                                以上、個人的なメモも含みましたが、DockerComposeの作成方法について簡単でしたがまとめてみました。
                                 <br />
                                 <br />
                                 それでは！
