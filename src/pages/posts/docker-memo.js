@@ -181,6 +181,34 @@ const DockerCommand = () => {
                                 ちなみにローカルPCのポート番号と、コンテナのポート番号は別に一致していなくても問題ありません。
                                 <br />
                                 <p className="mt-4 font-bold">
+                                    ▼ローカルのファイルシステムをコンテナにマウントしてコンテナを起動
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker run  -v PC側のフォルダパス:コンテナ側のフォルダパス イメージID`}
+                                </SyntaxHighlighter>
+                                ローカルPCのファイルシステムをマウントすることで、ローカルPCで何かしらファイルを変更した時、再ビルドをわざわざ行わなくてもよくなります。
+                                <br />
+                                「PC側のフォルダパス」には、絶対パスや「$(pwd)」などを設定することが可能です。
+                                <br />
+                                「コンテナ側のフォルダパス」には、「/var」など指定しましょう。
+                                <br />
+                                また、コンテナ内の特定のファイルはマウントしたくない場合は以下のコマンドを使用しましょう。
+                                <br />
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker run -v コンテナ内のフォルダパス（またはファイルパス） -v PC側のフォルダパス:コンテナ側のフォルダパス イメージID`}
+                                </SyntaxHighlighter>
+                                １つ目の -v
+                                コマンドが追加されていますが、この１つ目の -v
+                                で指定したコンテナ内のフォルダ（もしくはファイル）はマウント対象から除外されます。
+                                <p className="mt-4 font-bold">
                                     ▼実行中のコンテナ一覧を表示
                                 </p>
                                 <SyntaxHighlighter
@@ -350,6 +378,36 @@ const DockerCommand = () => {
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
                             <h2 className="ml-2 text-xl" id="id2">
+                                複合型コマンドメモ
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <div className="md:p-8">
+                                コマンドは複数まとめて実行することもあるので、使いそうなものをまとめます。
+                                <p className="mt-4 font-bold">
+                                    ▼ローカルPCとコンテナとポートをマッピングしつつ、ローカルのファイルシステムをコンテナへマウントしてコンテナ起動
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker run -p ローカル側のポート番号:コンテナ側のポート番号 -v ローカルPC側のフォルダパス:/コンテナ側のフォルダパス イメージID`}
+                                </SyntaxHighlighter>
+                                実際に値を埋めると以下のような感じです。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`$ docker run -p 8080:8080 -v $(pwd):/var kreu243fmlfd`}
+                                </SyntaxHighlighter>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id3">
                                 その他メモ
                             </h2>
                         </div>
@@ -371,7 +429,7 @@ const DockerCommand = () => {
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id3">
+                            <h2 className="ml-2 text-xl" id="id4">
                                 最後に
                             </h2>
                         </div>
