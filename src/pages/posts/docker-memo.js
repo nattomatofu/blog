@@ -67,10 +67,15 @@ const DockerCommand = () => {
                                             </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id2">その他メモ</a>
+                                            <a href="#id2">
+                                                複合型コマンドメモ
+                                            </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id3">最後に</a>
+                                            <a href="#id3">その他メモ</a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id4">最後に</a>
                                         </li>
                                     </ul>
                                 </div>
