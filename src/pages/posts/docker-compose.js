@@ -295,7 +295,7 @@ services:
                                         <tbody>
                                             <tr>
                                                 <td class="border border-slate-700 px-8 text-center">
-                                                    'no'
+                                                    &apos;no&apos;
                                                 </td>
                                                 <td class="border border-slate-700 p-4">
                                                     再起動はしない設定です。デフォルトはこれになっています。
