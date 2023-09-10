@@ -39,13 +39,3 @@ export function getPostsData() {
     });
     return allPostsData;
 }
-
-//idに基づいて記事ファイルのデータを返す
-export async function getPostData(id) {
-    const fullPath = path.join(postsDirectory, `${id}.js`);
-    const fileContent = fs.readFileSync(fullPath, "utf8");
-    return {
-        id,
-        fileContent,
-    };
-}
