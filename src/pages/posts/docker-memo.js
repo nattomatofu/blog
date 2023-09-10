@@ -6,7 +6,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 const title = "Dockerコマンド一覧";
 const updateDate = "2023/9/2";
-const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.png";
+const thumbnailImagePath = "/images/thumbnail/docker-thumbnail.jpg";
 const metaDescription =
     "どうも、納豆大好きnattoです。Dockerコマンドについてまとめます。";
 const metaOgUrl = "https://www.nattomatofu.com/posts/docker-memo";

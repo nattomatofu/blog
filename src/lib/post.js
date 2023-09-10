@@ -1,56 +1,62 @@
-// import path from "path";
-// import fs from "fs";
-// import matter from "gray-matter";
-// import { remark } from "remark";
-// import html from "remark-html";
+import path from "path";
+import fs from "fs";
 
-// const postsDirectory = path.join(process.cwd(), "src/posts");
+const postsDirectory = path.join(process.cwd(), "src/pages/posts");
 
-// export function getPostsData() {
-//     const fileNames = fs.readdirSync(postsDirectory);
-//     const allPostsData = fileNames.map((fileName) => {
-//         const id = fileName.replace(/\.js$/, "");
+export function getPostsData() {
+    const fileNames = fs.readdirSync(postsDirectory);
+    const allPostsData = fileNames.map((fileName) => {
+        const id = fileName.replace(/\.js$/, "");
 
-//         const fullPath = path.join(postsDirectory, fileName);
-//         // const fileContent = fs.readFileSync(fullPath, "utf8");
-//         const fileContent = fs.readFileSync(fullPath, "utf8");
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContent = fs.readFileSync(fullPath, "utf8");
 
-//         // const matterResult = matter(fileContent);
+        const titleRegex = /const title =\s+"([^"]+)";/;
+        const titleMatch = fileContent.match(titleRegex);
+        const title = titleMatch[1];
 
-//         return {
-//             id,
-//             fileContent,
-//             // ...matterResult.data,
-//         };
-//     });
-//     return allPostsData;
-// }
+        const updateDateRegex = /const updateDate =\s+"([^"]+)";/;
+        const updateDateMatch = fileContent.match(updateDateRegex);
+        const updateDate = updateDateMatch[1];
 
-// export function getAllPostIds() {
-//     const fileNames = fs.readdirSync(postsDirectory);
-//     return fileNames.map((fileName) => {
-//         return {
-//             params: {
-//                 id: fileName.replace(/\.md$/, ""),
-//             },
-//         };
-//     });
-// }
+        const thumbnailImagePathRegex =
+            /const thumbnailImagePath =\s+"([^"]+)";/;
+        const thumbnailImagePathMatch = fileContent.match(
+            thumbnailImagePathRegex
+        );
+        const thumbnailImagePath = thumbnailImagePathMatch[1];
 
-// //idに基づいて記事ファイルのデータを返す
-// export async function getPostData(id) {
-//     const fullPath = path.join(postsDirectory, `${id}.js`);
-//     const fileContent = fs.readFileSync(fullPath, "utf8");
+        const linkPath = "/posts/" + id;
 
-//     // const matterResult = matter(fileContent);
+        return {
+            id,
+            // fileContent,
+            title,
+            updateDate,
+            thumbnailImagePath,
+            linkPath,
+        };
+    });
+    return allPostsData;
+}
 
-//     const blogContent = await remark().use(html).process(matterResult.content);
-//     // const blogContent = await remark().use(html).process(fileContent.content);
-//     const blogContentHTML = blogContent.toString();
+export function getAllPostIds() {
+    const fileNames = fs.readdirSync(postsDirectory);
+    return fileNames.map((fileName) => {
+        return {
+            params: {
+                id: fileName.replace(/\.md$/, ""),
+            },
+        };
+    });
+}
 
-//     return {
-//         id,
-//         fileContent,
-//         // ...matterResult.data,
-//     };
-// }
+//idに基づいて記事ファイルのデータを返す
+export async function getPostData(id) {
+    const fullPath = path.join(postsDirectory, `${id}.js`);
+    const fileContent = fs.readFileSync(fullPath, "utf8");
+    return {
+        id,
+        fileContent,
+    };
+}
