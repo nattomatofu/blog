@@ -1,10 +1,6 @@
 import Link from "next/link";
 
 const HomeCards = (props) => {
-    // console.log(props.postData);
-
-    console.log(props.allPostsData[0].id);
-
     return (
         <div className="container mx-auto px-1 md:pt-4 xl:pl-48">
             <div className="flex flex-wrap">

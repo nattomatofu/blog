@@ -348,6 +348,8 @@ services:
                             <CodeBlock>{`$ docker-compose up`}</CodeBlock>
                             <CodeText>docker-compose.yml</CodeText>
                             があるディレクトリまで移動してから実行しましょう。
+                            <br />
+                            イメージの作成と起動が同時に実行されます。
                             <CodeBlockTitle>
                                 ▼docker-compose.ymlの内容をビルドして実行
                             </CodeBlockTitle>
