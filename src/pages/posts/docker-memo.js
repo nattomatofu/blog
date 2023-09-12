@@ -410,7 +410,7 @@ const DockerCommand = () => {
                                     style={vscDarkPlus}
                                     showLineNumbers={false}
                                 >
-                                    {`$ docker run -p 8080:8080 -v $(pwd):/var kreu243fmlfd`}
+                                    {`$ docker run -p 8080:8080 -v "$(pwd)":/var kreu243fmlfd`}
                                 </SyntaxHighlighter>
                             </div>
                         </div>

@@ -113,11 +113,24 @@ services:
             - "4001:8081"
         volumes: 
             - /app/node_modules
-            - .:/app`}
+            - .:/app
+    tests:
+        build: ./
+        volumes:
+            - /app/nome_modules
+            - .:/app
+        command: ["npm", "run", "test"]`}
                             </CodeBlock>
                             以上の内容で、redisサーバーでデータ管理を行い、フロントエンドはNode.jsで作成されたWebサイトが作れます。（当たり前ですが、HTMLやJSのファイルなどは別途用意する必要があります。）
                             <br />
-                            このファイルを参考に次から各行についてまとめます。
+                            また、<CodeText>tests:</CodeText>
+                            以降の記述はテストを自動実行するためのものです。（ただし、テスト用ファイルの更新に合わせて、テストの実施内容をリアルタイム更新をするためには、
+                            <CodeText>docker-compose.yml</CodeText>
+                            のあるディレクトリより下の何処かに
+                            <CodeText>App.test.js</CodeText>
+                            のようなテストに関連するファイルが必要です。）
+                            <br />
+                            このファイルを元に次から各行についてまとめます。
                             <MediumHeading>version</MediumHeading>
                             <MediumParagraph>
                                 まずは<CodeText>version</CodeText>
@@ -262,6 +275,14 @@ services:
                                                 の左側にかかれているローカルPCのパスのフォルダが、
                                                 <CodeText>:/</CodeText>
                                                 の右側に書かれているコンテナ内のフォルダへマウントされます。
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="border border-slate-700 px-8 text-center">
+                                                command
+                                            </td>
+                                            <td class="border border-slate-700 p-4">
+                                                コンテナの起動時コマンドを設定します。
                                             </td>
                                         </tr>
                                     </tbody>
