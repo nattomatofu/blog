@@ -79,7 +79,12 @@ const DockerImage = () => {
                                             </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id4">最後に</a>
+                                            <a href="#id4">
+                                                複数イメージの使用について
+                                            </a>
+                                        </li>
+                                        <li className="pb-2">
+                                            <a href="#id5">最後に</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -308,7 +313,51 @@ CMD ["npm", "start"]`}
                     </section>
                     <section>
                         <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
-                            <h2 className="ml-2 text-xl" id="id4">
+                            <h2 className="ml-2 text-xl" id="id5">
+                                複数イメージの使用について
+                            </h2>
+                        </div>
+                        <div className="mt-8">
+                            <div className="md:p-8">
+                                ここまでの内容は一つのDockerfileに対して、一つのイメージを使用して来ましたが、
+                                一つのDockerfileに複数のイメージを定義することも可能です。
+                                <br />
+                                具体的には以下のように記載します。
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
+                                    {`# 1つ目のイメージを定義
+FROM node:14-alpine as builder
+WORKDIR '/app'
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+RUN npm run build
+
+# 2つ目のイメージを定義
+FROM nginx
+COPY --from=builder /app/build /usr/share/nginx/html`}
+                                </SyntaxHighlighter>
+                                これでNode.jsで作成したWebアプリケーションをnginxサーバにデプロイする動作となります。
+                                <br />
+                                「COPY」の部分で「--from=builder」をはじめにつけることで、1つ目に定義した「builder」のファイルシステムをコピー元とするということになるんですね。
+                                <br />
+                                最後のコピー先が「/usr/share/nginx/html」になっているのは
+                                <Link
+                                    href="https://hub.docker.com/_/nginx"
+                                    className="decoration-blue cursor-pointer text-blue-500 underline"
+                                >
+                                    こちら
+                                </Link>
+                                のページにそこに配置してくださいと書かれていたためです。
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <div className="mt-12 border-b border-l-4 border-neutral-700 border-l-neutral-700">
+                            <h2 className="ml-2 text-xl" id="id5">
                                 最後に
                             </h2>
                         </div>
