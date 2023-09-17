@@ -129,6 +129,7 @@ const DockerImage = () => {
                         <MainParagraph>
                             以上、アトミックデザインについて簡単に整理しました。
                             <br />
+                            <br />
                             それでは！
                         </MainParagraph>
                     </section>
