@@ -89,7 +89,9 @@ const DockerImage = () => {
                                     <CodeText>docker-compose.yml</CodeText>
                                     のあるディレクトリまで移動して、以下のコマンドを実行する。
                                 </li>
-                                <CodeBlock>{`$ docker-compose up`}</CodeBlock>
+                                <CodeBlock
+                                    language={"shell"}
+                                >{`$ docker-compose up`}</CodeBlock>
                             </ul>
                             次のセクションから「3.作成した
                             <CodeText>docker-compose.yml</CodeText>
@@ -101,7 +103,7 @@ const DockerImage = () => {
                         <MainParagraph>
                             めちゃくちゃ簡単ですがDocker
                             Composeファイルの中身は以下のように記載します。
-                            <CodeBlock>
+                            <CodeBlock language={"yaml"} isLineNum={true}>
                                 {`version: '3'
 services:
     redis-server:
@@ -149,7 +151,9 @@ services:
                                 に書いてあるのでここを確認しましょう。
                                 <br />
                                 書き方としては以下のような感じになります。
-                                <CodeBlock>{`version: '3'`}</CodeBlock>
+                                <CodeBlock
+                                    language={"yaml"}
+                                >{`version: '3'`}</CodeBlock>
                             </MediumParagraph>
                             <MediumHeading>services</MediumHeading>
                             <MediumParagraph>
@@ -230,7 +234,7 @@ services:
                                                 と同じ階層にない場合や、ファイル名が
                                                 <CodeText>Dockerfile</CodeText>
                                                 以外のファイルでイメージを作成したい場合は以下のように書けば良いです。
-                                                <CodeBlock>
+                                                <CodeBlock language={"yaml"}>
                                                     {`build:
     context: ./ # Dockerfileのあるパスを指定
     dockerfile: Dockerfile.dev # Dockerfileのファイル名を指定`}
@@ -366,7 +370,9 @@ services:
                             <CodeBlockTitle>
                                 ▼docker-compose.ymlの内容を実行
                             </CodeBlockTitle>
-                            <CodeBlock>{`$ docker-compose up`}</CodeBlock>
+                            <CodeBlock
+                                language={"shell"}
+                            >{`$ docker-compose up`}</CodeBlock>
                             <CodeText>docker-compose.yml</CodeText>
                             があるディレクトリまで移動してから実行しましょう。
                             <br />
@@ -374,7 +380,7 @@ services:
                             <CodeBlockTitle>
                                 ▼docker-compose.ymlの内容をビルドして実行
                             </CodeBlockTitle>
-                            <CodeBlock>
+                            <CodeBlock language={"shell"}>
                                 {`$ docker-compose up --build`}
                             </CodeBlock>
                             一度<CodeText>docker-compose.yml</CodeText>
@@ -384,7 +390,9 @@ services:
                             <CodeBlockTitle>
                                 ▼docker-compose.ymlの内容をバックグランドで実行
                             </CodeBlockTitle>
-                            <CodeBlock>{`$ docker-compose up --d`}</CodeBlock>
+                            <CodeBlock
+                                language={"shell"}
+                            >{`$ docker-compose up --d`}</CodeBlock>
                             普通に<CodeText>docker-compose up</CodeText>
                             を実行するとサーバのログが表示され、キーボードからコンソール入力はできなくなってしまいます。
                             <br />
@@ -392,7 +400,9 @@ services:
                             <CodeBlockTitle>
                                 ▼起動中のDockerComposeを停止
                             </CodeBlockTitle>
-                            <CodeBlock>{`$ docker-compose down`}</CodeBlock>
+                            <CodeBlock
+                                language={"shell"}
+                            >{`$ docker-compose down`}</CodeBlock>
                             停止対象の
                             <CodeText>docker-compose.yml</CodeText>
                             があるディレクトリまで移動してから実行しましょう。
