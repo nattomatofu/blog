@@ -15,7 +15,7 @@ import CodeBlock from "@/components/CodeBlock";
 import Head from "next/head";
 
 const title = "アトミックデザインについてのメモ";
-const updateDate = "2023/9/17";
+const updateDate = "2023/9/18";
 const thumbnailImagePath = "/images/thumbnail/atomic_design.png";
 const metaDescription =
     "どうも、納豆大好きnattoです。実務で使ったことは一度もありませんが、アトミックデザインについて整理します。";
@@ -103,7 +103,7 @@ const DockerImage = () => {
                                 </CodeBlock>
                                 <CodeBlock
                                     language="javascript"
-                                    filename="Input.js"
+                                    filename="AtomInput.js"
                                     isLineNum="true"
                                 >
                                     {`export const AtomInput = ({ placeholderText }) => {
@@ -144,9 +144,45 @@ export const MoleculeSearchComponent = () => {
                             <MediumParagraph>
                                 続いてOrganismです。
                                 <br />
-                                先程のMoleculeの集まった物がこのOrganismです。
+                                同じパーツが繰り返し使われている要素を指すそうです。
                                 <br />
-                                具体的な画面上の要素としては、「サイドメニュー」や「商品一覧メニュー」、「記事一覧」などが該当します。
+                                具体的には、「記事一覧」や「商品一覧メニュー」、「サイドメニュー」などが該当するのですが、中にAtomやMoleculeを含むこともあります。
+                                <br />
+                                以下がReactを使って、記事のカードを作成した例です。（前のAtomとMoleculeで作成したパーツは使っていません。。）
+                                <br />
+                                <CodeBlock
+                                    language={"javascript"}
+                                    isLineNum={"true"}
+                                    filename={"OrganismCard.js"}
+                                >
+                                    {`export const PostCard = ( { thumbnailPath,  altText, title, postDate, updateDate, } ) => {
+    return (
+        <div>
+            <img
+                height={320}
+                width={320}
+                src={thumbnailPath}
+                alt={altText}
+            />
+            <dl>
+                <dt>記事タイトル</dt>
+                <dd>{title}</dd>
+                <dt>投稿日</dt>
+                <dd>{postDate}</dd>
+                <dt>更新日</dt>
+                <dd>{updateDate}</dd>
+            </dl>
+        </div>
+    );
+};`}
+                                </CodeBlock>
+                                当然このままだとデザイン性がなさすぎて使い物にならないのですが、このように
+                                <CodeText>props</CodeText>
+                                で受け取った値をループすることで同じコンポートネントを複製していくようなイメージですね。
+                                <br />
+                                また、サンプルなので全くAtomに細分化していないのですが、
+                                <CodeText>div</CodeText>
+                                タグ内の要素は別コンポーネントに分けたほうが良いのかもしれません。
                             </MediumParagraph>
                             <MediumHeading>Templateとは</MediumHeading>
                             <MediumParagraph>
