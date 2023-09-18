@@ -91,6 +91,25 @@ const DockerImage = () => {
                                 <br />
                                 具体的な画面上の要素としては、「ボタン」や「入力ボックス」、「アイコン」、「単行テキスト」などが該当するのですが、この単位が最小のコンポートとなります。
                                 <br />
+                                Reactのコードで、ボタンと入力ボックスを書くと以下のような感じです。
+                                <CodeBlock
+                                    language="javascript"
+                                    filename="Atombutton.js"
+                                    isLineNum="true"
+                                >
+                                    {`export const AtomButton = (children) => {
+    return <button>{children}</button>;
+};`}
+                                </CodeBlock>
+                                <CodeBlock
+                                    language="javascript"
+                                    filename="Input.js"
+                                    isLineNum="true"
+                                >
+                                    {`export const AtomInput = ({ placeholderText }) => {
+    return <input type="text" placeholder={placeholderText} />;
+};`}
+                                </CodeBlock>
                                 そしてこのAtomの集まりで、次のmoleculeを構成します。
                             </MediumParagraph>
                             <MediumHeading>Moleculeとは</MediumHeading>
@@ -100,7 +119,26 @@ const DockerImage = () => {
                                 日本語だと「分子」という意味で、
                                 先程のAtomの集まった物がこのMoleculeです。
                                 <br />
-                                具体的な画面上の要素としては、「アイコン＋メニュー名」や「商品アイコン＋商品名」、「サムネイル画像＋題名」などが該当します。
+                                具体的な画面上の要素としては、「アイコン＋メニュー名」や「検索テキスト入力欄＋検索ボタン」、「サムネイル画像＋題名」などが該当します。
+                                <br />
+                                さっき上で作成したAtomを使って、Reactのコードで書くと以下のような感じです。
+                                <CodeBlock
+                                    language="javascript"
+                                    filename="MoleculeSearchComponent.js"
+                                    isLineNum="true"
+                                >
+                                    {`import { AtomButton } from "./AtomButton";
+import { AtomInput } from "./AtomInput";
+
+export const MoleculeSearchComponent = () => {
+    return (
+        <div>
+            <AtomInput placeholderText="検索文字を入力してください" />
+            <AtomButton>検索</AtomButton>
+        </div>
+    );
+};`}
+                                </CodeBlock>
                             </MediumParagraph>
                             <MediumHeading>Organismとは</MediumHeading>
                             <MediumParagraph>
