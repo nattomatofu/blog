@@ -127,8 +127,8 @@ const DockerImage = () => {
                                     filename="MoleculeSearchComponent.js"
                                     isLineNum="true"
                                 >
-                                    {`import { AtomButton } from "./AtomButton";
-import { AtomInput } from "./AtomInput";
+                                    {`import { AtomButton } from "./atoms/button/AtomButton";
+import { AtomInput } from "./atoms/input/AtomInput";
 
 export const MoleculeSearchComponent = () => {
     return (
@@ -188,20 +188,52 @@ export const MoleculeSearchComponent = () => {
                             <MediumParagraph>
                                 続いてTemplateです。
                                 <br />
-                                このTemplateは、立ち位置としてはOrganismの集まりなのですが、実際のデータは持たず、レイアウトのみを定義したものになります。
+                                このTemplateは、ページを構成する要素のうち、全てもしくはいくつかのページで共通するコンポーネントとなります。
+                                <br />
+                                具体的な例としては、ヘッダーやフッターなどですね。
+                                <br />
+                                一応Reactのコードで書こうとすると以下のようなものです。
+                                <CodeBlock
+                                    language={"javascript"}
+                                    isLineNum={true}
+                                    filename={"TemplateLayout.js"}
+                                >
+                                    {`import { Header } from "./atoms/layout/Header";
+import { Footer } from "./atoms/layout/Footer";
+
+export const TemplateLayout = ({children}) => {
+    return (
+        <>
+            <Header />
+            { children }
+            <Footer />
+        </>
+    )
+}`}
+                                </CodeBlock>
                             </MediumParagraph>
                             <MediumHeading>Pageとは</MediumHeading>
                             <MediumParagraph>
                                 最後はPageです。
                                 <br />
-                                Templateを元に作成された、最終的に表示される1画面です。
+                                ここまで出てきたAtom, Molecule, Organism,
+                                Templateを元に作成された、ユーザーから見える一つ一つのページとなります。
+                                <br />
+                                当たり前ですがページの内容はページによってまちまちなので、特にこれといったコードはありませんが、今書いているこのアトミックデザインの記事のような物が具体的な例になるかと思います。
                             </MediumParagraph>
                         </MainParagraph>
                     </section>
                     <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
-                            以上、アトミックデザインについて簡単に整理しました。
+                            以上、アトミックデザインについて簡単ですが整理しました。
+                            <br />
+                            <br />
+                            実務のプロジェクトでは
+                            <br />
+                            「この考え方と完全に一致するように必ずコンポーネントを分割しましょう！」
+                            <br />
+                            という訳にはいかず、プロジェクト毎で分割の仕方は異なるかと思いますが、１つの参考として使えそうですね。
                             <br />
                             <br />
                             それでは！
