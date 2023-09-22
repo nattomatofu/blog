@@ -22,7 +22,7 @@ const metaDescription =
 const metaOgUrl = "https://www.nattomatofu.com/posts/docker-compose";
 const metaOgType = "article";
 
-const DockerImage = () => {
+const DockerCompose = () => {
     return (
         <Layout>
             <Head>
@@ -423,4 +423,4 @@ services:
     );
 };
 
-export default DockerImage;
+export default DockerCompose;

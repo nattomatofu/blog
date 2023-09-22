@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import TitleText from "@/components/TitleText";
 import UpdateDate from "@/components/UpdateDate";
 import TableOfContents from "@/components/TableOfContents";
-import LinkText from "@/components/LinkText";
 import Preface from "@/components/Preface";
 import PrefaceText from "@/components/PrefaceText";
 import MainHeading from "@/components/MainHeading";
@@ -10,7 +9,6 @@ import MainParagraph from "@/components/MainParagraph";
 import MediumHeading from "@/components/MediumHeading";
 import MediumParagraph from "@/components/MediumParagraph";
 import CodeText from "@/components/CodeText";
-import CodeBlockTitle from "@/components/CodeBlockTitle";
 import CodeBlock from "@/components/CodeBlock";
 import Head from "next/head";
 
@@ -22,7 +20,7 @@ const metaDescription =
 const metaOgUrl = "https://www.nattomatofu.com/posts/atomic-design";
 const metaOgType = "article";
 
-const DockerImage = () => {
+const AtomicDesign = () => {
     return (
         <Layout>
             <Head>
@@ -245,4 +243,4 @@ export const TemplateLayout = ({children}) => {
     );
 };
 
-export default DockerImage;
+export default AtomicDesign;

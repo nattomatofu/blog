@@ -20,10 +20,11 @@ const updateDate = "2023/9/18";
 const thumbnailImagePath = "/images/thumbnail/list-of-covenient-websites.jpg";
 const metaDescription =
     "どうも、納豆大好きnattoです。個人的に便利だと思ったサイトを一覧としてまとめます。作成段階では特にジャンルは絞っていません。本当に個人的なメモです。";
-const metaOgUrl = "https://www.nattomatofu.com/posts/atomic-design";
+const metaOgUrl =
+    "https://www.nattomatofu.com/posts/list-of-convenient-websites";
 const metaOgType = "article";
 
-const DockerImage = () => {
+const ListOfConvenientWebsite = () => {
     return (
         <Layout>
             <Head>
@@ -140,4 +141,4 @@ const DockerImage = () => {
     );
 };
 
-export default DockerImage;
+export default ListOfConvenientWebsite;
