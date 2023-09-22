@@ -15,7 +15,7 @@ import CodeBlock from "@/components/CodeBlock";
 import Head from "next/head";
 
 const title = "ReactのuseContextについて";
-const updateDate = "2023/9/20";
+const updateDate = "2023/9/22";
 const thumbnailImagePath = "/images/thumbnail/react_icon.webp";
 const metaDescription =
     "どうも、納豆大好きnattoです。完全に思いつきですが、ReactのuseContextについてまとめます。";
@@ -81,7 +81,7 @@ const ReactUseContext = () => {
                         <MainHeading>useContexの使い方</MainHeading>
                         <MainParagraph>
                             <CodeText>useContext</CodeText>
-                            の使い方を大きく分けると、以下のような感じになります。
+                            の使い方の順序を大きく分けると、以下のような感じになります。
                             <ul className="list-inside list-decimal md:p-8">
                                 <li className="my-4">
                                     新しくコンポーネントを作成して、グローバル管理する変数を定義する
@@ -106,14 +106,14 @@ const ReactUseContext = () => {
                                 >
                                     {`import React, { createContext } from "react";
 
-export const DataContext = createContext({});
+export const StrContext = createContext({});
 
 export const ContextProvider = (children) => {
     const contextStr = "グローバルで使える文字列です";
     return (
-        <DataContext.Provider value={{ contextStr }}>
+        <StrContext.Provider value={{ contextStr }}>
             {children}
-        </DataContext.Provider>
+        </StrContext.Provider>
     );
 };
 `}
@@ -125,7 +125,7 @@ export const ContextProvider = (children) => {
                                 でChildrenを囲み、
                                 <br />
                                 グローバルで使いたい変数を、そのタグの
-                                <CodeText>value</CodeText>で囲みます。
+                                <CodeText>value</CodeText>に設定します。
                             </MediumParagraph>
                             <MediumHeading>
                                 ２．変数を参照したい範囲を、１で作成したコンポーネントで囲む
@@ -165,10 +165,10 @@ export default function App() {
                                     isLineNum={"true"}
                                     filename={"UseDataComponent.js"}
                                 >{`import React, { useContext } from "react";
-import { DataContext } from "./providers/ContextProvider";
+import { StrContext } from "./providers/ContextProvider";
                                 
 export const UseDataComponent = () => {
-    const context = useContext(DataContext);
+    const context = useContext(StrContext);
     return (
         <div>
             {context.contextStr}
@@ -186,7 +186,8 @@ export const UseDataComponent = () => {
                                 で作成した変数を<CodeText>useContex()</CodeText>
                                 の引数に渡します。
                                 <br />
-                                あとは、１で定義したグローバルな変数を好きな箇所で参照するのみです。
+                                あとは、１で<CodeText>value</CodeText>
+                                に渡した変数（グローバルな変数）を好きな箇所で参照するのみです。
                                 <br />
                                 私はこの部分でどのコンポーネントから何をインポート、参照すればよいかごちゃごちゃしていて混乱しました笑。
                             </MediumParagraph>
