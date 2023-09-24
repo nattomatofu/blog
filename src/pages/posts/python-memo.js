@@ -90,6 +90,15 @@ const PythonMemo = () => {
                         <MainHeading>その他小技</MainHeading>
                         <MainParagraph>
                             上記以外でへえーと思ったものをまとめます。
+                            <MediumHeading>数値の可視性向上</MediumHeading>
+                            <MediumParagraph>
+                                とても大きな数値を扱う時、あまりにも桁が多いと分かり辛いですよね。
+                                Pythonでは3桁区切りにアンダースコアで区切ることができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`a = 123456789
+b = 123_456_789 # Pythonが「_」は無視してくれる`}
+                                </CodeBlock>
+                            </MediumParagraph>
                             <MediumHeading>変数の入れ替え</MediumHeading>
                             <MediumParagraph>
                                 Pythonで変数を入れ替えたい場合、以下のように書くことで入れ替えることができます。
@@ -109,10 +118,7 @@ print(b) # 1と表示される`}
                     <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
-                            以上、useContextの使い方でした。
-                            <br />
-                            <br />
-                            便利ですが、若干ごちゃっているので慣れるまでは少し苦戦しそうな気がします（私だけ。。？）
+                            以上、Pythonの復習で個人的に勉強になったことをまとめました。
                             <br />
                             <br />
                             それでは！
