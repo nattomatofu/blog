@@ -16,7 +16,7 @@ import Head from "next/head";
 import UnderLineBoldText from "@/components/UnderLineBoldText";
 
 const title = "Pythonについての個人的なメモ";
-const updateDate = "2023/9/25";
+const updateDate = "2023/9/26";
 const thumbnailImagePath = "/images/thumbnail/python_logo.webp";
 const metaDescription =
     "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。その中で個人的に勉強になったことやカンペとして残しておきたいことをまとめます。";
@@ -96,7 +96,9 @@ const PythonMemo = () => {
                                     {`type(変数)`}
                                 </CodeBlock>
                             </MediumParagraph>
-                            <MediumHeading>int関数, round関数</MediumHeading>
+                            <MediumHeading>
+                                int関数, round関数, format関数
+                            </MediumHeading>
                             <MediumParagraph>
                                 引数に渡した変数をint型へ変換します。
                                 <br />
@@ -114,8 +116,18 @@ const PythonMemo = () => {
                                 また、round関数では小数点何桁まで値を保持したいかを、以下のように引数で指定することができます。
                                 <CodeBlock language={"python"} isLineNum={true}>
                                     {`float_num = 1.2345
-int_num = round(float_num, 2) # →　二桁目まで残す
-print(int_num) # →　1.23と表示される`}
+round_num = round(float_num, 2) # →　二桁目まで残す
+print(round_num) # →　1.23と表示される`}
+                                </CodeBlock>
+                                桁数の指定でいうと、format関数を使用しても桁数を指定できます。
+                                <br />
+                                <UnderLineBoldText>
+                                    便利なことにこのformat関数もround関数と同じように、表示しない桁で勝手に四捨五入してくれます。
+                                </UnderLineBoldText>
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`float_num = 1.2345
+format_num = "{:.2f}".format(float_num) # →　二桁目まで残す
+print(format_num) # →　1.23と表示される`}
                                 </CodeBlock>
                             </MediumParagraph>
                         </MainParagraph>
@@ -160,6 +172,17 @@ print(result) # 2の3乗で「8」が表示される`}
                                 <CodeBlock language={"python"} isLineNum={true}>
                                     {`result = 8 // 3 # 普通に割ると 2.666666666....
 print(result) # でも2になる`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                String型以外の変数をString型へ変換して文字列を作成
+                            </MediumHeading>
+                            <MediumParagraph>
+                                単純にキャスト用の関数を使ってプラス記号で繋ぐことでも可能ですが、以下のように書くことでよりスマートにかけます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`name = "Jon"
+age = 20
+print(f"My name is {name}. I'm {age} years old.") # 「My name is Jon. I'm 20 years old.」と表示される`}
                                 </CodeBlock>
                             </MediumParagraph>
                             <MediumHeading>変数の入れ替え</MediumHeading>
