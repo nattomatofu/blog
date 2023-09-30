@@ -125,6 +125,18 @@ const ListOfConvenientWebsite = () => {
                         </MainParagraph>
                     </section>
                     <section>
+                        <MainHeading>ASCII ART</MainHeading>
+                        <MainParagraph>
+                            URL　:　
+                            <LinkText href="https://ascii.co.uk/art">
+                                https://ascii.co.uk/art
+                            </LinkText>
+                            <br />
+                            <br />
+                            このサイトからコピーしてプログラムへ貼り付けるだけで、print関数などで簡単なアートを表示することができます。
+                        </MainParagraph>
+                    </section>
+                    <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
                             以上、個人的に便利だと思ったサイトの一覧を列挙してみました。

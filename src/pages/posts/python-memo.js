@@ -84,10 +84,13 @@ const PythonMemo = () => {
                             </MediumParagraph>
                             <MediumHeading>len関数</MediumHeading>
                             <MediumParagraph>
-                                以下のように使用することで引数に渡した文字列の長さを取得できます。
+                                以下のように使用することで引数に渡した文字列や配列の長さを取得できます。
                                 <CodeBlock language={"python"} isLineNum={true}>
-                                    {`len(任意の文字列)`}
+                                    {`len(任意の文字列や配列)`}
                                 </CodeBlock>
+                                <UnderLineBoldText>
+                                    文字列も配列も0から数えた長さではなく、1から数えた長さの数値が返されることに注意しましょう。
+                                </UnderLineBoldText>
                             </MediumParagraph>
                             <MediumHeading>type関数</MediumHeading>
                             <MediumParagraph>
@@ -128,6 +131,61 @@ print(round_num) # →　1.23と表示される`}
                                     {`float_num = 1.2345
 format_num = "{:.2f}".format(float_num) # →　二桁目まで残す
 print(format_num) # →　1.23と表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>lower関数</MediumHeading>
+                            <MediumParagraph>
+                                大文字を含む文字列を全て小文字に変換します。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {` 文字列.lower() # ABC → abc へ変換など`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>count関数</MediumHeading>
+                            <MediumParagraph>
+                                文字列の中に含まれる特定の文字の数を返します。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {` 文字列.count("a") # 文字列に含まれる「a」の数をを返す`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>random関数</MediumHeading>
+                            <MediumParagraph>
+                                0〜1の範囲で乱数を生成します。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import random
+                                    
+random_num = random.random() # 0〜1の範囲で乱数を生成`}
+                                </CodeBlock>
+                                生成した乱数に何かしらの数字をかけてから使うことになるかと思います。
+                                小数点のない乱数を生成したい場合は下記のrandint関数を使いましょう。
+                            </MediumParagraph>
+                            <MediumHeading>randint関数</MediumHeading>
+                            <MediumParagraph>
+                                指定した範囲で乱数を生成します。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import random
+
+random_num = random.randint(1, 10) # 1〜10の範囲で乱数を生成`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>choice関数</MediumHeading>
+                            <MediumParagraph>
+                                引数に渡した配列の中からランダムに1つの要素を選んで返してくれます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import random
+
+array = [a, b, c, d]
+result = random.choice(array) # 「a」「b」「c」「d」のどれかが返される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>extend関数</MediumHeading>
+                            <MediumParagraph>
+                                ある配列に別の配列を結合したい場合は以下のように書きます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`array1 = [1, 2, 3]
+array2 = [4, 5, 6]
+
+array1.extend(array2)
+print(array1) # 「1, 2, 3, 4, 5, 6」と表示される`}
                                 </CodeBlock>
                             </MediumParagraph>
                         </MainParagraph>
@@ -198,6 +256,54 @@ print(a) # 2と表示される
 print(b) # 1と表示される`}
                                 </CodeBlock>
                                 便利ですね。
+                            </MediumParagraph>
+                            <MediumHeading>
+                                文字列を改行しながら定義
+                            </MediumHeading>
+                            <MediumParagraph>
+                                メール本文など、長い文字列を書く時はきりの良いところで改行したいですよね。
+                                <br />
+                                Pythonでは以下のように書くことで改行しながら文字列を定義することができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`str = '''
+一行目の文字列です。
+改行しました。
+3行目の文字列です。
+いくらでもかけます。
+'''`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                配列の末尾の要素を参照
+                            </MediumHeading>
+                            <MediumParagraph>
+                                配列を末尾の要素を取得する時は以下のようにマイナス記号をつけることで参照できます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`array = [1, 2, 3, 4, 5, 6]
+print(array[-1]) # 「6」が表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>その他メモ</MainHeading>
+                        <MainParagraph>
+                            上記以外でその他メモとして残しておきたいものを書きます。
+                            <MediumHeading>二次元配列について</MediumHeading>
+                            <MediumParagraph>
+                                以下のように書くと二次元配列を作ることができるのですが、この書き方だと配列のコピーが渡されるわけではなく、
+                                <UnderLineBoldText>
+                                    配列の参照が渡されます。
+                                </UnderLineBoldText>
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`array1 = [1, 2, 3]
+array2 = [4, 5, 6]
+array3 = [array1, array2] # 二次元配列を作成
+
+array3[0][0] = 10 # 作成した二次元配列の要素を書き換え
+print(array1[0]) # 「10」と表示される`}
+                                </CodeBlock>
+                                そのため、作成した二次元配列から値と書き換えると、元の配列の値も書き換えらます。
                             </MediumParagraph>
                         </MainParagraph>
                     </section>
