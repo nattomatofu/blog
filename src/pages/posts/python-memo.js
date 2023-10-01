@@ -61,9 +61,9 @@ const PythonMemo = () => {
                         </Preface>
                     </section>
                     <section>
-                        <MainHeading>組み込み関数</MainHeading>
+                        <MainHeading>便利な関数</MainHeading>
                         <MainParagraph>
-                            組み込み関数で初めて知ったものなど、勉強になったものを列挙します。
+                            メモとして残しておきたい関数を列挙します。
                             <MediumHeading>input関数</MediumHeading>
                             <MediumParagraph>
                                 以下のように使用します。
@@ -147,7 +147,7 @@ print(format_num) # →　1.23と表示される`}
                                     {` 文字列.count("a") # 文字列に含まれる「a」の数をを返す`}
                                 </CodeBlock>
                             </MediumParagraph>
-                            <MediumHeading>random関数</MediumHeading>
+                            <MediumHeading>random.random関数</MediumHeading>
                             <MediumParagraph>
                                 0〜1の範囲で乱数を生成します。
                                 <CodeBlock language={"python"} isLineNum={true}>
@@ -158,7 +158,7 @@ random_num = random.random() # 0〜1の範囲で乱数を生成`}
                                 生成した乱数に何かしらの数字をかけてから使うことになるかと思います。
                                 小数点のない乱数を生成したい場合は下記のrandint関数を使いましょう。
                             </MediumParagraph>
-                            <MediumHeading>randint関数</MediumHeading>
+                            <MediumHeading>random.randint関数</MediumHeading>
                             <MediumParagraph>
                                 指定した範囲で乱数を生成します。
                                 <CodeBlock language={"python"} isLineNum={true}>
@@ -167,7 +167,7 @@ random_num = random.random() # 0〜1の範囲で乱数を生成`}
 random_num = random.randint(1, 10) # 1〜10の範囲で乱数を生成`}
                                 </CodeBlock>
                             </MediumParagraph>
-                            <MediumHeading>choice関数</MediumHeading>
+                            <MediumHeading>random.choice関数</MediumHeading>
                             <MediumParagraph>
                                 引数に渡した配列の中からランダムに1つの要素を選んで返してくれます。
                                 <CodeBlock language={"python"} isLineNum={true}>
@@ -175,6 +175,49 @@ random_num = random.randint(1, 10) # 1〜10の範囲で乱数を生成`}
 
 array = [a, b, c, d]
 result = random.choice(array) # 「a」「b」「c」「d」のどれかが返される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>random.shuffle関数</MediumHeading>
+                            <MediumParagraph>
+                                リストの並び順をシャッフルしてくれる関数です。
+                                <br />
+                                <UnderLineBoldText>
+                                    引数に渡したリストを直接書き換える動作となります。
+                                </UnderLineBoldText>
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import random
+
+list = [1, 2, 3, 4, 5]
+random.shuffle(list)
+print(my_list) # [4, 2, 5, 1, 3]などシャッフルしたリストが返される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>random.sample関数</MediumHeading>
+                            <MediumParagraph>
+                                リスト、タプル、文字列の並びをシャッフルして
+                                <UnderLineBoldText>
+                                    リストとして
+                                </UnderLineBoldText>
+                                結果を返してくれる関数です。
+                                <br />
+                                第一引数にシャッフルしたいリスト（またはタプル、文字列）を、
+                                <br />
+                                第二引数にシャッフルした結果から取得したい要素数を指定します。
+                                <br />
+                                <UnderLineBoldText>
+                                    また、引数に渡した元のリストや文字列を直接書き換えることはなく、戻り値として新しい結果を返す動作となります。
+                                </UnderLineBoldText>
+                                <br />
+                                リストの場合は上に書いたshuffle関数でも問題ない場面もあるので、今回は文字列をシャッフルするコードを書きます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import random
+
+str = "abcde"
+shuffled_str_list = random.sample(str, len(str)) # 第一引数にシャッフルしたい文字列を、第二引数にシャッフルした結果から取得したい要素数を指定
+print(shuffled_str_list) # ['b', 'd', 'a', 'c', 'e']など返り値はリストになる
+
+shuffled_str = "".join(shuffled_str_list) # join関数を使ってリストを文字列に戻す
+print(shuffled_str) # 「bdace」の文字列になる`}
                                 </CodeBlock>
                             </MediumParagraph>
                             <MediumHeading>extend関数</MediumHeading>
@@ -187,6 +230,17 @@ array2 = [4, 5, 6]
 array1.extend(array2)
 print(array1) # 「1, 2, 3, 4, 5, 6」と表示される`}
                                 </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>range関数</MediumHeading>
+                            <MediumParagraph>
+                                for文で頻繁に使用するrange関数ですが、3つ目の引数で値の増える量を指定することができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`for number in range(1, 11, 3)
+    print(number) # 1 4 7 10 が表示される`}
+                                </CodeBlock>
+                                また、返される値の範囲は、2つ目の引数に与えた値未満の範囲になることにも注意しましょう。
+                                <br />
+                                上記の例だと、2つ目の引数に「11」を指定しているので、「10」までループが実行されます。
                             </MediumParagraph>
                         </MainParagraph>
                     </section>
