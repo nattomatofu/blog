@@ -337,6 +337,39 @@ print(b) # 1と表示される`}
 print(array[-1]) # 「6」が表示される`}
                                 </CodeBlock>
                             </MediumParagraph>
+                            <MediumHeading>
+                                文字列から一文字ずつ抽出して処理する
+                            </MediumHeading>
+                            <MediumParagraph>
+                                いくつか方法はあって基本的には配列と同じような感じでfor文で実現できます。
+                                <br />
+                                まずは一番シンプルな方法です。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`text = "Hello, World!"
+for char in text:
+    print(char) # 「Hello, World!」と表示される`}
+                                </CodeBlock>
+                                続いて、何番目の文字かの情報を扱いたい場合などは、以下の様な書き方もできます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`text = "Hello, World!"
+for i in range(len(text)):
+    char = text[i]
+    print(char) # 「Hello, World!」と表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                要素数を指定してリストを作成
+                            </MediumHeading>
+                            <MediumParagraph>
+                                要素数を指定してかつ、初期値を任意のものに設定するには以下のようにします。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`length = 5  # リストの長さを指定
+my_list = []
+for i in range(length):
+    my_list.append(1)  # 初期値を追加する
+print(my_list) # [1, 1, 1, 1, 1]が表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
                         </MainParagraph>
                     </section>
                     <section>
