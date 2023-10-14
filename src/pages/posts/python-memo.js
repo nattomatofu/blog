@@ -61,9 +61,9 @@ const PythonMemo = () => {
                         </Preface>
                     </section>
                     <section>
-                        <MainHeading>便利な関数</MainHeading>
+                        <MainHeading>便利な関数（汎用系）</MainHeading>
                         <MainParagraph>
-                            メモとして残しておきたい関数を列挙します。
+                            メモとして残しておきたい関数のうち、汎用的なものを列挙します。
                             <MediumHeading>input関数</MediumHeading>
                             <MediumParagraph>
                                 以下のように使用します。
@@ -99,6 +99,12 @@ const PythonMemo = () => {
                                     {`type(変数)`}
                                 </CodeBlock>
                             </MediumParagraph>
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>便利な関数（数値系）</MainHeading>
+                        <MainParagraph>
+                            メモとして残しておきたい関数のうち、数値の扱いに関連するものを列挙します。
                             <MediumHeading>
                                 int関数, round関数, format関数
                             </MediumHeading>
@@ -133,6 +139,24 @@ format_num = "{:.2f}".format(float_num) # →　二桁目まで残す
 print(format_num) # →　1.23と表示される`}
                                 </CodeBlock>
                             </MediumParagraph>
+                            <MediumHeading>ceil関数</MediumHeading>
+                            <MediumParagraph>
+                                小数点を切り上げてint型に変換してくれます。
+                                <br />
+                                mathのインポートが必要です。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`import math
+
+num = math.ceil(1.234)
+print(num) # 「2」と表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>便利な関数（文字列系）</MainHeading>
+                        <MainParagraph>
+                            メモとして残しておきたい関数のうち、文字列に関連するものを列挙します。
                             <MediumHeading>lower関数</MediumHeading>
                             <MediumParagraph>
                                 大文字を含む文字列を全て小文字に変換します。
@@ -147,6 +171,12 @@ print(format_num) # →　1.23と表示される`}
                                     {` 文字列.count("a") # 文字列に含まれる「a」の数をを返す`}
                                 </CodeBlock>
                             </MediumParagraph>
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>便利な関数（ランダム系）</MainHeading>
+                        <MainParagraph>
+                            メモとして残しておきたい関数のうち、ランダム生成に関連するものを列挙します。
                             <MediumHeading>random.random関数</MediumHeading>
                             <MediumParagraph>
                                 0〜1の範囲で乱数を生成します。
@@ -220,6 +250,12 @@ shuffled_str = "".join(shuffled_str_list) # join関数を使ってリストを�
 print(shuffled_str) # 「bdace」の文字列になる`}
                                 </CodeBlock>
                             </MediumParagraph>
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>便利な関数（リスト系）</MainHeading>
+                        <MainParagraph>
+                            メモとして残しておきたい関数のうち、リスト（配列）に関連するものを列挙します。
                             <MediumHeading>extend関数</MediumHeading>
                             <MediumParagraph>
                                 ある配列に別の配列を結合したい場合は以下のように書きます。
@@ -237,6 +273,19 @@ print(array1) # 「1, 2, 3, 4, 5, 6」と表示される`}
                                 <CodeBlock language={"python"} isLineNum={true}>
                                     {`for number in range(1, 11, 3)
     print(number) # 1 4 7 10 が表示される`}
+                                </CodeBlock>
+                                また、返される値の範囲は、2つ目の引数に与えた値未満の範囲になることにも注意しましょう。
+                                <br />
+                                上記の例だと、2つ目の引数に「11」を指定しているので、「10」までループが実行されます。
+                            </MediumParagraph>
+                            <MediumHeading>index関数</MediumHeading>
+                            <MediumParagraph>
+                                配列の中のある要素が何番目のインデックスにあるかを返してくれます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`array = ["a", "b", "c", "d", "e"]
+position = array.index("d")
+
+print(position) # 3 が表示される`}
                                 </CodeBlock>
                                 また、返される値の範囲は、2つ目の引数に与えた値未満の範囲になることにも注意しましょう。
                                 <br />
@@ -368,6 +417,72 @@ my_list = []
 for i in range(length):
     my_list.append(1)  # 初期値を追加する
 print(my_list) # [1, 1, 1, 1, 1]が表示される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                リストが特定の要素を含んでいるかの確認
+                            </MediumHeading>
+                            <MediumParagraph>
+                                あるリストが特定の要素を含んでいるかどうかは以下のようにして確認できます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`list = ['a', 'b', 'c']
+
+result1 = 'a' in list
+print(result1) # True
+result2 = 'e' in list
+print(result2) # False`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                一行で1つのファイルから複数の変数、関数をインポート
+                            </MediumHeading>
+                            <MediumParagraph>
+                                以下のように書くことで、一行で１つのファイルから複数の変数や関数をインポートすることができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`from modules_file import module1, module2 #「modules_file」というファイルから「module1」と「module2」をインポートする場合`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                引数名を指定して関数を実行
+                            </MediumHeading>
+                            <MediumParagraph>
+                                関数実行時、以下のように書くことで引数名を指定して関数を実行することができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`def function(a, b, c):
+    print(a) # 1
+    print(b) # 2
+    print(c) # 3
+
+function(c = 3, a = 1, b = 2) # 引数名を指定して関数を実行`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                配列内の要素を左シフト
+                            </MediumHeading>
+                            <MediumParagraph>
+                                配列の内の要素を指定した数分だけシフトする方法です。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`array = [1, 2, 3, 4, 5]
+shift_num = 2
+
+shifted_array = array[shift:] + array[:shift]
+
+print(shifted_array) # [3, 4, 5, 1, 2]`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>辞書をfor文で処理</MediumHeading>
+                            <MediumParagraph>
+                                めちゃくちゃ初歩的ですが、辞書型のデータをfor文で処理する際は以下のように書きます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`dictionary = {
+    "key1": "value1"
+    "key2": "value2"
+    "key3": "value3"
+}
+
+for key in dictionary:
+    print(key) # キーが順番に出力される
+    print(dictionary[key]) # 値が順番に出力される`}
                                 </CodeBlock>
                             </MediumParagraph>
                         </MainParagraph>
