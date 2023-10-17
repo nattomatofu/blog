@@ -171,6 +171,15 @@ print(num) # 「2」と表示される`}
                                     {` 文字列.count("a") # 文字列に含まれる「a」の数をを返す`}
                                 </CodeBlock>
                             </MediumParagraph>
+                            <MediumHeading>title関数</MediumHeading>
+                            <MediumParagraph>
+                                文字列の1文字目だけ大文字にした文字列に変換てくれます。
+                                <br />
+                                2文字目以降の文字は大文字であっても小文字に変換されます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {` 文字列.title() # 文字列の1文字目だけを大文字にした文字列を返す`}
+                                </CodeBlock>
+                            </MediumParagraph>
                         </MainParagraph>
                     </section>
                     <section>
@@ -483,6 +492,33 @@ print(shifted_array) # [3, 4, 5, 1, 2]`}
 for key in dictionary:
     print(key) # キーが順番に出力される
     print(dictionary[key]) # 値が順番に出力される`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>辞書のネスト</MediumHeading>
+                            <MediumParagraph>
+                                これまためちゃくちゃ初歩的ですが、辞書型のデータの中に辞書やリストをネストすることができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`dictionary = {
+    "key1": ["value1", "value2", "value3"]
+    "key2": {"key3": "value4"}
+}`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>Docstringの書き方</MediumHeading>
+                            <MediumParagraph>
+                                Docstringと呼ばれるもので関数の説明を設定することができます。
+                                <br />
+                                関数名を途中まで入力するとよく出てくる説明文ですね。
+                                <br />
+                                関数名を定義した次の行に3つのダブルコーテーションで囲むことで書くことができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`def function():
+    """
+    ここに関数の説明を書く
+    """
+    a = 1
+    b = 2
+    ....`}
                                 </CodeBlock>
                             </MediumParagraph>
                         </MainParagraph>
