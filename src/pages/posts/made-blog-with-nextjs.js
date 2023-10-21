@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import Head from "next/head";
 
-const title = "Next.jsでブログを作ってみた（やった勉強や、今後実装したい機能などをメインにまとめています！）";
+const title = "Next.jsでブログを作ってみた";
 const updateDate = "2023/5/13";
 const thumbnailImagePath = "images/thumbnail/nextjs_thumbnail.jpg";
 const metaDescription =
@@ -15,7 +15,10 @@ const sample = () => {
             <Head>
                 <meta content={metaDescription} name="description"></meta>
                 <meta charset="utf-8"></meta>
-                <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1"
+                ></meta>
                 <meta property="og:url" content={metaOgUrl} />
                 <meta property="og:type" content={metaOgType} />
                 <meta property="og:title" content={title} />
@@ -28,7 +31,9 @@ const sample = () => {
                 <div className="container mx-auto px-5 xl:pl-52">
                     <section>
                         <div className="mt-8 border-b-2 border-t-2 border-neutral-700">
-                            <h1 className="container mx-auto p-4 text-lg font-bold md:p-12 md:text-xl">{title}</h1>
+                            <h1 className="container mx-auto p-4 text-lg font-bold md:p-12 md:text-xl">
+                                {title}
+                            </h1>
                         </div>
                         <div className="mt-4 text-right">
                             <p className="font-thin">更新日 : {updateDate}</p>
@@ -50,22 +55,32 @@ const sample = () => {
                             </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
-                                    <p className="mb-4 text-center text-xl">目次</p>
+                                    <p className="mb-4 text-center text-xl">
+                                        目次
+                                    </p>
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
-                                            <a href="#id1">作ろうと思ったきっかけ</a>
+                                            <a href="#id1">
+                                                作ろうと思ったきっかけ
+                                            </a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id2">使った技術</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id3">ブログ制作を始める前の自身のスキル</a>
+                                            <a href="#id3">
+                                                ブログ制作を始める前の自身のスキル
+                                            </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id4">プログラミング言語などの学習方法</a>
+                                            <a href="#id4">
+                                                プログラミング言語などの学習方法
+                                            </a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id5">今後の課題や実装したい機能</a>
+                                            <a href="#id5">
+                                                今後の課題や実装したい機能
+                                            </a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id6">最後に</a>
@@ -74,7 +89,9 @@ const sample = () => {
                                 </div>
                             </div>
 
-                            <p className="md:p-8">まずは作ろうと思ったきっかけです。</p>
+                            <p className="md:p-8">
+                                まずは作ろうと思ったきっかけです。
+                            </p>
                         </div>
                     </section>
                     <section>
@@ -85,7 +102,10 @@ const sample = () => {
                         </div>
                         <div className="mt-8">
                             <p className="md:p-8">
-                                結論から述べると<span className="font-bold underline decoration-red-400 decoration-2">いづれフリーランスとして活動して、その時のポートフォリオにしたい</span>
+                                結論から述べると
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    いづれフリーランスとして活動して、その時のポートフォリオにしたい
+                                </span>
                                 と思っていたからです笑。
                                 <br />
                                 <br />
@@ -107,39 +127,56 @@ const sample = () => {
                             </h2>
                         </div>
                         <div className="mt-8 md:p-8">
-                            <p>このブログ作成には以下の技術やプログラミング言語を使っています。</p>
+                            <p>
+                                このブログ作成には以下の技術やプログラミング言語を使っています。
+                            </p>
                             <div>
                                 {/* <h3 className="my-2 font-bold underline decoration-dotted underline-offset-4">HTML</h3> */}
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">HTML</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    HTML
+                                </h3>
                                 <p className="pl-4">
-                                    おそらく皆さんご存じのHTML(HyperText Markup Language)です。
+                                    おそらく皆さんご存じのHTML(HyperText Markup
+                                    Language)です。
                                     <br />
                                     <br />
                                     Webサイトを作るうえで基本中の基本の言語ということで使用しています。
                                 </p>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">CSS(Tailwindcss)</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    CSS(Tailwindcss)
+                                </h3>
                                 <p className="pl-4">
-                                    HTMLで作成したコンテンツをデザインするための言語で「Cascading Style Sheets」の略だそうです。
+                                    HTMLで作成したコンテンツをデザインするための言語で「Cascading
+                                    Style Sheets」の略だそうです。
                                     <br />
                                     <br />
                                     今回はプレーンのCSSを使用するか、Bootstrapなどのフレームワークを使用するかで少し悩みましたが、
-                                    CSSの基本を理解したいという気持ちの上に楽もしたいという気持ちがあったので、 中間くらいに位置するTailwindcssを使用することにしました。
+                                    CSSの基本を理解したいという気持ちの上に楽もしたいという気持ちがあったので、
+                                    中間くらいに位置するTailwindcssを使用することにしました。
                                 </p>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">JavaScript</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    JavaScript
+                                </h3>
                                 <p className="pl-4">
-                                    HTML, CSSときたらJavaScriptですよね。フロントエンドではサイトのコンテンツに動きを付ける時などに使われます。
+                                    HTML,
+                                    CSSときたらJavaScriptですよね。フロントエンドではサイトのコンテンツに動きを付ける時などに使われます。
                                     <br />
                                     <br />
-                                    今回は静的なブログを作成するだけなのでJavaScriptはなくても作れるのですが、 以前から下記のReactというJavaScriptのフレームワークに興味があったので使ってみました。
+                                    今回は静的なブログを作成するだけなのでJavaScriptはなくても作れるのですが、
+                                    以前から下記のReactというJavaScriptのフレームワークに興味があったので使ってみました。
                                 </p>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">React</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    React
+                                </h3>
                                 <p className="pl-4">
                                     JavaScriptのフレームワークで、コンテンツをコンポーネントという単位でまとめて管理することができます。
                                     <br />
                                     <br />
                                     ブログ程度の静的なサイトだとHTMLとCSSのみでも問題なく作ることができるのですが、前述の通りReactというものに以前から興味があったので、ページ自体や良く使うHTMLタグをコンポーネント化するために使用しました。
                                 </p>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Next.js</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    Next.js
+                                </h3>
                                 <p className="pl-4">
                                     JavaScriptのフレームワークであるReactのさらにフレームワークであるNext.jsです。
                                     <br />
@@ -153,12 +190,16 @@ const sample = () => {
                                     Next.jsはReactについて調べている間に存在を知り、Reactを使うなら便利そうだ！使ってみよう！と思ったのがきっかけです。（Next.jsのSSG,
                                     SSRの詳しい仕組みは現在勉強中です。。）
                                 </p>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Vercel</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    Vercel
+                                </h3>
                                 <p className="pl-4">
-                                    作成したサイト（今回だとブログ）を世に配信するためのサービスです。 Next.jsを開発している会社がVercelという名前で、社名と同名のサービスとなります。
+                                    作成したサイト（今回だとブログ）を世に配信するためのサービスです。
+                                    Next.jsを開発している会社がVercelという名前で、社名と同名のサービスとなります。
                                     <br />
                                     <br />
-                                    Next.jsの開発会社が開発しているということもあってNext.jsとの相性は抜群だそうで、 Gitの更新をトリガーにしてビルド→デプロイの流れを自動で行ってくれます。
+                                    Next.jsの開発会社が開発しているということもあってNext.jsとの相性は抜群だそうで、
+                                    Gitの更新をトリガーにしてビルド→デプロイの流れを自動で行ってくれます。
                                 </p>
                             </div>
                             <p className="pt-8 md:mt-4">
@@ -176,8 +217,11 @@ const sample = () => {
                         </div>
                         <div className="mt-8">
                             <p className="md:p-8">
-                                大学を卒業後、システムエンジニアや社内SEの職を3年ほど経験しましたが、 ぶっちゃけ業務ではバックエンド側を担当することがほとんどで、
-                                <span className="font-bold underline decoration-red-400 decoration-2">上記のプログラミング言語はほぼ触れたことはない状態でした。</span>
+                                大学を卒業後、システムエンジニアや社内SEの職を3年ほど経験しましたが、
+                                ぶっちゃけ業務ではバックエンド側を担当することがほとんどで、
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    上記のプログラミング言語はほぼ触れたことはない状態でした。
+                                </span>
                                 <br />
                                 <br />
                                 ですので、このブログ制作を始める前はHTMLはもちろんCSS、JavaScriptにも触れたことはほとんどなく、どちらかというとPythonやSQL、基盤でいうとAWS等の知識しかありませんでした。
@@ -203,7 +247,9 @@ const sample = () => {
                             </p>
                         </div>
                         <div className="md:pl-8">
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">0～1ヶ月半程度 : HTML, CSSの勉強</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">
+                                0～1ヶ月半程度 : HTML, CSSの勉強
+                            </h3>
                             <p className="pl-4">
                                 始めの1か月半の学習はほぼ全てHTMLとCSSの習得にあてていました。
                                 <br />
@@ -215,9 +261,12 @@ const sample = () => {
                                 World」と表示するだけのページでもどう作れば良いか思いつかなったのが、現在ではこのようにブログ程度の簡単なサイトであればある程度自由に編集できるようになっています。
                                 <br />
                                 <br />
-                                ちなみにHTML, CSSに限らず、基本的に勉強はUdemyというオンライン学習サイトを使って勉強しています。
+                                ちなみにHTML,
+                                CSSに限らず、基本的に勉強はUdemyというオンライン学習サイトを使って勉強しています。
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">1ヶ月半～2ヶ月 : JavaScriptの勉強</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                1ヶ月半～2ヶ月 : JavaScriptの勉強
+                            </h3>
                             <p className="pl-4">
                                 大体1ヶ月半～2ヶ月の半月ではJavaScriptを主に学習していました。
                                 <br />
@@ -228,10 +277,14 @@ const sample = () => {
                                 ただ、せっかく勉強するならある程度深い部分まで知っておきたいという思いがあったので、
                                 同期処理/非同期処理の違いやProxyなどの少し難しめの内容も勉強していたこともあり、少し長めに時間を取りました。（現時点の当ブログではそれら技術は本当に全く使ってないんですけどね、、）
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">2ヶ月～2ヶ月半 : Reactの勉強</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                2ヶ月～2ヶ月半 : Reactの勉強
+                            </h3>
                             <p className="pl-4">
-                                ここに来てやっとですが、Reactの勉強を始めます。 実をいうと、ブログを作ろうと思ってまず初めにUdemyでReactの講座を受講したのですが、HTMLやCSSが全く分からず、
-                                Reactの内容が全然頭に入ってこなかったので、HTML, CSSの勉強時間をまず初めに取り、このタイミングでReactの勉強を始めました。
+                                ここに来てやっとですが、Reactの勉強を始めます。
+                                実をいうと、ブログを作ろうと思ってまず初めにUdemyでReactの講座を受講したのですが、HTMLやCSSが全く分からず、
+                                Reactの内容が全然頭に入ってこなかったので、HTML,
+                                CSSの勉強時間をまず初めに取り、このタイミングでReactの勉強を始めました。
                                 <br />
                                 <br />
                                 約2カ月の地道な下積みの甲斐もあって、基本的なReactの仕組みの理解にはあまり時間はかからなかったと思っています。
@@ -239,7 +292,9 @@ const sample = () => {
                                 <br />
                                 ただ、コンポーネントを分ける単位や、コンポーネント間でデータを共有するuseContextやReduxをどの区切りで整理するのが良いのかは、実際にWeb制作を経験して学ぶ必要があるなーと思っています。
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                2ヶ月半～3ヶ月 : Next.jsの勉強とブログ制作
+                            </h3>
                             <p className="pl-4">
                                 ここでいきなりブログを作り始めます笑。Reactの勉強を始めた頃から早くブログを作りたい欲が高まっていたんですよね笑。
                                 <br />
@@ -248,7 +303,8 @@ const sample = () => {
                                 UdemyでReactの講座を見ていた時に、あわせてNext.jsというフレームワークの紹介があったので、そこでNext.jsを使うことに方向転換しました。
                                 <br />
                                 <br />
-                                前に書いた通りNext.jsについては現在も勉強中であまり詳しくは理解できていないのですが、便利さ故にこの早さでブログを公開できています。 （
+                                前に書いた通りNext.jsについては現在も勉強中であまり詳しくは理解できていないのですが、便利さ故にこの早さでブログを公開できています。
+                                （
                                 Next.jsを使ったブログの制作から公開まで一気に学ぶことが出来る講座がUdemyにあったからというのが早く作れた一番の理由です。はい。）
                             </p>
                         </div>
@@ -264,16 +320,26 @@ const sample = () => {
                                     <div class="p-4 md:w-full">
                                         <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                             <div class="flex-grow">
-                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">HTML/CSSの講座</h2>
+                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">
+                                                    HTML/CSSの講座
+                                                </h2>
                                                 <ul className="list-disc">
                                                     <li>
-                                                        <a href="https://www.udemy.com/course/html5css3-b/" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
-                                                            【最新2022】未経験からHTML、CSS をマスターして、WEBデザイナー・エンジニアを目指す　最高の実践コース
+                                                        <a
+                                                            href="https://www.udemy.com/course/html5css3-b/"
+                                                            className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                        >
+                                                            【最新2022】未経験からHTML、CSS
+                                                            をマスターして、WEBデザイナー・エンジニアを目指す　最高の実践コース
                                                         </a>
                                                     </li>
                                                     <li className="pt-2">
-                                                        <a href="https://www.udemy.com/course/html-css-js/" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
-                                                            ちゃんと学ぶ、HTML/CSS + JavaScript
+                                                        <a
+                                                            href="https://www.udemy.com/course/html-css-js/"
+                                                            className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                                        >
+                                                            ちゃんと学ぶ、HTML/CSS
+                                                            + JavaScript
                                                         </a>
                                                         （JavaScriptも含まれていますが、HTML/CSSの印象が強かったのでHTML/CSSに入れさせていただきました）
                                                     </li>
@@ -282,7 +348,8 @@ const sample = () => {
                                                             href="https://www.udemy.com/course/tailwindcss_beginner/"
                                                             className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
                                                         >
-                                                            【tailwindcss】初心者向け講座・CSSが苦手な人向け 【わかりやすさ重視】【次世代のCSS】にじっくり取り組む
+                                                            【tailwindcss】初心者向け講座・CSSが苦手な人向け
+                                                            【わかりやすさ重視】【次世代のCSS】にじっくり取り組む
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -292,7 +359,9 @@ const sample = () => {
                                     <div class="p-4 md:w-full">
                                         <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                             <div class="flex-grow">
-                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">JavaScriptの講座</h2>
+                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">
+                                                    JavaScriptの講座
+                                                </h2>
                                                 <ul className="list-disc">
                                                     <li>
                                                         <a
@@ -309,7 +378,9 @@ const sample = () => {
                                     <div class="p-4 md:w-full">
                                         <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                             <div class="flex-grow">
-                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Reactの講座</h2>
+                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">
+                                                    Reactの講座
+                                                </h2>
                                                 <ul className="list-disc">
                                                     <li>
                                                         <a
@@ -334,7 +405,9 @@ const sample = () => {
                                     <div class="p-4 md:w-full">
                                         <div class="flex flex-col rounded-lg border-2 border-gray-200 border-opacity-50 p-8 sm:flex-row xl:mx-24">
                                             <div class="flex-grow">
-                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">Next.jsの講座</h2>
+                                                <h2 class="title-font mb-3 text-lg font-medium text-gray-900">
+                                                    Next.jsの講座
+                                                </h2>
                                                 <ul className="list-disc">
                                                     <li>
                                                         <a
@@ -366,7 +439,9 @@ const sample = () => {
                             </p>
                         </div>
                         <div className="md:pl-8">
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">ドメインの購入とサーバへの設定</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-8">
+                                ドメインの購入とサーバへの設定
+                            </h3>
                             <p className="pl-4">
                                 いや、早くやれよって感じですよね笑。というかもはや、独自ドメインを設定せずにサイトを公開したと言えないのでは
                                 、、という感じなのですが、一応固定のURLでサイトを公開でいているので、一旦良しとしています笑。
@@ -374,7 +449,9 @@ const sample = () => {
                                 <br />
                                 ただやはり、本格的に運用していくのであれば独自ドメインは設定した方が良いと思うので（愛着がわきますし、、）、まず初めにドメインを買って設定したいと思っています。
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">良く使うもののコンポーネント化</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                良く使うもののコンポーネント化
+                            </h3>
                             <p className="pl-4">
                                 良く使うHTMLタグなどその他コンポーネント化できそうな部分が現状まだまだあります。
                                 <br />
@@ -383,7 +460,9 @@ const sample = () => {
                                 <br />
                                 と思っているのでこちらも早めに対応したいことの1つに挙がっています。
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">GA(Google Analytics)の導入</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                GA(Google Analytics)の導入
+                            </h3>
                             <p className="pl-4">
                                 ブログを作ったからにはやはりどのくらい見られているのかが気になりますよね。
                                 <br />
@@ -393,7 +472,9 @@ const sample = () => {
                                 このブログはまだまだ作ったばかりで、そんな機能があっても宝の持ち腐れ状態になる未来が見えるので急いではいないのですが、
                                 いずれGAを導入して最低でも訪問者数の把握はできたらいいなーなんて思っています。
                             </p>
-                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">AWSへの移行</h3>
+                            <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                AWSへの移行
+                            </h3>
                             <p className="pl-4">
                                 ここまであまり触れてこなかったのですが、私は仕事でAWSを使っていて割と多くのサービスに触れたことがあるので、EC2に立てたWebサーバにブログを移行して、更にCI/CDの設定も自作してみようかなーと思っています。
                                 <br />
@@ -424,7 +505,9 @@ const sample = () => {
                                 まだまだ改善しなければならない点も沢山あるのですが、今後もメンテナンスを続けてこのブログを育てていくことができたらいいなと思っています！
                                 <br />
                                 また冒頭でも書いたのですが、ブログを作った一番の目的はフリーランスになった時のアピール材料にすることなので、
-                                <span className="font-bold underline decoration-red-400 decoration-2">技術的な記事を沢山投稿していく予定です！</span>
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    技術的な記事を沢山投稿していく予定です！
+                                </span>
                                 <br />
                                 <br />
                                 【お礼】

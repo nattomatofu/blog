@@ -16,7 +16,7 @@ import Head from "next/head";
 import UnderLineBoldText from "@/components/UnderLineBoldText";
 
 const title = "Pythonについての個人的なメモ";
-const updateDate = "2023/9/26";
+const updateDate = "2023/10/18";
 const thumbnailImagePath = "/images/thumbnail/python_logo.webp";
 const metaDescription =
     "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。その中で個人的に勉強になったことやカンペとして残しておきたいことをまとめます。";
@@ -519,6 +519,25 @@ for key in dictionary:
     a = 1
     b = 2
     ....`}
+                                </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                辞書のvalueに関数を指定
+                            </MediumHeading>
+                            <MediumParagraph>
+                                そんなに使うことはないかもしれませんが、辞書のvalueには関数を設定することもできます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`def function():
+    print("This is a function")
+
+dict = {
+    key: function # valueに↑で定義した関数を設定
+}
+
+executed_function = dict[key] # 関数を辞書から取得
+executed_function() # 辞書から取得した関数を実行
+
+dict[key]() # そのまま実行することも可能`}
                                 </CodeBlock>
                             </MediumParagraph>
                         </MainParagraph>
