@@ -96,7 +96,7 @@ const ListOfConvenientWebsite = () => {
                                     </UnderLineBoldText>
                                 </li>
                                 <li className="my-4">
-                                    <CodeText>source.unsplash.com</CodeText>
+                                    <CodeText>unsplash.com</CodeText>
                                     の前に、<CodeText>source.</CodeText>
                                     を追加します。
                                 </li>
