@@ -1,10 +1,10 @@
 import Link from "next/link";
-import ProfileCard from "./ProfileCard";
+import RightSideMenu from "./RightSideMenu";
 
 const BLOG_TITLE = "natto";
 const BLOG_SUB_TITLE = "memo";
 
-function Layout({ children, home }) {
+const Layout = (props) => {
     return (
         <>
             <header className=" bg-neutral-700">
@@ -36,8 +36,8 @@ function Layout({ children, home }) {
                 </div>
             </header>
             <div className="container m-auto flex-wrap lg:flex">
-                <div className="lg:w-8/12">{children}</div>
-                <ProfileCard />
+                <div className="lg:w-8/12">{props.children}</div>
+                <RightSideMenu allPostsData={props.allPostsData} />
             </div>
             <footer className="body-font mt-8 bg-neutral-200 text-gray-600">
                 <div className="container mx-auto flex flex-col  items-center px-5 py-5">
@@ -48,6 +48,6 @@ function Layout({ children, home }) {
             </footer>
         </>
     );
-}
+};
 
 export default Layout;

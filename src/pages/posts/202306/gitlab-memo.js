@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/pages/layout/Layout";
 import Head from "next/head";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -17,7 +17,10 @@ const GitlabMemo = () => {
             <Head>
                 <meta content={metaDescription} name="description"></meta>
                 <meta charset="utf-8"></meta>
-                <meta name="viewport" content="width=device-width,initial-scale=1"></meta>
+                <meta
+                    name="viewport"
+                    content="width=device-width,initial-scale=1"
+                ></meta>
                 <meta property="og:url" content={metaOgUrl} />
                 <meta property="og:type" content={metaOgType} />
                 <meta property="og:title" content={title} />
@@ -30,7 +33,9 @@ const GitlabMemo = () => {
                 <div className="container mx-auto px-5 xl:pl-52">
                     <section>
                         <div className="mt-8 border-b-2 border-t-2 border-neutral-700">
-                            <h1 className="container mx-auto p-4 text-lg font-bold md:p-12 md:text-xl">{title}</h1>
+                            <h1 className="container mx-auto p-4 text-lg font-bold md:p-12 md:text-xl">
+                                {title}
+                            </h1>
                         </div>
                         <div className="mt-4 text-right">
                             <p className="font-thin">更新日 : {updateDate}</p>
@@ -49,10 +54,15 @@ const GitlabMemo = () => {
                             </p>
                             <div className="flex justify-center">
                                 <div className="mb-8 border border-dashed border-neutral-900 p-4 align-middle md:w-1/2">
-                                    <p className="mb-4 text-center text-xl">目次</p>
+                                    <p className="mb-4 text-center text-xl">
+                                        目次
+                                    </p>
                                     <ul className="list-disc pl-6">
                                         <li className="pb-2">
-                                            <a href="#id1">提供のされ方（セルフマネージド版 / SaaS版）</a>
+                                            <a href="#id1">
+                                                提供のされ方（セルフマネージド版
+                                                / SaaS版）
+                                            </a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id2">料金体系</a>
@@ -61,7 +71,9 @@ const GitlabMemo = () => {
                                             <a href="#id3">ハードウェア要件</a>
                                         </li>
                                         <li className="pb-2">
-                                            <a href="#id4">インストール手順（Ubuntu向け）</a>
+                                            <a href="#id4">
+                                                インストール手順（Ubuntu向け）
+                                            </a>
                                         </li>
                                         <li className="pb-2">
                                             <a href="#id5">管理用コマンド</a>
@@ -73,7 +85,9 @@ const GitlabMemo = () => {
                                 </div>
                             </div>
 
-                            <p className="md:p-8">まずはGitLabセルフマネージド版とSaaS版についてです。</p>
+                            <p className="md:p-8">
+                                まずはGitLabセルフマネージド版とSaaS版についてです。
+                            </p>
                         </div>
                     </section>
                     <section>
@@ -84,42 +98,77 @@ const GitlabMemo = () => {
                         </div>
                         <div className="mt-8">
                             <div className="md:p-8">
-                                GitLabには<span className="font-bold underline decoration-red-400 decoration-2">自分でサーバを用意する「セルフマネージド版」</span>と、
-                                <span className="font-bold underline decoration-red-400 decoration-2">サーバを用意しなくてもいい「SaaS版」</span>があります。
+                                GitLabには
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    自分でサーバを用意する「セルフマネージド版」
+                                </span>
+                                と、
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    サーバを用意しなくてもいい「SaaS版」
+                                </span>
+                                があります。
                                 <br />
                                 <br />
                                 それぞれの特徴は以下です。
                                 <br />
                                 <br />
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-6">セルフマネージド版</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-6">
+                                    セルフマネージド版
+                                </h3>
                                 <ul className=" list-disc space-y-2 px-6">
-                                    <li>サーバを利用者側で用意して（オンプレ、AWSなど）、その上にGitLabをインストールして利用する</li>
+                                    <li>
+                                        サーバを利用者側で用意して（オンプレ、AWSなど）、その上にGitLabをインストールして利用する
+                                    </li>
                                     <li>料金体系は以下の3つがある</li>
                                     <li className="ml-6">free($0/月)</li>
                                     <li className="ml-6">premium($29/月)</li>
                                     <li className="ml-6">Ultimate($99/月) </li>
-                                    <li>ディストリビューションは以下の2種類がある</li>
-                                    <li className="ml-6">GitLab CE(Community Edition)</li>
+                                    <li>
+                                        ディストリビューションは以下の2種類がある
+                                    </li>
+                                    <li className="ml-6">
+                                        GitLab CE(Community Edition)
+                                    </li>
                                     <li className="ml-12">オープンソース</li>
-                                    <li className="ml-12">無料で利用可能(有償版はなし)</li>
-                                    <li className="ml-12">ライセンス購入していないEEと同等の機能</li>
-                                    <li className="ml-6">GitLab EE(Enterprise Edition)</li>
-                                    <li className="ml-12">エンタープライズ向けの商用製品</li>
-                                    <li className="ml-12">ライセンス購入せず無償でも利用可能だが、有償だと機能が増える（増える機能や料金は下記の「料金体系」を参照）</li>
                                     <li className="ml-12">
-                                        <a href="https://about.gitlab.com/install/" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
+                                        無料で利用可能(有償版はなし)
+                                    </li>
+                                    <li className="ml-12">
+                                        ライセンス購入していないEEと同等の機能
+                                    </li>
+                                    <li className="ml-6">
+                                        GitLab EE(Enterprise Edition)
+                                    </li>
+                                    <li className="ml-12">
+                                        エンタープライズ向けの商用製品
+                                    </li>
+                                    <li className="ml-12">
+                                        ライセンス購入せず無償でも利用可能だが、有償だと機能が増える（増える機能や料金は下記の「料金体系」を参照）
+                                    </li>
+                                    <li className="ml-12">
+                                        <a
+                                            href="https://about.gitlab.com/install/"
+                                            className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                        >
                                             公式の推奨インストール手順
                                         </a>
                                         でもEEのインストール手順が記載されていたり、
-                                        <a href="https://www.gitlab.jp/install/ce-or-ee/" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
+                                        <a
+                                            href="https://www.gitlab.jp/install/ce-or-ee/"
+                                            className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                        >
                                             CEとEEの違いについての説明ページ
                                         </a>
                                         からもEEの仕様が推奨されているため公式の推奨版といえる
                                     </li>
                                 </ul>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-6">SaaS版</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-6">
+                                    SaaS版
+                                </h3>
                                 <ul className=" list-disc space-y-2 px-6">
-                                    <li>GitLabの公式サイトにてサインアップ（アカウント登録）するのみで利用でき、サーバを準備する必要がない</li>
+                                    <li>
+                                        GitLabの公式サイトにてサインアップ（アカウント登録）するのみで利用でき、サーバを準備する必要がない
+                                    </li>
                                     <li>実体はGoogleCloudで稼働している</li>
                                 </ul>
                                 <br />
@@ -140,15 +189,22 @@ const GitlabMemo = () => {
                                 <br />
                                 <br />
                                 何円払うことでどの機能が利用できるようになるかの詳細は
-                                <a href="https://www.gitlab.jp/pricing/gitlab-com/feature-comparison/" className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105">
+                                <a
+                                    href="https://www.gitlab.jp/pricing/gitlab-com/feature-comparison/"
+                                    className="cursor-pointer text-blue-500 underline decoration-blue-500 hover:scale-105"
+                                >
                                     公式サイト
                                 </a>
                                 に記載されていますが、超独断で超簡単に要約してみます。
                                 <br />
-                                <span className="font-bold underline decoration-red-400 decoration-2">正確に違いを把握したい方は公式をご確認ください。</span>
+                                <span className="font-bold underline decoration-red-400 decoration-2">
+                                    正確に違いを把握したい方は公式をご確認ください。
+                                </span>
                             </p>
                             <div>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Free($0/月)</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    Free($0/月)
+                                </h3>
                                 <div className="pl-4">
                                     以下の基本的なサービスが利用可能です。
                                     <ul className="my-4 list-disc space-y-2 px-6">
@@ -157,21 +213,33 @@ const GitlabMemo = () => {
                                         <li>CI/CD機能</li>
                                     </ul>
                                 </div>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Premium($29/月)</h3>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    Premium($29/月)
+                                </h3>
                                 <div className="pl-4">
                                     以下のサービスが利用可能です。
                                     <ul className=" mt-4 list-disc space-y-2 px-6">
-                                        <li>GitLab外のリポジトリからGitLabリポジトリへの自動ミラーリング</li>
-                                        <li>GitLab外の他のリポジトリと接続したCI/CD実行</li>
+                                        <li>
+                                            GitLab外のリポジトリからGitLabリポジトリへの自動ミラーリング
+                                        </li>
+                                        <li>
+                                            GitLab外の他のリポジトリと接続したCI/CD実行
+                                        </li>
                                         <li>24時間365日のサポート</li>
                                     </ul>
                                 </div>
-                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">Ultimate($99/月)</h3>
-                                <p className="pl-4">セキュリティや脆弱性情報についての高度な機能が利用可能なようです。</p>
+                                <h3 className="my-8 border-b border-dotted border-neutral-900 font-bold md:mb-8 md:mt-16">
+                                    Ultimate($99/月)
+                                </h3>
+                                <p className="pl-4">
+                                    セキュリティや脆弱性情報についての高度な機能が利用可能なようです。
+                                </p>
                                 <p className="pt-8 md:mt-4">
                                     今回の利用目的ではFreeで問題ない程度だったので、PremiumやUltimateの機能についてはそんなに詳しく確認していません。
                                     <br />
-                                    <span className="font-bold underline decoration-red-400 decoration-2">繰り返しとなりますが、詳細を知りたい方は上記公式サイトをご確認ください。</span>
+                                    <span className="font-bold underline decoration-red-400 decoration-2">
+                                        繰り返しとなりますが、詳細を知りたい方は上記公式サイトをご確認ください。
+                                    </span>
                                 </p>
                             </div>
                         </div>
@@ -192,17 +260,27 @@ const GitlabMemo = () => {
                                 <ul className="my-6 list-disc space-y-2 px-6">
                                     <li>ストレージ</li>
                                     <li className="ml-6">
-                                        オムニバス（セルフマネージメント版）GitLabパッケージのインストールには、 <span className="font-bold underline decoration-red-400 decoration-2">約2.5GB</span>
+                                        オムニバス（セルフマネージメント版）GitLabパッケージのインストールには、{" "}
+                                        <span className="font-bold underline decoration-red-400 decoration-2">
+                                            約2.5GB
+                                        </span>
                                         のストレージスペースが必要
                                     </li>
                                     <li>CPU</li>
                                     <li className="ml-6">
-                                        推奨の最低数は <span className="font-bold underline decoration-red-400 decoration-2">4コア</span>{" "}
+                                        推奨の最低数は{" "}
+                                        <span className="font-bold underline decoration-red-400 decoration-2">
+                                            4コア
+                                        </span>{" "}
                                         （4コアだと最大500ユーザー管理可能で、8コアだと約1000ユーザー）
                                     </li>
                                     <li>メモリ</li>
                                     <li className="ml-6">
-                                        推奨の最低サイズは <span className="font-bold underline decoration-red-400 decoration-2">4GB RAM</span> （4GBRAMだと最大500ユーザー管理可能で、8GB
+                                        推奨の最低サイズは{" "}
+                                        <span className="font-bold underline decoration-red-400 decoration-2">
+                                            4GB RAM
+                                        </span>{" "}
+                                        （4GBRAMだと最大500ユーザー管理可能で、8GB
                                         RAMだと約1000ユーザー）
                                     </li>
                                 </ul>
@@ -225,9 +303,15 @@ const GitlabMemo = () => {
                                 <br />
                                 所要時間は大体20分程度でした。
                                 <ul className="my-6 list-decimal space-y-2 px-6">
-                                    <li>GitLabをインストールするサーバへSSH等で接続する</li>
+                                    <li>
+                                        GitLabをインストールするサーバへSSH等で接続する
+                                    </li>
                                     <li>以下のコマンドを実行する</li>
-                                    <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                    <SyntaxHighlighter
+                                        language="shell"
+                                        style={vscDarkPlus}
+                                        showLineNumbers={false}
+                                    >
                                         {`// aptをアップデート
 $ sudo apt-get update
 // 依存パッケージをインストール
@@ -263,31 +347,65 @@ $ sudo EXTERNAL_URL="https://gitlab.example.com" apt-get install gitlab-ee`}
                                 <br />
                                 <br />
                                 <p className="font-bold">▼サーバの起動</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl start`}
                                 </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼サーバの停止</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl stop`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼サーバの再起動</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <p className="mt-4 font-bold">
+                                    ▼サーバの再起動
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl restart`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼サーバのステータス確認</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <p className="mt-4 font-bold">
+                                    ▼サーバのステータス確認
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl status`}
                                 </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼設定の再構成</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl reconfigure`}
                                 </SyntaxHighlighter>
                                 <p className="mt-4 font-bold">▼nginxの停止</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl stop nginx`}
                                 </SyntaxHighlighter>
-                                <p className="mt-4 font-bold">▼GitLabサーバのログの確認</p>
-                                <SyntaxHighlighter language="shell" style={vscDarkPlus} showLineNumbers={false}>
+                                <p className="mt-4 font-bold">
+                                    ▼GitLabサーバのログの確認
+                                </p>
+                                <SyntaxHighlighter
+                                    language="shell"
+                                    style={vscDarkPlus}
+                                    showLineNumbers={false}
+                                >
                                     {`$ gitlab-ctl tail`}
                                 </SyntaxHighlighter>
                                 <br />
