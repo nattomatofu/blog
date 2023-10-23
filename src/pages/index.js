@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
-import Layout from "@/pages/layout/Layout";
+import Layout from "@/components/layout/Layout";
 import HomeCards from "@/components/HomeCards";
 import { getPostsData } from "@/lib/getAllPostsData";
 

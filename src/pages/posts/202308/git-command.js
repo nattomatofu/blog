@@ -1,4 +1,4 @@
-import Layout from "@/pages/layout/Layout";
+import Layout from "@/components/layout/Layout";
 import Head from "next/head";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
