@@ -1,4 +1,4 @@
-import Layout from "@/pages/layout/Layout";
+import Layout from "@/components/layout/Layout";
 import TitleText from "@/components/TitleText";
 import UpdateDate from "@/components/UpdateDate";
 import TableOfContents from "@/components/TableOfContents";

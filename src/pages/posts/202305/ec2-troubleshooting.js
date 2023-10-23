@@ -1,4 +1,4 @@
-import Layout from "@/pages/layout/Layout";
+import Layout from "@/components/layout/Layout";
 import Head from "next/head";
 
 const title =
