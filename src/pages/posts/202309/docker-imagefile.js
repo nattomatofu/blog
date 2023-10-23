@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/pages/layout/Layout";
 import Head from "next/head";
 import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
