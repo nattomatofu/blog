@@ -23,7 +23,7 @@ const Layout = (props) => {
                         <nav className="mb-1 flex flex-wrap items-end text-base">
                             <Link legacyBehavior href={"/"}>
                                 <a className="text-bottom cursor-pointer text-sm text-gray-300 hover:scale-105 hover:text-white md:text-xl">
-                                    Posts
+                                    All Posts
                                 </a>
                             </Link>
                             <Link legacyBehavior href={"/profile"}>
