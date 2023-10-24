@@ -137,6 +137,20 @@ const ListOfConvenientWebsite = () => {
                         </MainParagraph>
                     </section>
                     <section>
+                        <MainHeading>ASCII ART Generator</MainHeading>
+                        <MainParagraph>
+                            URL　:　
+                            <LinkText href="https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20">
+                                https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20
+                            </LinkText>
+                            <br />
+                            <br />
+                            任意のテキストを入力すると、その文字のアート文字を作成してくれます。
+                            <br />
+                            面白いです。
+                        </MainParagraph>
+                    </section>
+                    <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
                             以上、個人的に便利だと思ったサイトの一覧を列挙してみました。
