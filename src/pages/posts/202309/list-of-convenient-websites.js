@@ -151,6 +151,20 @@ const ListOfConvenientWebsite = () => {
                         </MainParagraph>
                     </section>
                     <section>
+                        <MainHeading>Python Tutor</MainHeading>
+                        <MainParagraph>
+                            URL　:　
+                            <LinkText href="https://pythontutor.com/visualize.html#mode=edit">
+                                https://pythontutor.com/visualize.html#mode=edit
+                            </LinkText>
+                            <br />
+                            <br />
+                            Pythonのプログラムを入力して実行すると、プログラムの各行を1つ1つ順番に実行して、それぞれの行の実行時の各変数の値を可視化してくれます。
+                            <br />
+                            デバッグする際に便利ですね。
+                        </MainParagraph>
+                    </section>
+                    <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
                             以上、個人的に便利だと思ったサイトの一覧を列挙してみました。

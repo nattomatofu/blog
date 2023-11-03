@@ -16,7 +16,7 @@ import Head from "next/head";
 import UnderLineBoldText from "@/components/UnderLineBoldText";
 
 const title = "Pythonについての個人的なメモ";
-const updateDate = "2023/10/18";
+const updateDate = "2023/11/3";
 const thumbnailImagePath = "/images/thumbnail/python_logo.webp";
 const metaDescription =
     "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。その中で個人的に勉強になったことやカンペとして残しておきたいことをまとめます。";
@@ -539,6 +539,24 @@ executed_function() # 辞書から取得した関数を実行
 
 dict[key]() # そのまま実行することも可能`}
                                 </CodeBlock>
+                            </MediumParagraph>
+                            <MediumHeading>
+                                空の関数やクラスを定義（pass）
+                            </MediumHeading>
+                            <MediumParagraph>
+                                関数やクラスの定義だけ先にしておいて実装を後回しにしたい場合などに、定義した関数やクラスの中に
+                                <CodeText>pass</CodeText>
+                                と記載することでエラーなく実行することができます。
+                                <CodeBlock language={"python"} isLineNum={true}>
+                                    {`def function():
+    pass
+
+function() # エラーなくプログラムが終了される`}
+                                </CodeBlock>
+                                Pythonは関数やクラス、<CodeText>if</CodeText>や
+                                <CodeText>for</CodeText>などの
+                                <CodeText>:</CodeText>
+                                の後の行に何も書かないとエラーになってしまうので、その回避策ですね。
                             </MediumParagraph>
                         </MainParagraph>
                     </section>
