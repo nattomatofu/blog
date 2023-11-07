@@ -3,7 +3,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 function CodeBlock({ children, language, filename, isLineNum }) {
     return (
-        <div>
+        <div className="py-8">
             {filename && (
                 <div className="-mb-2 mt-2 bg-neutral-600 p-1 text-sm text-slate-200">
                     {filename}

@@ -16,7 +16,7 @@ import Head from "next/head";
 import UnderLineBoldText from "@/components/UnderLineBoldText";
 
 const title = "Pythonのクラスについて";
-const updateDate = "2023/11/3";
+const updateDate = "2023/11/6";
 const thumbnailImagePath = "/images/thumbnail/python_logo.webp";
 const metaDescription =
     "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。Pythonでクラスを使用することがこれまであまりなく、ほぼ初知り状態だったので備忘録としてまとめます。";
@@ -79,8 +79,39 @@ const PythonClass = () => {
                             Pythonのクラスのコンストラクタは以下のように定義します。
                             <CodeBlock language={"python"} isLineNum={true}>
                                 {`class MyClass:
-    def __init__(self): `}
+    def __init__(self, user_id, name):
+        self.id = user_id
+        self.name = name `}
                             </CodeBlock>
+                            第一引数には必ず<CodeText>self</CodeText>
+                            を入れる必要があり、
+                            自分自身のインスタンスの変数を参照する場合は
+                            <CodeText>self</CodeText>キーワードを使用します。
+                            <br />
+                            <br />
+                            上記のサンプルでは、オブジェクトを作成する際に
+                            <CodeText>id</CodeText>と<CodeText>name</CodeText>
+                            に値を設定することができます。
+                        </MainParagraph>
+                    </section>
+                    <section>
+                        <MainHeading>クラス関数の定義の仕方</MainHeading>
+                        <MainParagraph>
+                            Pythonのクラスの関数は以下のように定義します。
+                            <CodeBlock language={"python"} isLineNum={true}>
+                                {`class MyClass:
+    def function(self, param1, param2):
+        .
+        .
+        .
+        関数内での処理`}
+                            </CodeBlock>
+                            コンストラクタと同様に、第一引数には必ず
+                            <CodeText>self</CodeText>
+                            を入れる必要があります。
+                            <br />
+                            <br />
+                            基本的に普通の関数を定義する場合と同じように記載すれば問題ありません。
                         </MainParagraph>
                     </section>
                     <section>
