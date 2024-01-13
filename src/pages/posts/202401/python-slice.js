@@ -55,6 +55,12 @@ const PythonClass = () => {
                                 <br />
                                 <br />
                                 PythonのSliceが便利だったので備忘録としてまとめます。
+                                <br />
+                                <br />
+                                また、この記事ではリストについて書いていますが、
+                                <UnderLineBoldText>
+                                    タプルでも同様に扱えます。
+                                </UnderLineBoldText>
                             </PrefaceText>
                             <TableOfContents />
                         </Preface>
