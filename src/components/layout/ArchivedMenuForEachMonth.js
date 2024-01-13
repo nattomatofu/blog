@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const months = [
+    { date: "202401", postCount: 1 },
     { date: "202311", postCount: 1 },
     { date: "202310", postCount: 2 },
     { date: "202309", postCount: 6 },

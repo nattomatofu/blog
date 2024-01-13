@@ -15,12 +15,12 @@ import CodeBlock from "@/components/CodeBlock";
 import Head from "next/head";
 import UnderLineBoldText from "@/components/UnderLineBoldText";
 
-const title = "Pythonのクラスについて";
-const updateDate = "2023/11/6";
+const title = "PythonのSliceについて";
+const updateDate = "2024/1/13";
 const thumbnailImagePath = "/images/thumbnail/python_logo.webp";
 const metaDescription =
-    "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。Pythonでクラスを使用することがこれまであまりなく、ほぼ初知り状態だったので備忘録としてまとめます。";
-const metaOgUrl = "https://www.nattomatofu.com/posts/python-class";
+    "どうも、納豆大好きnattoです。仕事でよくPythonを使うので、最近は改めてPythonを勉強し直しています。PythonのSliceが便利だったので備忘録としてまとめます。";
+const metaOgUrl = "https://www.nattomatofu.com/posts/python-slice";
 const metaOgType = "article";
 
 const PythonClass = () => {
@@ -54,90 +54,82 @@ const PythonClass = () => {
                                 仕事でよくPythonを使うので、最近改めてPythonを勉強し直しています。
                                 <br />
                                 <br />
-                                Pythonで独自のカスタムクラスを使用することがこれまであまりなく、ほぼ初知りだったので備忘録としてまとめます。
+                                PythonのSliceが便利だったので備忘録としてまとめます。
                             </PrefaceText>
                             <TableOfContents />
                         </Preface>
                     </section>
                     <section>
-                        <MainHeading>クラス定義の仕方</MainHeading>
+                        <MainHeading>
+                            使い方①　リストから任意の範囲の要素をすべて取得
+                        </MainHeading>
                         <MainParagraph>
-                            Pythonでクラスを定義する際は以下のように書きます。
+                            以下のように書くことで、Sliceを使うことでリストから任意の範囲の要素を取得することができます。
                             <CodeBlock language={"python"} isLineNum={true}>
-                                {`class MyClass:
-    .
-    .
-    .
-    クラスの定義内容`}
+                                {`list1 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+list2 = list1[2:7]
+print(list2) # c d e f gが表示される`}
                             </CodeBlock>
-                            簡単ですね。
                         </MainParagraph>
                     </section>
                     <section>
-                        <MainHeading>コンストラクタの定義の仕方</MainHeading>
+                        <MainHeading>
+                            使い方②　リストから任意の範囲の要素を任意の間隔で取得
+                        </MainHeading>
                         <MainParagraph>
-                            Pythonのクラスのコンストラクタは以下のように定義します。
+                            以下のように書くことで、リストの任意の範囲の要素を
+                            <UnderLineBoldText>任意の間隔で</UnderLineBoldText>
+                            取得することもできます
                             <CodeBlock language={"python"} isLineNum={true}>
-                                {`class MyClass:
-    def __init__(self, user_id, name):
-        self.id = user_id
-        self.name = name `}
+                                {`list1 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+list2 = list1[2:7:2]
+print(list2) # c e g が表示される`}
                             </CodeBlock>
-                            第一引数には必ず<CodeText>self</CodeText>
-                            を入れる必要があり、
-                            自分自身のインスタンスの変数を参照する場合は
-                            <CodeText>self</CodeText>キーワードを使用します。
-                            <br />
-                            <br />
-                            上記のサンプルでは、オブジェクトを作成する際に
-                            <CodeText>id</CodeText>と<CodeText>name</CodeText>
-                            に値を設定することができます。
                         </MainParagraph>
                     </section>
                     <section>
-                        <MainHeading>クラス関数の定義の仕方</MainHeading>
+                        <MainHeading>
+                            使い方③　リストから先頭または末尾から任意の数の要素を取得
+                        </MainHeading>
                         <MainParagraph>
-                            Pythonのクラスの関数は以下のように定義します。
+                            リストの先頭または末尾から要素を取り出したい場合は以下のように書きます。
                             <CodeBlock language={"python"} isLineNum={true}>
-                                {`class MyClass:
-    def function(self, param1, param2):
-        .
-        .
-        .
-        関数内での処理`}
+                                {`list1 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+list2 = list1[:4]
+print(list2) # a b c d が表示される
+
+list3 = list1[5:]
+print(list3) # e f g h が表示される
+
+list4 = list1[:4:2]
+print(list4) # a c が表示される
+
+list5 = list1[5::2]
+print(list5) # e g が表示される`}
                             </CodeBlock>
-                            コンストラクタと同様に、第一引数には必ず
-                            <CodeText>self</CodeText>
-                            を入れる必要があります。
-                            <br />
-                            <br />
-                            基本的に普通の関数を定義する場合と同じように記載すれば問題ありません。
+                            上記のように先頭や末尾からデータを取り出す際も、任意の間隔を指定することができます。
                         </MainParagraph>
                     </section>
                     <section>
-                        <MainHeading>クラスの継承</MainHeading>
+                        <MainHeading>使い方④　リストを反転する</MainHeading>
                         <MainParagraph>
-                            Pythonでクラスを継承する場合は以下のように書きます。
+                            以下のように書くことでリストの順序を反転することもできます。
                             <CodeBlock language={"python"} isLineNum={true}>
-                                {`class MyClass(継承するクラス名):
-    def __init__(self):
-        super().__init__()
-        .
-        .
-        .
-        その他コンストラクタ内での処理`}
+                                {`list1 = ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+list2 = list1[::-1]
+print(list2) # h g f e d c b a が表示される`}
                             </CodeBlock>
-                            まず、クラス名を定義たあとの括弧内に継承したいクラス名を入れます。
-                            <br />
-                            <UnderLineBoldText>
-                                そしてコンストラクタ内で親クラスのコンストラクタを明示的に呼び出す必要があります。
-                            </UnderLineBoldText>
+                            はい、便利ですね。
                         </MainParagraph>
                     </section>
                     <section>
                         <MainHeading>最後に</MainHeading>
                         <MainParagraph>
-                            以上、Pythonのクラスについて基本的な内容ですがまとめてみました。
+                            以上、PythonのSliceについて基本的な内容ですがまとめてみました。
                             <br />
                             <br />
                             それでは！
