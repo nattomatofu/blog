@@ -25,6 +25,11 @@ const Profile = () => {
                 <meta property="og:description" content={metaDescription} />
                 <meta property="og:site_name" content={title} />
                 <meta property="og:image" content={thumbnailImagePath} />
+                <script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2694307209342099"
+                    crossorigin="anonymous"
+                ></script>
                 <title>Profile</title>
             </Head>
             <main>
