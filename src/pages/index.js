@@ -40,7 +40,7 @@ export default function Home({ allPostsData }) {
                 <meta property="og:image" content={thumbnailImagePath} />
                 <meta
                     name="google-site-verification"
-                    content="google8d40114cdf80fdb8.html"
+                    content="Mw-woarzUQ2rxzyB14bkS1A1qS8E1HUBoLws8JRzCqU"
                 />
                 <title>{siteTitle}</title>
             </Head>
