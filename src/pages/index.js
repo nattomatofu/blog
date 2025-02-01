@@ -38,6 +38,10 @@ export default function Home({ allPostsData }) {
                 <meta property="og:description" content={metaDescription} />
                 <meta property="og:site_name" content={siteTitle} />
                 <meta property="og:image" content={thumbnailImagePath} />
+                <meta
+                    name="google-site-verification"
+                    content="google8d40114cdf80fdb8.html"
+                />
                 <title>{siteTitle}</title>
             </Head>
             <main>
