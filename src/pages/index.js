@@ -42,6 +42,11 @@ export default function Home({ allPostsData }) {
                     name="google-site-verification"
                     content="Mw-woarzUQ2rxzyB14bkS1A1qS8E1HUBoLws8JRzCqU"
                 />
+                <script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2694307209342099"
+                    crossorigin="anonymous"
+                ></script>
                 <title>{siteTitle}</title>
             </Head>
             <main>
